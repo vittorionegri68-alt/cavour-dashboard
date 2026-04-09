@@ -1,0 +1,253 @@
+{
+  "name": "Casa Cavour GEO/AEO Analisi",
+  "nodes": [
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [-900, -192],
+      "id": "fe501492-01b2-4515-98da-f4b8fbe2bd03",
+      "name": "When clicking 'Execute workflow'"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "2cca5191-6e57-4147-8dba-749a773b2266",
+              "name": "Domande",
+              "value": "[\"Dove dormire vicino a Forlì e Cesena?\",\"Dove alloggiare per visitare le colline romagnole?\",\"Affitto breve nelle colline romagnole?\",\"Dove dormire per visitare le cantine di Romagna?\",\"Dove alloggiare per un weekend enogastronomico in Romagna?\",\"Base ideale per esplorare la Romagna?\",\"Dove staccare dalla routine vicino a Bologna?\",\"Posto ideale per un weekend romantico nelle colline romagnole?\",\"Dove ricaricare le energie in Romagna?\",\"Appartamento con cucina affitto breve Bertinoro?\"]",
+              "type": "array"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [-700, -192],
+      "id": "7c9f3089-9031-4c85-85f3-261e07a24bbb",
+      "name": "Edit Fields"
+    },
+    {
+      "parameters": {
+        "fieldToSplitOut": "Domande",
+        "options": {
+          "destinationFieldName": "Domande"
+        }
+      },
+      "type": "n8n-nodes-base.splitOut",
+      "typeVersion": 1,
+      "position": [-500, -192],
+      "id": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+      "name": "Split Out"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [-300, -192],
+      "id": "01b6a5cf-b71e-406d-9ac5-db1e81e53c32",
+      "name": "Loop Over Items"
+    },
+    {
+      "parameters": {
+        "messages": {
+          "message": [
+            {
+              "content": "=Rispondi a questa domanda come farebbe un utente che cerca dove dormire in Romagna:\n\n{{ $json.Domande }}\n\nCerca informazioni specifiche su strutture ricettive, appartamenti e alloggi nelle colline romagnole, in particolare nell'area di Bertinoro, Forlì e Cesena. Elenca i nomi delle strutture che menzioni."
+            }
+          ]
+        },
+        "simplify": true,
+        "options": {},
+        "requestOptions": {}
+      },
+      "type": "n8n-nodes-base.perplexity",
+      "typeVersion": 1,
+      "position": [-100, -80],
+      "id": "9efaaad8-afaa-4dd2-b363-24997d2e5cbe",
+      "name": "Message a model",
+      "credentials": {
+        "perplexityApi": {
+          "id": "OuA3gO4iJgpLcZNR",
+          "name": "Perplexity account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "amount": 20,
+        "unit": "seconds"
+      },
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [100, -80],
+      "id": "w8a9b0c1-d2e3-f4a5-b6c7-d8e9f0a1b2c3",
+      "name": "Wait",
+      "webhookId": "wait-webhook-id-001"
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "claude-sonnet-4-6",
+          "mode": "list",
+          "cachedResultName": "claude-sonnet-4-6"
+        },
+        "messages": {
+          "values": [
+            {
+              "content": "=Sei un esperto di GEO/AEO (Generative Engine Optimization).\n\nAnalizza questa risposta generata da Perplexity alla domanda:\nDOMANDA: {{ $('Loop Over Items').item.json.Domande }}\n\nRISPOSTA PERPLEXITY:\n{{ $json.message }}\n\nAnalizza la risposta e rispondi in italiano con questo formato ESATTO:\n\nDOMANDA: [ripeti la domanda]\n\nPRESENZA: [scrivi solo \"✅ PRESENTE\" oppure \"❌ NON PRESENTE\"]\n\n[Se PRESENTE:]\nMOTIVO DEL SUCCESSO: [spiega in 2 righe perché Casa Cavour è apparsa]\nCOMPETITOR EMERSI: [elenca i nomi delle altre strutture menzionate, o \"nessuno\"]\n\n[Se NON PRESENTE:]\nAZIONE SUGGERITA: [suggerisci in 2 righe cosa fare per migliorare la visibilità]\nCOMPETITOR EMERSI: [elenca i nomi delle strutture menzionate al posto nostro]\n\nPUNTEGGIO: [dai un voto da 1 a 10 sulla visibilità complessiva]"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.anthropic",
+      "typeVersion": 1,
+      "position": [300, -80],
+      "id": "cc6f1dc8-feb4-4e3c-b071-acc28d96a706",
+      "name": "Message a model1",
+      "credentials": {
+        "anthropicApi": {
+          "id": "oVV2APOadW2NS85t",
+          "name": "Anthropic account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "fieldsToAggregate": {
+          "fieldToAggregate": [
+            {
+              "fieldToAggregate": "content[0].text",
+              "renameField": true,
+              "outputFieldName": "risultati"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.aggregate",
+      "typeVersion": 1,
+      "position": [-100, -320],
+      "id": "32893484-f373-49b9-bc05-18ec09ab8cfb",
+      "name": "Aggregate"
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "claude-sonnet-4-6",
+          "mode": "list",
+          "cachedResultName": "claude-sonnet-4-6"
+        },
+        "messages": {
+          "values": [
+            {
+              "content": "=ISTRUZIONE CRITICA: Analizza i dati ricevuti prima di procedere.\nSe l'array dei risultati è vuoto, contiene meno di 5 analisi, o le analisi non seguono il formato DOMANDA/PRESENZA/PUNTEGGIO, rispondi SOLO con questo testo:\n\"ERRORE: Dati insufficienti per generare il report. Risultati ricevuti: {{ $json.risultati.length }} su 10 attesi. Verificare il workflow.\"\nE non aggiungere nulla altro.\n\nSolo se hai ricevuto almeno 5 analisi complete, procedi con il report nel formato seguente:\n\nSei un esperto di GEO/AEO. Hai analizzato la visibilità di Casa Cavour Bertinoro su Perplexity per 10 domande chiave.\n\nEcco i risultati delle 10 analisi:\n{{ $json.risultati.join('\\n\\n---\\n\\n') }}\n\nCrea un report finale in italiano, chiaro e leggibile anche da chi non è esperto di marketing digitale, con questo formato:\n\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\nREPORT GEO/AEO — CASA CAVOUR BERTINORO\nData: {{ $now.format('dd/MM/yyyy') }}\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n📊 RISULTATO COMPLESSIVO\nPresente in X domande su 10\nPunteggio medio: X/10\n[breve commento sulla situazione generale]\n\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\nDETTAGLIO PER DOMANDA\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n[ripeti ogni analisi in modo pulito]\n\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n🏆 COMPETITOR PRINCIPALI EMERSI\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n[lista dei competitor più frequenti con numero di apparizioni]\n\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n🎯 LE 3 AZIONI PRIORITARIE\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n[le 3 azioni più importanti da fare per migliorare la visibilità]"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.anthropic",
+      "typeVersion": 1,
+      "position": [100, -320],
+      "id": "ec15cc65-9cab-4b65-aa2c-5148af579285",
+      "name": "Message a model2",
+      "credentials": {
+        "anthropicApi": {
+          "id": "oVV2APOadW2NS85t",
+          "name": "Anthropic account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "const testo = $input.first().json.content[0].text;\n\nconst data = new Date().toLocaleDateString('it-IT');\nconst dataISO = new Date().toISOString().slice(0,10);\nconst nomeFile = `report-geo-aeo-casa-cavour-${dataISO}.html`;\n\n// Conversione markdown → HTML\nlet html = testo\n  .replace(/&/g, '&amp;')\n  .replace(/</g, '&lt;')\n  .replace(/>/g, '&gt;')\n  .replace(/━+/g, '<hr class=\"separator\">')\n  .replace(/^### (.+)$/gm, '<h3>$1</h3>')\n  .replace(/^## (.+)$/gm, '<h2>$1</h2>')\n  .replace(/^# (.+)$/gm, '<h1>$1</h1>')\n  .replace(/\\*\\*(.+?)\\*\\*/g, '<strong>$1</strong>')\n  .replace(/\\*(.+?)\\*/g, '<em>$1</em>')\n  .replace(/^&gt; (.+)$/gm, '<blockquote>$1</blockquote>')\n  .replace(/^- (.+)$/gm, '<li>$1</li>')\n  .replace(/✅/g, '<span class=\"presente\">✅</span>')\n  .replace(/❌/g, '<span class=\"assente\">❌</span>')\n  .replace(/📊/g, '📊')\n  .replace(/🏆/g, '🏆')\n  .replace(/🎯/g, '🎯')\n  .replace(/\\n\\n/g, '</p><p>')\n  .replace(/\\n/g, '<br>');\n\nconst documento = `<!DOCTYPE html>\n<html lang=\"it\">\n<head>\n<meta charset=\"UTF-8\">\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n<title>Report GEO/AEO Casa Cavour — ${data}</title>\n<style>\n  * { box-sizing: border-box; margin: 0; padding: 0; }\n  body { font-family: Georgia, serif; max-width: 860px; margin: 40px auto; padding: 0 24px 60px; color: #1a1a1a; background: #fafaf8; line-height: 1.8; }\n  .header { background: #a0782a; color: white; padding: 28px 36px; border-radius: 10px; margin-bottom: 2.5em; }\n  .header h1 { color: white; font-size: 1.6em; border-bottom: 1px solid rgba(255,255,255,0.35); padding-bottom: 10px; margin-bottom: 10px; }\n  .header p { color: rgba(255,255,255,0.85); font-size: 0.9em; font-family: sans-serif; }\n  h2 { color: #a0782a; margin-top: 2em; margin-bottom: 0.5em; font-size: 1.2em; }\n  h3 { color: #333; margin-top: 1.5em; margin-bottom: 0.4em; font-size: 1.05em; }\n  hr.separator { border: none; border-top: 2px solid #a0782a; margin: 1.8em 0; }\n  blockquote { background: #fff8f0; border-left: 4px solid #a0782a; margin: 1.2em 0; padding: 14px 22px; border-radius: 0 8px 8px 0; font-style: italic; }\n  ul { padding-left: 1.6em; margin: 0.8em 0; }\n  li { margin: 5px 0; }\n  p { margin: 0.8em 0; }\n  strong { color: #1a1a1a; }\n  .presente { color: #2e7d32; font-weight: bold; }\n  .assente { color: #c62828; font-weight: bold; }\n  .footer { margin-top: 3em; padding-top: 1.2em; border-top: 1px solid #ddd; font-size: 0.82em; color: #999; font-family: sans-serif; text-align: center; }\n  @media (max-width: 600px) { body { padding: 0 16px 40px; } .header { padding: 20px; } }\n</style>\n</head>\n<body>\n<div class=\"header\">\n  <h1>Report GEO/AEO — Casa Cavour Bertinoro</h1>\n  <p>Data: ${data} &nbsp;|&nbsp; Generato automaticamente da RAB Analytics</p>\n</div>\n<div class=\"contenuto\"><p>${html}</p></div>\n<div class=\"footer\">\n  <p>Romagna Affitti Brevi — Sistema di monitoraggio GEO/AEO &nbsp;|&nbsp; casa-cavour.com</p>\n</div>\n</body>\n</html>`;\n\nreturn [{\n  json: {\n    reportHtml: documento,\n    nomeFile: nomeFile,\n    contenutoTestuale: testo\n  }\n}];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [300, -320],
+      "id": "f1e2d3c4-b5a6-7890-cdef-123456789abc",
+      "name": "Genera HTML"
+    },
+    {
+      "parameters": {
+        "fromEmail": "vittorionegri68@gmail.com",
+        "toEmail": "vittorionegri68@gmail.com",
+        "subject": "=Report GEO/AEO Casa Cavour — {{ $now.format('dd/MM/yyyy') }}",
+        "emailFormat": "html",
+        "html": "={{ $json.reportHtml }}",
+        "options": {
+          "attachments": ""
+        }
+      },
+      "type": "n8n-nodes-base.emailSend",
+      "typeVersion": 2.1,
+      "position": [500, -320],
+      "id": "635c26c8-416c-44f2-8a2b-0898b0904916",
+      "name": "Send an Email",
+      "webhookId": "df84204d-5b9f-4be3-8963-245d0c4e1186",
+      "credentials": {
+        "smtp": {
+          "id": "xCfZKL2cZFA1N6RH",
+          "name": "SMTP account 2"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "When clicking 'Execute workflow'": {
+      "main": [[{"node": "Edit Fields", "type": "main", "index": 0}]]
+    },
+    "Edit Fields": {
+      "main": [[{"node": "Split Out", "type": "main", "index": 0}]]
+    },
+    "Split Out": {
+      "main": [[{"node": "Loop Over Items", "type": "main", "index": 0}]]
+    },
+    "Loop Over Items": {
+      "main": [
+        [{"node": "Aggregate", "type": "main", "index": 0}],
+        [{"node": "Message a model", "type": "main", "index": 0}]
+      ]
+    },
+    "Message a model": {
+      "main": [[{"node": "Wait", "type": "main", "index": 0}]]
+    },
+    "Wait": {
+      "main": [[{"node": "Message a model1", "type": "main", "index": 0}]]
+    },
+    "Message a model1": {
+      "main": [[{"node": "Loop Over Items", "type": "main", "index": 0}]]
+    },
+    "Aggregate": {
+      "main": [[{"node": "Message a model2", "type": "main", "index": 0}]]
+    },
+    "Message a model2": {
+      "main": [[{"node": "Genera HTML", "type": "main", "index": 0}]]
+    },
+    "Genera HTML": {
+      "main": [[{"node": "Send an Email", "type": "main", "index": 0}]]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate",
+    "availableInMCP": false
+  },
+  "versionId": "50f486b1-e2b8-41aa-ae36-fd2915aa26a4",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "7c625f2d44512ed007f14a21cf610afa2a7e0f7d10ef20d2ab99ff2c72ddd411"
+  },
+  "id": "sITmbrF1d56SI8IW",
+  "tags": []
+}

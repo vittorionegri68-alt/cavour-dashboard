@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Casa Cavour — GEO/AEO Dashboard</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --gold: #a0782a;
+    --gold-light: #c9a05a;
+    --gold-pale: #f5ede0;
+    --gold-faint: #faf6f0;
+    --dark: #1a1410;
+    --mid: #4a3f35;
+    --muted: #8a7d72;
+    --line: #e8ddd4;
+    --white: #fffefb;
+    --green: #2e7d32;
+    --green-bg: #f0f7f0;
+    --red: #b71c1c;
+    --red-bg: #fdf3f3;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--white);
+    color: var(--dark);
+    min-height: 100vh;
+  }
+
+  /* HEADER */
+  .site-header {
+    background: var(--dark);
+    padding: 0 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 64px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .site-header .brand {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: var(--gold-light);
+    letter-spacing: 0.04em;
+  }
+  .site-header .brand span { color: #fff; }
+  .site-header .tag {
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    background: rgba(255,255,255,0.06);
+    padding: 4px 12px;
+    border-radius: 20px;
+    border: 1px solid rgba(255,255,255,0.1);
+  }
+
+  /* LAYOUT */
+  .page { max-width: 1100px; margin: 0 auto; padding: 48px 32px; }
+
+  /* RUN SELECTOR */
+  .run-bar {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+  }
+  .run-bar label {
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .run-select {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.9rem;
+    padding: 8px 16px;
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    background: var(--white);
+    color: var(--dark);
+    cursor: pointer;
+    outline: none;
+  }
+  .run-select:focus { border-color: var(--gold); }
+
+  /* KPI ROW */
+  .kpi-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-bottom: 40px;
+  }
+  .kpi {
+    background: var(--white);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 28px 24px;
+    position: relative;
+    overflow: hidden;
+  }
+  .kpi::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: var(--gold);
+  }
+  .kpi .kpi-label {
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 12px;
+  }
+  .kpi .kpi-value {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 3rem;
+    font-weight: 600;
+    color: var(--gold);
+    line-height: 1;
+  }
+  .kpi .kpi-sub {
+    font-size: 0.8rem;
+    color: var(--muted);
+    margin-top: 6px;
+  }
+
+  /* SECTION TITLES */
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem;
+    font-weight: 500;
+    color: var(--dark);
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--line);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .section-title .icon { font-size: 1.1rem; }
+
+  /* CHART */
+  .chart-wrap {
+    background: var(--white);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 28px;
+    margin-bottom: 40px;
+  }
+  .chart-container { position: relative; height: 240px; }
+  canvas { width: 100% !important; }
+
+  /* TREND ROW */
+  .trend-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-bottom: 40px;
+  }
+
+  /* DOMANDE TABLE */
+  .domande-wrap {
+    background: var(--white);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 40px;
+  }
+  .domande-header {
+    display: grid;
+    grid-template-columns: 1fr 100px 80px;
+    padding: 12px 24px;
+    background: var(--gold-faint);
+    border-bottom: 1px solid var(--line);
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .domanda-row {
+    display: grid;
+    grid-template-columns: 1fr 100px 80px;
+    padding: 16px 24px;
+    border-bottom: 1px solid var(--line);
+    align-items: center;
+    transition: background 0.15s;
+  }
+  .domanda-row:last-child { border-bottom: none; }
+  .domanda-row:hover { background: var(--gold-faint); }
+  .domanda-row .q-text { font-size: 0.88rem; color: var(--dark); line-height: 1.4; }
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    padding: 4px 10px;
+    border-radius: 20px;
+  }
+  .badge.presente { background: var(--green-bg); color: var(--green); }
+  .badge.assente { background: var(--red-bg); color: var(--red); }
+  .score-pill {
+    display: inline-block;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--gold);
+  }
+
+  /* COMPETITOR */
+  .competitor-wrap {
+    background: var(--white);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 28px;
+    margin-bottom: 40px;
+  }
+  .competitor-list { display: flex; flex-direction: column; gap: 10px; }
+  .competitor-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .competitor-item:last-child { border-bottom: none; }
+  .competitor-name { font-size: 0.9rem; color: var(--dark); }
+  .competitor-count {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.8rem;
+    color: var(--muted);
+  }
+  .competitor-bar {
+    height: 4px;
+    background: var(--line);
+    border-radius: 2px;
+    width: 80px;
+    overflow: hidden;
+  }
+  .competitor-bar-fill {
+    height: 100%;
+    background: var(--gold);
+    border-radius: 2px;
+    transition: width 0.6s ease;
+  }
+
+  /* AZIONI */
+  .azioni-wrap {
+    background: var(--dark);
+    border-radius: 12px;
+    padding: 32px;
+    margin-bottom: 40px;
+  }
+  .azioni-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem;
+    font-weight: 500;
+    color: var(--gold-light);
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .azione-item {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 20px;
+    align-items: flex-start;
+  }
+  .azione-num {
+    flex-shrink: 0;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: var(--gold);
+    color: var(--white);
+    font-size: 0.85rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .azione-text { font-size: 0.9rem; color: rgba(255,255,255,0.8); line-height: 1.6; padding-top: 5px; }
+
+  /* REPORT LINK */
+  .report-link-wrap { text-align: center; margin-bottom: 40px; }
+  .report-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 28px;
+    background: var(--gold-pale);
+    color: var(--gold);
+    border: 1px solid var(--gold-light);
+    border-radius: 8px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: background 0.2s;
+  }
+  .report-link:hover { background: #ecdec8; }
+
+  /* FOOTER */
+  .site-footer {
+    border-top: 1px solid var(--line);
+    padding: 24px 40px;
+    font-size: 0.78rem;
+    color: var(--muted);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  @media (max-width: 700px) {
+    .page { padding: 24px 16px; }
+    .kpi-row { grid-template-columns: 1fr 1fr; }
+    .trend-row { grid-template-columns: 1fr; }
+    .domande-header, .domanda-row { grid-template-columns: 1fr 90px 60px; }
+    .site-header { padding: 0 16px; }
+    .site-footer { flex-direction: column; gap: 8px; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="brand"><span>Casa Cavour</span> &nbsp;·&nbsp; GEO/AEO Monitor</div>
+  <div class="tag">Dashboard privata</div>
+</header>
+
+<main class="page">
+
+  <!-- RUN SELECTOR -->
+  <div class="run-bar">
+    <label>Analisi del</label>
+    <select class="run-select" id="runSelect" onchange="loadRun(this.value)"></select>
+    <span id="run-status" style="font-size:0.8rem;color:var(--muted)"></span>
+  </div>
+
+  <!-- KPI -->
+  <div class="kpi-row">
+    <div class="kpi">
+      <div class="kpi-label">Presenze su 10 query</div>
+      <div class="kpi-value" id="kpi-presenze">—</div>
+      <div class="kpi-sub" id="kpi-presenze-sub">domande su 10</div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-label">Punteggio medio</div>
+      <div class="kpi-value" id="kpi-punteggio">—</div>
+      <div class="kpi-sub">su 10 possibili</div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-label">Trend vs precedente</div>
+      <div class="kpi-value" id="kpi-trend">—</div>
+      <div class="kpi-sub" id="kpi-trend-sub">prima analisi disponibile</div>
+    </div>
+  </div>
+
+  <!-- GRAFICO STORICO -->
+  <div class="chart-wrap">
+    <div class="section-title"><span class="icon">📈</span> Andamento storico</div>
+    <div class="chart-container">
+      <canvas id="trendChart"></canvas>
+    </div>
+  </div>
+
+  <!-- DETTAGLIO DOMANDE -->
+  <div class="section-title"><span class="icon">📋</span> Dettaglio per domanda</div>
+  <div class="domande-wrap">
+    <div class="domande-header">
+      <div>Domanda</div>
+      <div>Presenza</div>
+      <div>Punteggio</div>
+    </div>
+    <div id="domande-list"></div>
+  </div>
+
+  <!-- COMPETITOR -->
+  <div class="section-title"><span class="icon">🏆</span> Competitor più frequenti</div>
+  <div class="competitor-wrap">
+    <div class="competitor-list" id="competitor-list"></div>
+  </div>
+
+  <!-- AZIONI -->
+  <div class="azioni-wrap">
+    <div class="azioni-title">🎯 Le 3 azioni prioritarie</div>
+    <div id="azioni-list"></div>
+  </div>
+
+  <!-- LINK REPORT -->
+  <div class="report-link-wrap" id="report-link-wrap"></div>
+
+</main>
+
+<footer class="site-footer">
+  <span>Romagna Affitti Brevi — Sistema di monitoraggio GEO/AEO</span>
+  <span id="footer-date"></span>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<script>
+let allReports = [];
+let currentChart = null;
+
+async function loadData() {
+  try {
+    const res = await fetch('reports.json?v=' + Date.now());
+    allReports = await res.json();
+    allReports.sort((a, b) => new Date(a.data_iso) - new Date(b.data_iso));
+    populateSelect();
+    loadRun(allReports[allReports.length - 1].data_iso);
+    renderChart();
+  } catch(e) {
+    document.querySelector('.run-bar').innerHTML = '<p style="color:var(--red);font-size:0.85rem">Errore nel caricamento di reports.json</p>';
+  }
+}
+
+function populateSelect() {
+  const sel = document.getElementById('runSelect');
+  sel.innerHTML = '';
+  [...allReports].reverse().forEach(r => {
+    const opt = document.createElement('option');
+    opt.value = r.data_iso;
+    opt.textContent = r.data;
+    sel.appendChild(opt);
+  });
+}
+
+function loadRun(dataIso) {
+  const report = allReports.find(r => r.data_iso === dataIso);
+  if (!report) return;
+
+  // KPI
+  document.getElementById('kpi-presenze').textContent = report.presenze;
+  document.getElementById('kpi-presenze-sub').textContent = `present${report.presenze === 1 ? 'e' : 'i'} su 10 domande`;
+  document.getElementById('kpi-punteggio').textContent = report.punteggio_medio.toFixed(1);
+
+  // Trend
+  const idx = allReports.findIndex(r => r.data_iso === dataIso);
+  if (idx > 0) {
+    const prev = allReports[idx - 1];
+    const delta = report.punteggio_medio - prev.punteggio_medio;
+    const trendEl = document.getElementById('kpi-trend');
+    trendEl.textContent = (delta >= 0 ? '+' : '') + delta.toFixed(1);
+    trendEl.style.color = delta >= 0 ? 'var(--green)' : 'var(--red)';
+    document.getElementById('kpi-trend-sub').textContent = `rispetto al ${prev.data}`;
+  } else {
+    document.getElementById('kpi-trend').textContent = '—';
+    document.getElementById('kpi-trend-sub').textContent = 'prima analisi disponibile';
+  }
+
+  // Status
+  document.getElementById('run-status').textContent = `Analisi del ${report.data}`;
+  document.getElementById('footer-date').textContent = `Ultimo aggiornamento: ${report.data}`;
+
+  // Domande
+  const domList = document.getElementById('domande-list');
+  domList.innerHTML = '';
+  report.domande.forEach(d => {
+    const row = document.createElement('div');
+    row.className = 'domanda-row';
+    row.innerHTML = `
+      <div class="q-text">${d.domanda}</div>
+      <div><span class="badge ${d.presente ? 'presente' : 'assente'}">${d.presente ? '✅ Presente' : '❌ Assente'}</span></div>
+      <div><span class="score-pill">${d.punteggio}/10</span></div>
+    `;
+    domList.appendChild(row);
+  });
+
+  // Competitor
+  const compMap = {};
+  report.domande.forEach(d => {
+    (d.competitor || []).forEach(c => {
+      compMap[c] = (compMap[c] || 0) + 1;
+    });
+  });
+  const sorted = Object.entries(compMap).sort((a,b) => b[1]-a[1]).slice(0, 10);
+  const maxCount = sorted[0]?.[1] || 1;
+  const compList = document.getElementById('competitor-list');
+  compList.innerHTML = '';
+  sorted.forEach(([name, count]) => {
+    const item = document.createElement('div');
+    item.className = 'competitor-item';
+    item.innerHTML = `
+      <div class="competitor-name">${name}</div>
+      <div class="competitor-count">
+        <div class="competitor-bar"><div class="competitor-bar-fill" style="width:${(count/maxCount)*100}%"></div></div>
+        ${count} ${count === 1 ? 'apparizione' : 'apparizioni'}
+      </div>
+    `;
+    compList.appendChild(item);
+  });
+
+  // Azioni
+  const azioniList = document.getElementById('azioni-list');
+  azioniList.innerHTML = '';
+  (report.azioni || []).forEach((a, i) => {
+    const item = document.createElement('div');
+    item.className = 'azione-item';
+    item.innerHTML = `
+      <div class="azione-num">${i+1}</div>
+      <div class="azione-text">${a}</div>
+    `;
+    azioniList.appendChild(item);
+  });
+
+  // Report link
+  const linkWrap = document.getElementById('report-link-wrap');
+  if (report.report_url) {
+    linkWrap.innerHTML = `<a href="${report.report_url}" class="report-link" target="_blank">📄 Apri report completo del ${report.data}</a>`;
+  } else {
+    linkWrap.innerHTML = '';
+  }
+}
+
+function renderChart() {
+  const ctx = document.getElementById('trendChart').getContext('2d');
+  if (currentChart) currentChart.destroy();
+
+  const labels = allReports.map(r => r.data);
+  const presenze = allReports.map(r => r.presenze);
+  const punteggi = allReports.map(r => r.punteggio_medio);
+
+  currentChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels,
+      datasets: [
+        {
+          label: 'Presenze su 10',
+          data: presenze,
+          borderColor: '#a0782a',
+          backgroundColor: 'rgba(160,120,42,0.08)',
+          borderWidth: 2,
+          pointBackgroundColor: '#a0782a',
+          pointRadius: 5,
+          tension: 0.3,
+          fill: true,
+          yAxisID: 'y1'
+        },
+        {
+          label: 'Punteggio medio',
+          data: punteggi,
+          borderColor: '#c9a05a',
+          backgroundColor: 'rgba(201,160,90,0.05)',
+          borderWidth: 2,
+          borderDash: [5, 4],
+          pointBackgroundColor: '#c9a05a',
+          pointRadius: 5,
+          tension: 0.3,
+          fill: false,
+          yAxisID: 'y2'
+        }
+      ]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      interaction: { mode: 'index', intersect: false },
+      plugins: {
+        legend: {
+          position: 'top',
+          labels: { font: { family: 'DM Sans', size: 12 }, color: '#4a3f35', boxWidth: 16, padding: 20 }
+        },
+        tooltip: {
+          backgroundColor: '#1a1410',
+          titleColor: '#c9a05a',
+          bodyColor: '#fff',
+          padding: 12,
+          cornerRadius: 8
+        }
+      },
+      scales: {
+        x: {
+          grid: { color: '#f0ebe4' },
+          ticks: { font: { family: 'DM Sans', size: 11 }, color: '#8a7d72' }
+        },
+        y1: {
+          type: 'linear', position: 'left',
+          min: 0, max: 10,
+          grid: { color: '#f0ebe4' },
+          ticks: { font: { family: 'DM Sans', size: 11 }, color: '#8a7d72', stepSize: 1 },
+          title: { display: true, text: 'Presenze', font: { family: 'DM Sans', size: 11 }, color: '#8a7d72' }
+        },
+        y2: {
+          type: 'linear', position: 'right',
+          min: 0, max: 10,
+          grid: { drawOnChartArea: false },
+          ticks: { font: { family: 'DM Sans', size: 11 }, color: '#c9a05a' },
+          title: { display: true, text: 'Punteggio', font: { family: 'DM Sans', size: 11 }, color: '#c9a05a' }
+        }
+      }
+    }
+  });
+}
+
+loadData();
+</script>
+</body>
+</html>
