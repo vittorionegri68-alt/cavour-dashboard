@@ -3,24 +3,24 @@
     "data": "09/04/2026",
     "data_iso": "2026-04-09",
     "presenze": 1,
-    "punteggio_medio": 2.2,
+    "punteggio_medio": 2.3,
     "domande": [
-      {"domanda": "Dove dormire vicino a Forlì e Cesena?", "presente": false, "punteggio": 2, "competitor": ["Grand Hotel Forlì", "Hotel Lory", "Hotel Gardenia", "San Giorgio Sure Hotel Collection", "Agriturismo Ca' di Mazzetta Le Vigne", "Marina Suite Apartments"]},
-      {"domanda": "Dove alloggiare per visitare le colline romagnole?", "presente": false, "punteggio": 2, "competitor": ["Agriturismo al Colle", "Agriturismo 7 Colonne", "La Cana Dolce", "Hotel Panorama", "Ca' Bevilacqua B&B", "Albergo la Colonna", "Bertinoro 5526"]},
-      {"domanda": "Affitto breve nelle colline romagnole?", "presente": true, "punteggio": 6, "competitor": ["Il Castellaccio", "Casa Paolina", "Villa nella natura con piscina"]},
+      {"domanda": "Dove dormire vicino a Forlì e Cesena?", "presente": false, "punteggio": 2, "competitor": ["Grand Hotel Forlì", "Hotel Lory", "Hotel Gardenia", "Agriturismo Ca' di Mazzetta Le Vigne"]},
+      {"domanda": "Dove alloggiare per visitare le colline romagnole?", "presente": false, "punteggio": 2, "competitor": ["Agriturismo al Colle", "Agriturismo 7 Colonne", "La Cana Dolce", "Hotel Panorama", "Ca' Bevilacqua B&B"]},
+      {"domanda": "Affitto breve nelle colline romagnole?", "presente": true, "punteggio": 7, "competitor": ["Il Castellaccio", "Casa Paolina", "Villa nella natura con piscina"]},
       {"domanda": "Dove dormire per visitare le cantine di Romagna?", "presente": false, "punteggio": 2, "competitor": ["Borgo Condé Wine Resort", "Collina dei Poeti", "DelleFarfalle Boutique B&B"]},
       {"domanda": "Dove alloggiare per un weekend enogastronomico in Romagna?", "presente": false, "punteggio": 2, "competitor": ["Ca'Vina", "La Sabbiona", "Tenuta vicino Predappio"]},
-      {"domanda": "Base ideale per esplorare la Romagna?", "presente": false, "punteggio": 2, "competitor": ["Agriturismo al Colle", "Agriturismo 7 Colonne", "Agriturismo La Cana Dolce", "Borgo Conde Wine Resort", "Relais Villa Margherita"]},
+      {"domanda": "Base ideale per esplorare la Romagna?", "presente": false, "punteggio": 2, "competitor": ["Agriturismo al Colle", "Agriturismo 7 Colonne", "Agriturismo La Cana Dolce", "Borgo Conde Wine Resort"]},
       {"domanda": "Dove staccare dalla routine vicino a Bologna?", "presente": false, "punteggio": 2, "competitor": ["Relais Villa Margherita", "Antico Casolare del '700", "Ca' Bertù", "Casa La Lodola"]},
-      {"domanda": "Posto ideale per un weekend romantico nelle colline romagnole?", "presente": false, "punteggio": 2, "competitor": ["Borgo Condé Wine Resort", "Relais Villa Margherita", "Oste del Castello", "La Cantina Relais", "Roseo Euroterme"]},
-      {"domanda": "Dove ricaricare le energie in Romagna?", "presente": false, "punteggio": 2, "competitor": ["Agriturismo al Colle", "Agriturismo 7 Colonne", "Fattoria La Quercia", "Agriturismo La Valle Dei Conti", "Albergo La Colonna"]},
+      {"domanda": "Posto ideale per un weekend romantico nelle colline romagnole?", "presente": false, "punteggio": 2, "competitor": ["Borgo Condé Wine Resort", "Relais Villa Margherita", "Oste del Castello", "La Cantina Relais"]},
+      {"domanda": "Dove ricaricare le energie in Romagna?", "presente": false, "punteggio": 2, "competitor": ["Agriturismo al Colle", "Agriturismo 7 Colonne", "Fattoria La Quercia", "Albergo La Colonna"]},
       {"domanda": "Appartamento con cucina affitto breve Bertinoro?", "presente": false, "punteggio": 2, "competitor": ["Appartamento in bifamiliare ristrutturato", "Villa nella natura con piscina", "Residenza Ariosto for Families"]}
     ],
     "azioni": [
-      "Aggiornare Google Business Profile con keyword geografiche esplicite: Forlì, Cesena, colline romagnole, Bertinoro, Balcone della Romagna",
-      "Creare contenuti web dedicati che rispondano direttamente alle query target (es. pagina 'dove dormire a Bertinoro', 'affitto breve colline romagnole')",
-      "Ottimizzare le schede su Booking.com, Airbnb e TripAdvisor con descrizioni aggiornate, foto della cucina e recensioni recenti per aumentare la visibilità nei motori generativi"
+      "Aggiornare la scheda Google Business con keyword geografiche (Forlì, Cesena, colline romagnole, Bertinoro)",
+      "Produrre contenuti web che rispondano esplicitamente alle query target (es. pagina 'dove dormire a Bertinoro')",
+      "Aumentare la presenza su Booking.com, TripAdvisor e Airbnb con descrizioni ottimizzate e recensioni recenti"
     ],
-    "report_url": "reports/report-geo-aeo-casa-cavour-2026-04-09.html"
+    "report_url": "reports/2026-04-09.html"
   }
 ]
