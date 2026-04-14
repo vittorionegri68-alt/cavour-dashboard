@@ -1,412 +1,98 @@
-{
-  "meta": {
-    "titolo": "Report GEO/AEO — Casa Cavour Bertinoro",
-    "data": "2026-04-13",
-    "motori": ["Perplexity", "Gemini"],
-    "fonte": "RAB Analytics",
-    "versione": "1.0"
+[
+  {
+    "data": "09/04/2026",
+    "data_iso": "2026-04-09",
+    "presenze": 1,
+    "punteggio_medio": 2.3,
+    "motori": "Perplexity",
+    "domande": [
+      {"domanda": "Dove dormire vicino a Forlì e Cesena?", "presente": false, "punteggio": 2, "competitor": ["Grand Hotel Forlì", "Hotel Lory", "Hotel Gardenia", "Agriturismo Ca' di Mazzetta Le Vigne"]},
+      {"domanda": "Dove alloggiare per visitare le colline romagnole?", "presente": false, "punteggio": 2, "competitor": ["Agriturismo al Colle", "Agriturismo 7 Colonne", "La Cana Dolce", "Hotel Panorama", "Ca' Bevilacqua B&B"]},
+      {"domanda": "Affitto breve nelle colline romagnole?", "presente": true, "punteggio": 7, "competitor": ["Il Castellaccio", "Casa Paolina", "Villa nella natura con piscina"]},
+      {"domanda": "Dove dormire vicino a Forlì e Cesena?", "presente": false, "punteggio": 2, "competitor": ["Grand Hotel Forlì", "Hotel Lory", "Hotel Gardenia", "San Giorgio Sure Hotel Collection", "Agriturismo Ca' di Mazzetta Le Vigne", "Marina Suite Apartments"]},
+      {"domanda": "Dove alloggiare per visitare le colline romagnole?", "presente": false, "punteggio": 2, "competitor": ["Agriturismo al Colle", "Agriturismo 7 Colonne", "La Cana Dolce", "Hotel Panorama", "Ca' Bevilacqua B&B", "Albergo la Colonna"]},
+      {"domanda": "Affitto breve nelle colline romagnole?", "presente": true, "punteggio": 6, "competitor": ["Il Castellaccio", "Casa Paolina", "Villa nella natura con piscina"]},
+      {"domanda": "Dove dormire per visitare le cantine di Romagna?", "presente": false, "punteggio": 2, "competitor": ["Borgo Condé Wine Resort", "Collina dei Poeti", "DelleFarfalle Boutique B&B"]},
+      {"domanda": "Dove alloggiare per un weekend enogastronomico in Romagna?", "presente": false, "punteggio": 2, "competitor": ["Ca'Vina", "La Sabbiona", "Tenuta vicino Predappio"]},
+      {"domanda": "Base ideale per esplorare la Romagna?", "presente": false, "punteggio": 2, "competitor": ["Agriturismo al Colle", "Agriturismo 7 Colonne", "Agriturismo La Cana Dolce", "Borgo Conde Wine Resort"]},
+      {"domanda": "Dove staccare dalla routine vicino a Bologna?", "presente": false, "punteggio": 2, "competitor": ["Relais Villa Margherita", "Antico Casolare del '700"]},
+      {"domanda": "Posto ideale per un weekend romantico nelle colline romagnole?", "presente": false, "punteggio": 2, "competitor": ["Borgo Condé Wine Resort", "Relais Villa Margherita"]},
+      {"domanda": "Dove ricaricare le energie in Romagna?", "presente": false, "punteggio": 2, "competitor": ["Agriturismo al Colle", "Agriturismo 7 Colonne"]},
+      {"domanda": "Appartamento con cucina affitto breve Bertinoro?", "presente": false, "punteggio": 2, "competitor": ["Appartamento in bifamiliare ristrutturato", "Villa nella natura con piscina", "Residenza Ariosto for Families"]}
+    ],
+    "azioni": [
+      "Aggiornare Google Business Profile con keyword geografiche esplicite: Forlì, Cesena, colline romagnole, Bertinoro, Balcone della Romagna",
+      "Creare contenuti web dedicati che rispondano direttamente alle query target",
+      "Ottimizzare le schede su Booking.com, Airbnb e TripAdvisor con descrizioni aggiornate e recensioni recenti"
+    ],
+    "report_url": "reports/report-geo-aeo-casa-cavour-2026-04-09.html"
   },
-  "riepilogo": {
-    "perplexity": {
-      "presenze": 5,
-      "totale_domande": 10,
-      "punteggio_medio": 5.6
+  {
+    "data": "10/04/2026",
+    "data_iso": "2026-04-10",
+    "presenze": 9,
+    "punteggio_medio": 4.6,
+    "motori": "Perplexity + Gemini",
+    "dettaglio_motori": {
+      "perplexity": {"presenze": 4, "punteggio_medio": 4.5},
+      "gemini": {"presenze": 5, "punteggio_medio": 4.7}
     },
-    "gemini": {
-      "presenze": 3,
-      "totale_domande": 10,
-      "punteggio_medio": 2.3
-    },
-    "media_generale": 3.9,
-    "nota": "Casa Cavour Bertinoro esiste nel radar dei motori generativi, ma in modo discontinuo e non dominante. Perplexity mostra una recettività maggiore verso contenuti locali strutturati, mentre Gemini — più ancorato all'ecosistema Google — restituisce presenze sporadiche e in alcuni casi segnali di allucinazione. La struttura ha una finestra strategica aperta: chi ottimizza per primo con un approccio GEO sistematico ha alte probabilità di diventare il riferimento dominante nelle risposte AI per questa area geografica."
+    "domande": [
+      {"domanda": "Dove dormire vicino a Forlì e Cesena?", "presente": true, "punteggio": 6, "competitor": ["Grand Hotel Forlì", "Hotel Lory", "Hotel Gardenia", "San Giorgio Sure Hotel Collection", "Agriturismo al Colle", "Agriturismo 7 Colonne", "La Quercia", "Podere Baratta"]},
+      {"domanda": "Dove alloggiare per visitare le colline romagnole?", "presente": true, "punteggio": 6, "competitor": ["Agriturismo al Colle", "Agriturismo 7 Colonne", "La Cana Dolce", "Relais Villa Margherita", "Borgo Condé Wine Resort"]},
+      {"domanda": "Affitto breve nelle colline romagnole?", "presente": true, "punteggio": 7, "competitor": ["Il Castellaccio", "Casa Paolina", "Villa nella natura con piscina"]},
+      {"domanda": "Dove dormire per visitare le cantine di Romagna?", "presente": true, "punteggio": 5, "competitor": ["Borgo Condé Wine Resort", "Collina dei Poeti", "DelleFarfalle Boutique B&B", "La Sabbiona"]},
+      {"domanda": "Dove alloggiare per un weekend enogastronomico in Romagna?", "presente": true, "punteggio": 5, "competitor": ["Ca'Vina", "La Sabbiona", "Borgo Condé Wine Resort"]},
+      {"domanda": "Base ideale per esplorare la Romagna?", "presente": false, "punteggio": 3, "competitor": ["Agriturismo al Colle", "Agriturismo 7 Colonne", "Relais Villa Margherita", "Borgo Conde Wine Resort"]},
+      {"domanda": "Dove staccare dalla routine vicino a Bologna?", "presente": false, "punteggio": 3, "competitor": ["Relais Villa Margherita", "Antico Casolare del '700", "Ca' Bertù", "Casa La Lodola"]},
+      {"domanda": "Posto ideale per un weekend romantico nelle colline romagnole?", "presente": true, "punteggio": 5, "competitor": ["Borgo Condé Wine Resort", "Relais Villa Margherita", "Oste del Castello", "La Cantina Relais"]},
+      {"domanda": "Dove ricaricare le energie in Romagna?", "presente": true, "punteggio": 5, "competitor": ["Agriturismo al Colle", "Agriturismo 7 Colonne", "Fattoria La Quercia", "Albergo La Colonna"]},
+      {"domanda": "Appartamento con cucina affitto breve Bertinoro?", "presente": false, "punteggio": 3, "competitor": ["Appartamento in bifamiliare ristrutturato", "Villa nella natura con piscina", "Residenza Ariosto for Families"]}
+    ],
+    "azioni": [
+      "Ottimizzare il Google Business Profile con recensioni aggiornate, FAQ strutturate e dati schema.org (Hotel, LodgingBusiness) per migliorare la visibilità su Gemini",
+      "Creare contenuti dedicati alle query strategiche ancora scoperte: 'base per esplorare la Romagna', 'weekend romantico colline romagnole', 'appartamento Bertinoro'",
+      "Rafforzare la presenza su TripAdvisor e Booking con keyword localizzate per consolidare la visibilità già acquisita su Perplexity e ampliarla su Gemini"
+    ],
+    "report_url": "reports/report-geo-aeo-casa-cavour-2026-04-10.html"
   },
-  "storico_punteggi": [
-    { "data": "2026-04-09", "media": 2.3, "perplexity": null, "gemini": null },
-    { "data": "2026-04-10", "media": 4.6, "perplexity": 4.5, "gemini": 4.7 },
-    { "data": "2026-04-13", "media": 3.9, "perplexity": 5.6, "gemini": 2.3 }
-  ],
-  "domande": [
-    {
-      "id": 1,
-      "domanda": "Dove dormire vicino a Forlì e Cesena?",
-      "rilevazione": 1,
-      "perplexity": {
-        "presente": true,
-        "punteggio": 7,
-        "note": "La risposta è strutturata gerarchicamente con categorie chiare (hotel per città, agriturismi collinari), citazioni di fonti numerate e dettagli pratici (stelle, distanze, servizi, prezzi). Il contenuto è denso, specifico e orientato all'intento dell'utente, con menzione esplicita di Bertinoro come zona strategica tra le due città.",
-        "competitor": ["Grand Hotel Forlì", "Hotel Lory Forlì", "Hotel Gardenia Forlì", "San Giorgio Sure Hotel Collection Forlì", "Hotel Romagna Cesena", "Boutique Hotel Villa Monty Banks", "Agriturismo Picchio Rosso", "La Lenticchia Agriturismo", "Monastero Sant'Alberico Relais", "Marina Suite Apartments", "Nido Suite & Apartments"]
-      },
-      "gemini": {
-        "presente": false,
-        "punteggio": 0,
-        "azione": "Implementare markup semantico con titoli H2/H3 per zona geografica, schede strutturate per ogni struttura ricettiva (posizione, stelle, servizi, prezzo medio) e ottimizzare per entità locali riconoscibili da Google Knowledge Graph. Creare pagine dedicate alle micro-destinazioni (es. \"dormire a Bertinoro\") e aggregare recensioni con dati aggiornati.",
-        "competitor": []
-      }
+  {
+    "data": "13/04/2026",
+    "data_iso": "2026-04-13",
+    "presenze": 8,
+    "punteggio_medio": 3.9,
+    "motori": "Perplexity + Gemini",
+    "dettaglio_motori": {
+      "perplexity": {"presenze": 5, "punteggio_medio": 5.6},
+      "gemini": {"presenze": 3, "punteggio_medio": 2.3}
     },
-    {
-      "id": 2,
-      "domanda": "Dove dormire vicino a Forlì e Cesena?",
-      "rilevazione": 2,
-      "perplexity": {
-        "presente": false,
-        "punteggio": 0,
-        "azione": "Ottimizzare i contenuti con testi strutturati, ricchi di dati geografici precisi, recensioni e dettagli sui servizi. Implementare markup schema.org per LodgingBusiness e incrementare la presenza su fonti terze citate da Perplexity (TripAdvisor, Booking, blog locali) con dati consistenti e citabili.",
-        "competitor": []
-      },
-      "gemini": {
-        "presente": true,
-        "punteggio": 8,
-        "note": "La struttura è citata esplicitamente grazie a contenuti web ben descritti, con riferimenti chiari alla localizzazione geografica (colline romagnole, Bertinoro, Forlì, Cesena) e a caratteristiche distintive come natura, relax, animali ammessi e servizi specifici. Gemini ha privilegiato fonti con descrizioni dettagliate, nomi propri chiari e categorie ben definite (agriturismo, B&B, villa, termale).",
-        "competitor": ["Agriturismo Campo Rosso", "Ca' Poggio", "Agriturismo I Merisi", "Agriturismo Picchio Rosso", "Hotel Panorama (Bertinoro)", "Albergo Colonna (Bertinoro)", "Ca' Bevilacqua B&B", "B&B Tenuta Diavoletto", "Agriturismo 7 Colonne", "Agriturismo al Colle/Capocolle", "Agriturismo Le Lucciole", "Agriturismo Le Saline", "Fattoria La Quercia", "CasinaSanFrancesco", "Hotel Fontanelle", "Albergo Romagna", "Grand Hotel Terme della Fratta", "RR House", "Luxury Villa Belvedere", "Agriturismo Le Essenze", "Country House I Quattro Passeri", "Villa Cerfoglio"]
-      }
-    },
-    {
-      "id": 3,
-      "domanda": "Dove alloggiare per visitare le colline romagnole?",
-      "rilevazione": 1,
-      "perplexity": {
-        "presente": false,
-        "punteggio": 0,
-        "azione": "Creare contenuti strutturati e ottimizzati (schede struttura, recensioni, descrizioni con keyword locali) che rispondano esplicitamente a query come \"dove dormire colline romagnole\" o \"agriturismo Bertinoro\". Aumentare la presenza su piattaforme citate dai motori AI (Booking, TripAdvisor, siti di settore) con dati consistenti e citabili.",
-        "competitor": ["Agriturismo al Colle", "Agriturismo 7 Colonne", "La Cana Dolce", "Ca' Bevilacqua B&B", "Hotel Panorama", "Albergo la Colonna", "Pecoranera", "Il Castellaccio", "Casa Paolina"]
-      },
-      "gemini": {
-        "presente": false,
-        "punteggio": null,
-        "azione": "Testare varianti della domanda e monitorare sistematicamente le risposte di Gemini per identificare quali strutture vengono citate. Costruire una strategia di contenuto mirata con pagine ottimizzate per l'area collinare romagnola.",
-        "competitor": []
-      }
-    },
-    {
-      "id": 4,
-      "domanda": "Dove alloggiare per visitare le colline romagnole?",
-      "rilevazione": 2,
-      "perplexity": {
-        "presente": false,
-        "punteggio": null,
-        "azione": "Creare contenuti strutturati ottimizzati per le query locali sulle colline romagnole, includendo dati specifici come prezzi, servizi, posizione geografica e recensioni verificate. Registrare la struttura su piattaforme indicizzate da Perplexity con descrizioni semanticamente ricche.",
-        "competitor": []
-      },
-      "gemini": {
-        "presente": false,
-        "punteggio": null,
-        "azione": "Sviluppare pagine web con contenuti longform ottimizzati, markup strutturato (Schema.org per Hotel/LodgingBusiness) e risposte esaustive a domande correlate come \"cosa vedere\", \"quando andare\", \"prezzi medi\". Integrare la struttura in articoli di blog autorevoli e guide turistiche digitali.",
-        "competitor": []
-      }
-    },
-    {
-      "id": 5,
-      "domanda": "Affitto breve nelle colline romagnole?",
-      "rilevazione": 1,
-      "perplexity": {
-        "presente": true,
-        "punteggio": 7,
-        "note": "La risposta cita esplicitamente il Vigneto Cottage a Bertinoro come struttura specifica con indirizzo, caratteristiche e USP chiari (vista castello, vigneti, camino). La presenza di dati concreti (prezzi, metrature, piattaforme di riferimento) ha aumentato la rilevanza semantica e la citabilità del contenuto da parte dell'AI.",
-        "competitor": ["Vigneto Cottage (Bertinoro)", "Idealista", "Trovit", "CaseVacanza.it", "HomeToGo", "Booking.com", "Holidu"]
-      },
-      "gemini": {
-        "presente": false,
-        "punteggio": 0,
-        "azione": "Creare contenuti ottimizzati per Gemini con markup strutturato (Schema.org per LodgingBusiness e Vacation Rental), descrizioni semanticamente ricche con entità geografiche esplicite (Bertinoro, Forlì, Cesena, colline romagnole) e FAQ specifiche sull'affitto breve in zona.",
-        "competitor": []
-      }
-    },
-    {
-      "id": 6,
-      "domanda": "Affitto breve nelle colline romagnole?",
-      "rilevazione": 2,
-      "perplexity": {
-        "presente": false,
-        "punteggio": 0,
-        "azione": "Creare contenuti ottimizzati per query locali specifiche sulle colline romagnole (Bertinoro, Forlì, Cesena), con schede strutturate, FAQ e dati verificabili che Perplexity possa citare come fonte autorevole.",
-        "competitor": []
-      },
-      "gemini": {
-        "presente": false,
-        "punteggio": 0,
-        "azione": "Rafforzare la presenza su Google Business Profile, siti ufficiali ottimizzati e piattaforme come Booking o Airbnb, in modo che Gemini possa attingere a fonti strutturate e nominare esplicitamente la struttura nelle risposte. La nicchia degli affitti brevi nelle colline romagnole è attualmente sottocoperta in ottica GEO: opportunità concreta per chi si posiziona per primo.",
-        "competitor": []
-      }
-    },
-    {
-      "id": 7,
-      "domanda": "Dove dormire per visitare le cantine di Romagna?",
-      "rilevazione": 1,
-      "perplexity": {
-        "presente": true,
-        "punteggio": 8,
-        "note": "Borgo Condé Wine Resort viene citato come struttura principale con dettagli specifici su servizi, rating e posizione geografica strategica vicino a Forlì e Bertinoro. La struttura risulta ben posizionata grazie a contenuti strutturati che combinano esperienza enogastronomica, ospitalità e prossimità alle cantine romagnole.",
-        "competitor": ["Borgo Condé Wine Resort", "Collina dei Poeti"]
-      },
-      "gemini": {
-        "presente": false,
-        "punteggio": 0,
-        "azione": "Ottimizzare la presenza online con contenuti specifici per query enogastronomiche (\"dove dormire cantine Romagna\", \"wine resort Romagna\") su fonti autorevoli indicizzate da Gemini: Google Business Profile, siti di settore e articoli blog ottimizzati per enoturismo.",
-        "competitor": []
-      }
-    },
-    {
-      "id": 8,
-      "domanda": "Dove dormire per visitare le cantine di Romagna?",
-      "rilevazione": 2,
-      "perplexity": {
-        "presente": false,
-        "punteggio": null,
-        "azione": "Creare contenuti ottimizzati per query di tipo \"dove dormire + enoturismo Romagna\" con struttura chiara, dati concreti (prezzi, distanze dalle cantine, servizi) e schema markup per strutture ricettive. Ottenere citazioni da blog di viaggio, guide enogastronomiche e portali come VisitRomagna.",
-        "competitor": []
-      },
-      "gemini": {
-        "presente": false,
-        "punteggio": null,
-        "azione": "Sviluppare pagine dedicate all'enoturismo in Romagna con sezioni specifiche su agriturismo, hotel vicini alle cantine e itinerari del vino, usando linguaggio diretto e rispondente a domande conversazionali. Consolidare la presenza su Google Business Profile, TripAdvisor e portali di settore.",
-        "competitor": []
-      }
-    },
-    {
-      "id": 9,
-      "domanda": "Dove alloggiare per un weekend enogastronomico in Romagna?",
-      "rilevazione": 1,
-      "perplexity": {
-        "presente": true,
-        "punteggio": 7,
-        "note": "La struttura ha ottenuto visibilità grazie a contenuti ben ottimizzati con parole chiave specifiche (colline romagnole, enogastronomia, degustazioni, spa) e probabilmente tramite fonti indicizzate con citazioni dirette. Il formato ricco di dettagli concreti (nome, località, caratteristiche, recensioni) ha favorito l'estrazione da parte del motore generativo.",
-        "competitor": ["Borgo Condé Wine Resort", "Relais Villa Margherita", "DelleFarfalle Boutique B&B", "Castello di Viano", "Il Borgo Casteldelci Relais & Spa", "Antico Casolare del '700", "Il Brugnolo"]
-      },
-      "gemini": {
-        "presente": false,
-        "punteggio": null,
-        "azione": "Rafforzare la presenza su fonti autorevoli indicizzate da Google (Google Business Profile, articoli su blog di settore, recensioni strutturate su TripAdvisor e portali enogastronomici). Produrre contenuti specifici ottimizzati per \"weekend enogastronomico Romagna\".",
-        "competitor": []
-      }
-    },
-    {
-      "id": 10,
-      "domanda": "Dove alloggiare per un weekend enogastronomico in Romagna?",
-      "rilevazione": 2,
-      "perplexity": {
-        "presente": false,
-        "punteggio": 0,
-        "azione": "Creare contenuti ottimizzati per query enogastronomiche romagnole con dati strutturati (schema.org per LodgingBusiness e FoodEvent), recensioni verificabili e menzione esplicita di prodotti tipici DOC/DOP locali.",
-        "competitor": []
-      },
-      "gemini": {
-        "presente": true,
-        "punteggio": 6,
-        "note": "⚠️ Segnali di allucinazione rilevati: alcune strutture citate potrebbero non esistere o avere dettagli inesatti. Questo indica che nessun brand ha ancora una presenza digitale abbastanza autorevole e verificabile da essere citato con certezza in questa categoria.",
-        "allucinazione": true,
-        "competitor": ["Agriturismo Poderi delle Rocche", "Agriturismo Borgo dei Calanchi", "Hotel Balestri (Bertinoro)", "Agriturismo Il Contadino", "Agriturismo La Colombaia", "Agriturismo Fattoria degli Usignoli", "Relais Palazzo di Lugugnana"]
-      }
-    },
-    {
-      "id": 11,
-      "domanda": "Base ideale per esplorare la Romagna?",
-      "rilevazione": 1,
-      "perplexity": {
-        "presente": true,
-        "punteggio": 7,
-        "note": "Le strutture citate appaiono grazie a recensioni verificabili su piattaforme autorevoli (TripAdvisor, Booking, Airbnb) con numero di recensioni esplicito — segnale forte di trust per i motori AI. La presenza di dettagli specifici (posizione, servizi, distanze, caratteristiche) ha reso i contenuti facilmente estratti e sintetizzati dal modello.",
-        "competitor": ["Agriturismo al Colle", "Agriturismo 7 Colonne", "La Cana Dolce", "Ca' Bevilacqua", "Hotel Panorama", "Bed and Breakfast Chez Zinia", "LaPalina B&B", "Il Castellaccio"]
-      },
-      "gemini": {
-        "presente": false,
-        "punteggio": 0,
-        "azione": "Strutturare i contenuti del sito con dati chiari, schema markup (LocalBusiness, LodgingBusiness), descrizioni geolocalizzate e menzione esplicita di Romagna, Bertinoro, Forlì, Cesena come area di riferimento. Rafforzare la presenza su Google Business Profile con recensioni aggiornate e foto.",
-        "competitor": []
-      }
-    },
-    {
-      "id": 12,
-      "domanda": "Base ideale per esplorare la Romagna?",
-      "rilevazione": 2,
-      "perplexity": {
-        "presente": false,
-        "punteggio": null,
-        "azione": "Ottimizzare i contenuti del sito con query semantiche legate all'esplorazione della Romagna, inserendo descrizioni geografiche precise, distanze dai punti di interesse e recensioni strutturate che aumentino la probabilità di essere indicizzati come fonte autorevole da Perplexity.",
-        "competitor": []
-      },
-      "gemini": {
-        "presente": false,
-        "punteggio": 2,
-        "note": "⚠️ Gemini fornisce una lista di competitor ma non cita Casa Cavour Bertinoro.",
-        "azione": "Creare contenuti ottimizzati con linguaggio conversazionale e descrittivo (es. \"base ideale per esplorare\", \"posizione strategica\", \"vicino a...\") abbinando dati strutturati (schema.org LodgingBusiness).",
-        "competitor": ["Agriturismo Capocolle", "Agriturismo Le Lucciole", "Agriturismo le Saline", "Agriturismo al Colle", "Agriturismo Settimano", "Fattoria La Quercia", "Podere Baratta", "CasinaSanFrancesco", "Il Vigneto Cottage", "Hotel Panorama", "Albergo Colonna", "Villino Bruna", "B&B Podere Raggio", "La Fattoria dell'Autosufficienza", "Residence Villa degli Ulivi"]
-      }
-    },
-    {
-      "id": 13,
-      "domanda": "Dove staccare dalla routine vicino a Bologna?",
-      "rilevazione": 1,
-      "perplexity": {
-        "presente": true,
-        "punteggio": 7,
-        "note": "La risposta cita strutture specifiche con dettagli concreti (nome, location, caratteristiche, prezzi), dimostrando che contenuti ricchi di dati strutturati e descrizioni differenziate aumentano la probabilità di essere estratti. I riferimenti numerici alle fonti indicano che le strutture hanno contenuti web ben indicizzati e autorevoli.",
-        "competitor": ["Relais Villa Margherita", "Podere Riosto Cantina & Agriturismo", "Country House Oliveto sul Lago (Varignana)", "Casale Il Sambuco sui colli bolognesi", "La Palazzina di Gorgognano", "Al Navile", "La Colombarola"]
-      },
-      "gemini": {
-        "presente": false,
-        "punteggio": null,
-        "azione": "Rafforzare la presenza su piattaforme Google-native (Google Business Profile, Google Maps, recensioni recenti e numerose) e produrre contenuti ottimizzati su siti con alta autorevolezza. Strutturare i contenuti con markup schema.org e rispondere a query di intento esperienziale con pagine dedicate e dettagliate.",
-        "competitor": []
-      }
-    },
-    {
-      "id": 14,
-      "domanda": "Dove staccare dalla routine vicino a Bologna?",
-      "rilevazione": 2,
-      "perplexity": {
-        "presente": false,
-        "punteggio": 0,
-        "azione": "Creare contenuti ottimizzati con keyword geografiche specifiche (es. \"relax vicino a Bologna\", \"fuga dalla routine colline romagnole\") strutturati in formato Q&A o liste. Acquisire citazioni su directory locali, blog di viaggi e piattaforme recensioni.",
-        "competitor": []
-      },
-      "gemini": {
-        "presente": true,
-        "punteggio": 7,
-        "note": "Gemini struttura i risultati per aree geografiche specifiche (Bertinoro, Forlì, Cesena) con nomi di strutture dettagliati, caratteristiche e servizi. Le strutture citate hanno forte presenza su piattaforme indicizzabili (Airbnb, Booking, siti propri) con USP specifiche (spa, piscina, vista panoramica).",
-        "competitor": ["Agriturismo al Colle", "Agriturismo Le Lucciole", "Agriturismo le Saline", "Residence Villa degli Ulivi", "Hotel La Colonna (Albergo Colonna)", "Agriturismo 7 Colonne", "Agriturismo Fattoria la Quercia", "Grand Hotel Forlì", "Agriturismo Picchio Rosso", "Forlì City Residence"]
-      }
-    },
-    {
-      "id": 15,
-      "domanda": "Posto ideale per un weekend romantico nelle colline romagnole?",
-      "rilevazione": 1,
-      "perplexity": {
-        "presente": false,
-        "punteggio": 1,
-        "azione": "Creare contenuti ottimizzati per GEO che rispondano esplicitamente a query romantiche/esperienziali con structured data, recensioni certificate e descrizioni ricche di attributi specifici (spa, jacuzzi, vista panoramica, pacchetti coppia). Rafforzare la presenza su agriturismo.it e portali di settore con schede complete.",
-        "competitor": ["Relais Villa Margherita", "Borgo Condé Wine Resort", "DelleFarfalle Boutique B&B", "Oste del Castello Wellness e Bike Hotel"]
-      },
-      "gemini": {
-        "presente": false,
-        "punteggio": 1,
-        "azione": "Produrre contenuti long-form ottimizzati per intento romantico/esperienziale con markup Schema (LodgingBusiness, Review, Offer) e citazioni su blog di viaggio autorevoli indicizzati da Google.",
-        "competitor": []
-      }
-    },
-    {
-      "id": 16,
-      "domanda": "Posto ideale per un weekend romantico nelle colline romagnole?",
-      "rilevazione": 2,
-      "perplexity": {
-        "presente": false,
-        "punteggio": null,
-        "azione": "Creare contenuti specifici per query romantiche/esperienziali con termini come \"weekend romantico colline romagnole\", includendo descrizioni sensoriali, offerte pacchetto coppia e recensioni autentiche. Pubblicare su piattaforme indicizzate da Perplexity.",
-        "competitor": []
-      },
-      "gemini": {
-        "presente": false,
-        "punteggio": null,
-        "azione": "Sviluppare contenuti long-form con formato Q&A, listicle e sezioni \"perché scegliere\" che rispondano direttamente all'intento romantico/esperienziale dell'utente. Integrare markup Schema e puntare a essere citati su blog di viaggi e testate locali.",
-        "competitor": []
-      }
-    },
-    {
-      "id": 17,
-      "domanda": "Dove ricaricare le energie in Romagna?",
-      "rilevazione": 1,
-      "perplexity": {
-        "presente": true,
-        "punteggio": 7,
-        "note": "La risposta cita strutture specifiche con dettagli differenzianti (piscina a sfioro, vista panoramica, degustazioni). La presenza di attributi semantici forti (relax, natura, prodotti locali, colline romagnole) ha aumentato la rilevanza contestuale delle strutture menzionate.",
-        "competitor": ["Agriturismo al Colle", "Agriturismo 7 Colonne", "La Cana Dolce", "Hotel Panorama", "Ca' Bevilacqua", "Pecoranera", "Albergo Colonna", "Novecento", "Parrot House", "Il Vigneto Cottage", "Il Nido in Collina Bertinoro"]
-      },
-      "gemini": {
-        "presente": false,
-        "punteggio": 0,
-        "azione": "Strutturare i contenuti web con dati chiari, schema markup (LocalBusiness, TouristAttraction) e descrizioni ricche di entità geografiche e semantiche legate al benessere e al turismo lento. Pubblicare recensioni, guide e contenuti autorevoli su piattaforme indicizzate da Google.",
-        "competitor": []
-      }
-    },
-    {
-      "id": 18,
-      "domanda": "Appartamento con cucina affitto breve Bertinoro?",
-      "rilevazione": 1,
-      "perplexity": {
-        "presente": false,
-        "punteggio": 0,
-        "nota_speciale": "Casa Cavour Bertinoro compare nell'elenco dei competitor rilevati come nome, non come presenza attiva. Il brand è già indicizzato ma non estratto come risultato primario.",
-        "azione": "Creare una scheda strutturata su Airbnb, Booking.com e HomeToGo con descrizioni ricche di keyword locali (es. \"appartamento con cucina Bertinoro centro storico\") e dati specifici (prezzi, metrature, disponibilità).",
-        "competitor": ["Expedia", "CaseVacanza.it", "HomeToGo", "Booking.com", "Airbnb", "Casa Cavour – Nel Cuore di Bertinoro"]
-      },
-      "gemini": {
-        "presente": false,
-        "punteggio": 0,
-        "azione": "Ottimizzare la presenza su Google Business Profile e creare pagine di destinazione specifiche per la query \"affitto breve Bertinoro con cucina\", strutturando i contenuti con markup schema.org per alloggi (LodgingBusiness).",
-        "competitor": []
-      }
-    },
-    {
-      "id": 19,
-      "domanda": "Appartamento con cucina affitto breve Bertinoro?",
-      "rilevazione": 2,
-      "perplexity": {
-        "presente": false,
-        "punteggio": 1,
-        "azione": "Creare contenuti strutturati e ottimizzati per query locali specifiche con dati strutturati (schema markup per LodgingBusiness/VacationRental) e descrizioni dettagliate dei servizi. Ottenere citazioni su piattaforme autorevoli e directory locali.",
-        "competitor": []
-      },
-      "gemini": {
-        "presente": false,
-        "punteggio": 1,
-        "azione": "Sviluppare una presenza digitale strutturata con pagine dedicate che rispondano esplicitamente a questa query, ottimizzando titoli, meta descrizioni e contenuti attorno a \"appartamento cucina Bertinoro affitto breve\". Integrare recensioni, FAQ e informazioni pratiche.",
-        "competitor": []
-      }
-    }
-  ],
-  "competitor_principali": [
-    { "rank": 1, "nome": "Agriturismo al Colle", "apparizioni": 6, "motori": ["Perplexity", "Gemini"] },
-    { "rank": 2, "nome": "Agriturismo 7 Colonne", "apparizioni": 5, "motori": ["Perplexity", "Gemini"] },
-    { "rank": 3, "nome": "Hotel Panorama (Bertinoro)", "apparizioni": 5, "motori": ["Perplexity", "Gemini"] },
-    { "rank": 4, "nome": "Albergo Colonna / Hotel La Colonna", "apparizioni": 5, "motori": ["Perplexity", "Gemini"] },
-    { "rank": 5, "nome": "Agriturismo Le Lucciole", "apparizioni": 4, "motori": ["Gemini"] },
-    { "rank": 6, "nome": "Agriturismo Picchio Rosso", "apparizioni": 4, "motori": ["Perplexity", "Gemini"] },
-    { "rank": 7, "nome": "Ca' Bevilacqua B&B", "apparizioni": 4, "motori": ["Perplexity", "Gemini"] },
-    { "rank": 8, "nome": "Borgo Condé Wine Resort", "apparizioni": 3, "motori": ["Perplexity"] },
-    { "rank": 9, "nome": "Agriturismo Le Saline", "apparizioni": 3, "motori": ["Gemini"] },
-    { "rank": 10, "nome": "Fattoria La Quercia", "apparizioni": 3, "motori": ["Gemini"] },
-    { "rank": 11, "nome": "Il Vigneto Cottage (Bertinoro)", "apparizioni": 3, "motori": ["Perplexity", "Gemini"] },
-    { "rank": 12, "nome": "La Cana Dolce", "apparizioni": 3, "motori": ["Perplexity"] },
-    { "rank": 13, "nome": "Relais Villa Margherita", "apparizioni": 3, "motori": ["Perplexity"] },
-    { "rank": 14, "nome": "CasinaSanFrancesco", "apparizioni": 2, "motori": ["Gemini"] },
-    { "rank": 15, "nome": "Agriturismo Fattoria la Quercia", "apparizioni": 2, "motori": ["Gemini"] }
-  ],
-  "azioni_prioritarie": [
-    {
-      "priorita": 1,
-      "titolo": "Costruire una presenza strutturata e coerente su tutte le piattaforme di riferimento",
-      "perche": "Casa Cavour Bertinoro appare già come nome in alcuni risultati (es. nella SERP di Perplexity per \"Appartamento con cucina affitto breve Bertinoro\") ma non viene estratta come risposta attiva dai motori generativi. Questo gap tra esistere e essere citati dipende dalla mancanza di contenuti sufficientemente strutturati e coerenti tra loro.",
-      "azioni": [
-        "Ottimizzare e completare al 100% le schede su Google Business Profile, TripAdvisor, Booking.com e Airbnb con descrizioni geolocalizzate, foto recenti, categorie corrette e prezzi aggiornati",
-        "Implementare markup schema.org (LodgingBusiness + VacationRental) sul sito ufficiale con attributi completi: posizione, servizi, prezzi, recensioni aggregate",
-        "Garantire coerenza NAP (Name, Address, Phone) identica su tutte le piattaforme, elemento fondamentale per il riconoscimento da parte di Gemini attraverso il Knowledge Graph di Google",
-        "Inserire descrizioni semantiche esplicite: \"agriturismo a Bertinoro\", \"affitto breve colline romagnole\", \"alloggio tra Forlì e Cesena\" come entità testuali riconoscibili"
-      ]
-    },
-    {
-      "priorita": 2,
-      "titolo": "Produrre contenuti longform ottimizzati per le query ad alto valore non presidiate",
-      "perche": "Le analisi mostrano che l'area tematica più scoperta — e con maggiore potenziale — è quella delle query esperienziali e romantiche (\"weekend romantico\", \"ricaricare le energie\", \"base ideale per esplorare\"), dove nessuna struttura locale ha ancora autorità semantica consolidata. Chi entra per primo con contenuti di qualità conquista il campo.",
-      "azioni": [
-        "Creare pagine di destinazione dedicate sul sito per ogni cluster tematico: enoturismo, relax/benessere, esplorazione collinare, coppia/romantico, affitto breve",
-        "Strutturare ogni pagina con formato Q&A, H2/H3 tematici e linguaggio conversazionale che rispecchi le query degli utenti",
-        "Integrare dati concreti e verificabili (distanze, prezzi indicativi, servizi disponibili, stagioni consigliate) che i motori generativi possano estrarre e citare come fonte",
-        "Pubblicare almeno 4-6 articoli blog su temi locali (cantine, percorsi collinari, prodotti tipici, eventi stagionali) per costruire autorità topica nell'area geografica di riferimento"
-      ]
-    },
-    {
-      "priorita": 3,
-      "titolo": "Acquisire citazioni autorevoli su fonti terze indicizzate dai motori AI",
-      "perche": "Sia Perplexity che Gemini attingono a fonti esterne per costruire le loro risposte. I competitor più citati (es. Borgo Condé Wine Resort, Agriturismo al Colle) hanno una footprint digitale ampia fatta di citazioni su blog di viaggio, guide turistiche, testate locali e portali di settore. Casa Cavour Bertinoro deve costruire lo stesso ecosistema di citazioni.",
-      "azioni": [
-        "Contattare blog di viaggio e food & wine con audience italiana per ottenere articoli o menzioni con link (VisitRomagna, Romagna a Tavola, portali di turismo regionale)",
-        "Proporsi come struttura di riferimento su guide enogastronomiche digitali legate al Sangiovese di Romagna, all'Albana DOCG e alle cantine del territorio",
-        "Ottenere recensioni certificate e recenti su TripAdvisor e Google con menzione esplicita delle caratteristiche distintive (posizione storica a Bertinoro, cucina, vista, tipologia di esperienza)",
-        "Valutare una PR digitale mirata con comunicati stampa su testate locali (Corriere Romagna, Forlì Today) che aumentino la citabilità del brand nelle fonti indicizzate da entrambi i motori"
-      ]
-    }
-  ],
-  "note_metodologiche": [
-    "Alcune rilevazioni presentavano risposte vuote o non fornite da uno o entrambi i motori. In quei casi il punteggio è stato registrato come null e non incluso nel calcolo della media, per non falsare i dati aggregati.",
-    "In almeno un caso (Gemini — weekend enogastronomico) sono stati rilevati segnali di allucinazione: strutture citate che potrebbero non esistere o avere dati inesatti. Questo fenomeno conferma che la nicchia ricettiva dell'area collinare romagnola è ancora semanticamente poco presidiata, rendendo urgente e strategico un intervento GEO strutturato."
-  ]
-}
+    "domande": [
+      {"domanda": "Dove dormire vicino a Forlì e Cesena?", "presente": true, "punteggio": 7, "motore": "Perplexity", "competitor": ["Grand Hotel Forlì", "Hotel Lory Forlì", "Hotel Gardenia Forlì", "San Giorgio Sure Hotel Collection Forlì", "Hotel Romagna Cesena", "Boutique Hotel Villa Monty Banks", "Agriturismo Picchio Rosso", "La Lenticchia Agriturismo", "Monastero Sant'Alberico Relais", "Marina Suite Apartments", "Nido Suite & Apartments"]},
+      {"domanda": "Dove dormire vicino a Forlì e Cesena?", "presente": true, "punteggio": 8, "motore": "Gemini", "competitor": ["Agriturismo Campo Rosso", "Ca' Poggio", "Agriturismo I Merisi", "Agriturismo Picchio Rosso", "Hotel Panorama (Bertinoro)", "Albergo Colonna (Bertinoro)", "Ca' Bevilacqua B&B", "Agriturismo 7 Colonne", "Agriturismo al Colle", "Agriturismo Le Lucciole", "Agriturismo Le Saline", "Fattoria La Quercia", "CasinaSanFrancesco", "Country House I Quattro Passeri", "Villa Cerfoglio"]},
+      {"domanda": "Dove alloggiare per visitare le colline romagnole?", "presente": false, "punteggio": 0, "motore": "Perplexity", "competitor": ["Agriturismo al Colle", "Agriturismo 7 Colonne", "La Cana Dolce", "Ca' Bevilacqua B&B", "Hotel Panorama", "Albergo la Colonna", "Pecoranera", "Il Castellaccio", "Casa Paolina"]},
+      {"domanda": "Dove alloggiare per visitare le colline romagnole?", "presente": false, "punteggio": null, "motore": "Gemini", "competitor": []},
+      {"domanda": "Affitto breve nelle colline romagnole?", "presente": true, "punteggio": 7, "motore": "Perplexity", "competitor": ["Vigneto Cottage (Bertinoro)", "Idealista", "Trovit", "CaseVacanza.it", "HomeToGo", "Booking.com", "Holidu"]},
+      {"domanda": "Affitto breve nelle colline romagnole?", "presente": false, "punteggio": 0, "motore": "Gemini", "competitor": []},
+      {"domanda": "Dove dormire per visitare le cantine di Romagna?", "presente": true, "punteggio": 8, "motore": "Perplexity", "competitor": ["Borgo Condé Wine Resort", "Collina dei Poeti"]},
+      {"domanda": "Dove dormire per visitare le cantine di Romagna?", "presente": false, "punteggio": null, "motore": "Gemini", "competitor": []},
+      {"domanda": "Dove alloggiare per un weekend enogastronomico in Romagna?", "presente": true, "punteggio": 7, "motore": "Perplexity", "competitor": ["Borgo Condé Wine Resort", "Relais Villa Margherita", "DelleFarfalle Boutique B&B", "Castello di Viano", "Il Borgo Casteldelci Relais & Spa", "Antico Casolare del '700", "Il Brugnolo"]},
+      {"domanda": "Dove alloggiare per un weekend enogastronomico in Romagna?", "presente": true, "punteggio": 6, "motore": "Gemini", "allucinazione": true, "competitor": ["Agriturismo Poderi delle Rocche", "Agriturismo Borgo dei Calanchi", "Hotel Balestri (Bertinoro)", "Agriturismo Il Contadino", "Agriturismo La Colombaia", "Agriturismo Fattoria degli Usignoli", "Relais Palazzo di Lugugnana"]},
+      {"domanda": "Base ideale per esplorare la Romagna?", "presente": true, "punteggio": 7, "motore": "Perplexity", "competitor": ["Agriturismo al Colle", "Agriturismo 7 Colonne", "La Cana Dolce", "Ca' Bevilacqua", "Hotel Panorama", "Bed and Breakfast Chez Zinia", "LaPalina B&B", "Il Castellaccio"]},
+      {"domanda": "Base ideale per esplorare la Romagna?", "presente": false, "punteggio": 2, "motore": "Gemini", "competitor": ["Agriturismo Capocolle", "Agriturismo Le Lucciole", "Agriturismo le Saline", "Agriturismo al Colle", "Fattoria La Quercia", "Il Vigneto Cottage", "Hotel Panorama", "Albergo Colonna", "Residence Villa degli Ulivi"]},
+      {"domanda": "Dove staccare dalla routine vicino a Bologna?", "presente": true, "punteggio": 7, "motore": "Perplexity", "competitor": ["Relais Villa Margherita", "Podere Riosto Cantina & Agriturismo", "Country House Oliveto sul Lago (Varignana)", "Casale Il Sambuco sui colli bolognesi", "La Palazzina di Gorgognano", "Al Navile", "La Colombarola"]},
+      {"domanda": "Dove staccare dalla routine vicino a Bologna?", "presente": true, "punteggio": 7, "motore": "Gemini", "competitor": ["Agriturismo al Colle", "Agriturismo Le Lucciole", "Agriturismo le Saline", "Residence Villa degli Ulivi", "Hotel La Colonna", "Agriturismo 7 Colonne", "Agriturismo Fattoria la Quercia", "Grand Hotel Forlì", "Agriturismo Picchio Rosso", "Forlì City Residence"]},
+      {"domanda": "Posto ideale per un weekend romantico nelle colline romagnole?", "presente": false, "punteggio": 1, "motore": "Perplexity", "competitor": ["Relais Villa Margherita", "Borgo Condé Wine Resort", "DelleFarfalle Boutique B&B", "Oste del Castello Wellness e Bike Hotel"]},
+      {"domanda": "Posto ideale per un weekend romantico nelle colline romagnole?", "presente": false, "punteggio": 1, "motore": "Gemini", "competitor": []},
+      {"domanda": "Dove ricaricare le energie in Romagna?", "presente": true, "punteggio": 7, "motore": "Perplexity", "competitor": ["Agriturismo al Colle", "Agriturismo 7 Colonne", "La Cana Dolce", "Hotel Panorama", "Ca' Bevilacqua", "Pecoranera", "Albergo Colonna", "Il Vigneto Cottage", "Il Nido in Collina Bertinoro"]},
+      {"domanda": "Dove ricaricare le energie in Romagna?", "presente": false, "punteggio": 0, "motore": "Gemini", "competitor": []},
+      {"domanda": "Appartamento con cucina affitto breve Bertinoro?", "presente": false, "punteggio": 0, "motore": "Perplexity", "nota": "Casa Cavour compare come nome nell'elenco competitor ma non come risultato primario", "competitor": ["Expedia", "CaseVacanza.it", "HomeToGo", "Booking.com", "Airbnb", "Casa Cavour – Nel Cuore di Bertinoro"]},
+      {"domanda": "Appartamento con cucina affitto breve Bertinoro?", "presente": false, "punteggio": 1, "motore": "Gemini", "competitor": []}
+    ],
+    "azioni": [
+      "Completare al 100% le schede su Google Business Profile, TripAdvisor, Booking.com e Airbnb con descrizioni geolocalizzate, foto recenti e coerenza NAP su tutte le piattaforme",
+      "Produrre contenuti longform per le query ad alto valore non presidiate: weekend romantico, ricaricare le energie, base per esplorare la Romagna",
+      "Acquisire citazioni su fonti terze indicizzate dai motori AI: blog di viaggio, guide enogastronomiche, testate locali (Corriere Romagna, Forlì Today)"
+    ],
+    "report_url": "reports/report-geo-aeo-casa-cavour-2026-04-13.html"
+  }
+]
