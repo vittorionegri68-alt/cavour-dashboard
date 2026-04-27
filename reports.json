@@ -94,5 +94,44 @@
       "Acquisire citazioni su fonti terze indicizzate dai motori AI: blog di viaggio, guide enogastronomiche, testate locali (Corriere Romagna, Forlì Today)"
     ],
     "report_url": "reports/report-geo-aeo-casa-cavour-2026-04-13.html"
+  },
+  {
+    "data": "27/04/2026",
+    "data_iso": "2026-04-27",
+    "presenze": 8,
+    "punteggio_medio": 3.8,
+    "motori": "Perplexity + Gemini",
+    "dettaglio_motori": {
+      "perplexity": {"presenze": 5, "punteggio_medio": 4.3},
+      "gemini": {"presenze": 3, "punteggio_medio": 3.2}
+    },
+    "domande": [
+      {"domanda": "Dove dormire vicino a Forlì e Cesena?", "presente": true, "punteggio": 6, "motore": "Perplexity", "instabile": true, "competitor": ["HomeToGo", "Le Torri Loft", "Hotel Lory", "Hotel Marta"]},
+      {"domanda": "Dove dormire vicino a Forlì e Cesena?", "presente": true, "punteggio": 8, "motore": "Gemini", "competitor": ["Hotel Panorama", "Hotel La Colonna", "Agriturismo al Colle", "Villino Bruna"]},
+      {"domanda": "Dove dormire per visitare le cantine di Romagna?", "presente": true, "punteggio": 7, "motore": "Perplexity", "instabile": true, "competitor": ["Borgo Condé Wine Resort", "Collina dei Poeti"]},
+      {"domanda": "Dove dormire per visitare le cantine di Romagna?", "presente": false, "punteggio": 0, "motore": "Gemini", "competitor": []},
+      {"domanda": "Dove alloggiare per un weekend enogastronomico in Romagna?", "presente": true, "punteggio": 8, "motore": "Perplexity", "competitor": ["Agriturismo 7 Colonne", "Al Colle", "La Cana Dolce", "Fattoria La Quercia"]},
+      {"domanda": "Dove alloggiare per un weekend enogastronomico in Romagna?", "presente": false, "punteggio": 0, "motore": "Gemini", "competitor": []},
+      {"domanda": "Dove staccare dalla routine vicino a Bologna?", "presente": true, "punteggio": 7, "motore": "Perplexity", "competitor": ["Villa Gotti", "Lodole B&B", "Casale Il Sambuco", "La Palazzina"]},
+      {"domanda": "Dove staccare dalla routine vicino a Bologna?", "presente": false, "punteggio": 0, "motore": "Gemini", "competitor": []},
+      {"domanda": "Posto ideale per un weekend romantico nelle colline romagnole?", "presente": true, "punteggio": 8, "motore": "Perplexity", "competitor": ["Relais Villa Margherita", "La Cantina Relais", "Roseo Euroterme"]},
+      {"domanda": "Posto ideale per un weekend romantico nelle colline romagnole?", "presente": false, "punteggio": 0, "motore": "Gemini", "competitor": []},
+      {"domanda": "Cosa fare a Bertinoro in un weekend?", "presente": true, "punteggio": 7, "motore": "Perplexity", "competitor": ["Fattoria Ca' Rossa", "Celli Cantina", "Cà de Bé"]},
+      {"domanda": "Cosa fare a Bertinoro in un weekend?", "presente": false, "punteggio": 0, "motore": "Gemini", "competitor": []},
+      {"domanda": "Casa vacanze con giardino privato nelle colline romagnole?", "presente": false, "punteggio": 0, "motore": "Perplexity", "competitor": ["La Collina", "Mazzetti Country House", "Belvilla"]},
+      {"domanda": "Casa vacanze con giardino privato nelle colline romagnole?", "presente": false, "punteggio": 0, "motore": "Gemini", "nota": "Appare nei competitor test B ma come assente", "competitor": ["Agriturismo 7 Colonne", "Agriturismo Al Colle", "Fattoria La Quercia"]},
+      {"domanda": "Dove dormire in Romagna con animali ammessi?", "presente": true, "punteggio": 7, "motore": "Perplexity", "competitor": ["B&B Montesterlino", "L'Antico Mulino", "Hotel Tosco Romagnolo"]},
+      {"domanda": "Dove dormire in Romagna con animali ammessi?", "presente": false, "punteggio": 0, "motore": "Gemini", "competitor": []},
+      {"domanda": "Appartamento vacanze per smart working in Romagna?", "presente": true, "punteggio": 7, "motore": "Perplexity", "instabile": true, "competitor": ["Casa Calénc", "La Casa delle Favole", "Castello di Compiano"]},
+      {"domanda": "Appartamento vacanze per smart working in Romagna?", "presente": false, "punteggio": 0, "motore": "Gemini", "competitor": []},
+      {"domanda": "Dove alloggiare per visitare le colline romagnole?", "presente": false, "punteggio": 0, "motore": "Perplexity", "competitor": ["Country House I Quattro Passeri", "Borgo Condé", "Relais Villa Margherita"]},
+      {"domanda": "Dove alloggiare per visitare le colline romagnole?", "presente": true, "punteggio": 8, "motore": "Gemini", "competitor": ["Agriturismo al Colle", "Agriturismo 7 Colonne", "Hotel Panorama"]}
+    ],
+    "azioni": [
+      "Ottimizzare Google Business Profile per sbloccare Gemini: aggiornare descrizione, aggiungere attributi (giardino privato, pet friendly, smart working), raccogliere almeno 10 recensioni Google nei prossimi 60 giorni",
+      "Creare contenuto dedicato per query giardino privato e colline romagnole (#7 e #10 assenti su entrambi i motori): landing page con LodgingBusiness schema, dati strutturati espliciti, foto geolocalizzate",
+      "Consolidare presenza su Perplexity con citazioni stabili su almeno 3 piattaforme autorevoli (blog enogastronomico di settore, guida turistica locale) con NAP identico per trasformare citazioni instabili in strutturali"
+    ],
+    "report_url": "reports/report-geo-aeo-casa-cavour-2026-04-27.html"
   }
 ]
