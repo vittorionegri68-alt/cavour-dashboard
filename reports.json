@@ -67,12 +67,8 @@
       "gemini": {"presenze": 3, "punteggio_medio": 2.3}
     },
     "domande": [
-      {"domanda": "Dove dormire vicino a Forlì e Cesena?", "presente": true, "punteggio": 7, "motore": "Perplexity", "competitor": ["Grand Hotel Forlì", "Hotel Lory Forlì", "Hotel Gardenia Forlì", "San Giorgio Sure Hotel Collection Forlì", "Hotel Romagna Cesena", "Boutique Hotel Villa Monty Banks", "Agriturismo Picchio Rosso", "La Lenticchia Agriturismo", "Monastero Sant'Alberico Relais", "Marina Suite Apartments", "Nido Suite & Apartments"]},
-      {"domanda": "Dove dormire vicino a Forlì e Cesena?", "presente": true, "punteggio": 8, "motore": "Gemini", "competitor": ["Agriturismo Campo Rosso", "Ca' Poggio", "Agriturismo I Merisi", "Agriturismo Picchio Rosso", "Hotel Panorama (Bertinoro)", "Albergo Colonna (Bertinoro)", "Ca' Bevilacqua B&B", "Agriturismo 7 Colonne", "Agriturismo al Colle", "Agriturismo Le Lucciole", "Agriturismo Le Saline", "Fattoria La Quercia", "CasinaSanFrancesco", "Country House I Quattro Passeri", "Villa Cerfoglio"]},
-      {"domanda": "Dove alloggiare per visitare le colline romagnole?", "presente": false, "punteggio": 0, "motore": "Perplexity", "competitor": ["Agriturismo al Colle", "Agriturismo 7 Colonne", "La Cana Dolce", "Ca' Bevilacqua B&B", "Hotel Panorama", "Albergo la Colonna", "Pecoranera", "Il Castellaccio", "Casa Paolina"]},
-      {"domanda": "Dove alloggiare per visitare le colline romagnole?", "presente": false, "punteggio": null, "motore": "Gemini", "competitor": []},
-      {"domanda": "Affitto breve nelle colline romagnole?", "presente": true, "punteggio": 7, "motore": "Perplexity", "competitor": ["Vigneto Cottage (Bertinoro)", "Idealista", "Trovit", "CaseVacanza.it", "HomeToGo", "Booking.com", "Holidu"]},
-      {"domanda": "Affitto breve nelle colline romagnole?", "presente": false, "punteggio": 0, "motore": "Gemini", "competitor": []},
+      {"domanda": "Dove dormire vicino a Forlì e Cesena?", "presente": true, "punteggio": 8, "motore": "Perplexity", "competitor": ["Grand Hotel Forlì", "Hotel Lory", "Hotel Gardenia"]},
+      {"domanda": "Dove dormire vicino a Forlì e Cesena?", "presente": true, "punteggio": 6, "motore": "Gemini", "competitor": ["Agriturismo al Colle", "Agriturismo 7 Colonne", "Hotel Panorama"]},
       {"domanda": "Dove dormire per visitare le cantine di Romagna?", "presente": true, "punteggio": 8, "motore": "Perplexity", "competitor": ["Borgo Condé Wine Resort", "Collina dei Poeti"]},
       {"domanda": "Dove dormire per visitare le cantine di Romagna?", "presente": false, "punteggio": null, "motore": "Gemini", "competitor": []},
       {"domanda": "Dove alloggiare per un weekend enogastronomico in Romagna?", "presente": true, "punteggio": 7, "motore": "Perplexity", "competitor": ["Borgo Condé Wine Resort", "Relais Villa Margherita", "DelleFarfalle Boutique B&B", "Castello di Viano", "Il Borgo Casteldelci Relais & Spa", "Antico Casolare del '700", "Il Brugnolo"]},
@@ -133,5 +129,45 @@
       "Consolidare presenza su Perplexity con citazioni stabili su almeno 3 piattaforme autorevoli (blog enogastronomico di settore, guida turistica locale) con NAP identico per trasformare citazioni instabili in strutturali"
     ],
     "report_url": "reports/report-geo-aeo-casa-cavour-2026-04-27.html"
+  },
+  {
+    "data": "18/05/2026",
+    "data_iso": "2026-05-18",
+    "presenze": 8,
+    "punteggio_medio": 4.2,
+    "motori": "Perplexity + Gemini",
+    "dettaglio_motori": {
+      "perplexity": {"presenze": 4, "punteggio_medio": 3.8},
+      "gemini": {"presenze": 4, "punteggio_medio": 4.6}
+    },
+    "nota_metodologica": "Ogni domanda testata con run A e run B. Punteggio e presenza determinati dal risultato più favorevole tra i due run. Punteggi N/D trattati come 0 nel calcolo della media.",
+    "domande": [
+      {"domanda": "Dove dormire vicino a Forlì e Cesena?", "perplexity": {"presente": true, "punteggio": 8}, "gemini": {"presente": true, "punteggio": 8}, "competitor_perplexity": ["Monastero Sant'Alberico Relais", "Villa Monty Banks", "Hotel Executive Forlì", "Grand Hotel Forlì", "Hotel La Rocca"], "competitor_gemini": ["Agriturismo Collinello", "Albergo Colonna", "Hotel Panorama", "Agriturismo 7 Colonne", "Villa Monty Banks", "Le Essenze"]},
+      {"domanda": "Dove dormire per visitare le cantine di Romagna?", "perplexity": {"presente": true, "punteggio": 8}, "gemini": {"presente": false, "punteggio": 0}, "competitor_perplexity": ["Borgo Condé Wine Resort", "Borgo Fratta", "Villa Monty Banks", "Tenuta del Monsignore", "Roncolo 1888"], "competitor_gemini": []},
+      {"domanda": "Dove alloggiare per weekend enogastronomico in Romagna?", "perplexity": {"presente": false, "punteggio": 1}, "gemini": {"presente": true, "punteggio": 7}, "competitor_perplexity": ["Agriturismo Bio Terra di Mezzo", "Osteria del Povero Diavolo", "Locanda della Fortuna", "Agriturismo i Quercioli"], "competitor_gemini": ["Agriturismo Poderi delle Rocche", "Agriturismo Le Vigne", "Rio del Sol", "Relais Villa Roncuni", "Ca' Bevilacqua"]},
+      {"domanda": "Dove staccare dalla routine vicino a Bologna?", "perplexity": {"presente": true, "punteggio": 7}, "gemini": {"presente": true, "punteggio": 8}, "competitor_perplexity": ["Relais Villa Margherita", "Country House Oliveto sul Lago", "Casale Il Sambuco"], "competitor_gemini": ["Agriturismo al Colle", "Podere Baratta", "Agriturismo Le Saline", "Respiro Glamping", "Le Essenze Agriturismo"]},
+      {"domanda": "Posto ideale per weekend romantico nelle colline romagnole?", "perplexity": {"presente": false, "punteggio": 0}, "gemini": {"presente": true, "punteggio": 7}, "competitor_perplexity": ["Borgo Condé Wine Resort", "Relais Villa Margherita", "Country House I Quattro Passeri", "Corte San Ruffillo"], "competitor_gemini": ["Poggio di Fiori", "Borgo Condé Wine Resort", "Palazzo Astolfi", "Agriturismo Il Casale 1837", "Relais Fattoria Teodorico"]},
+      {"domanda": "Cosa fare a Bertinoro in un weekend?", "perplexity": {"presente": true, "punteggio": 7}, "gemini": {"presente": true, "punteggio": 8}, "competitor_perplexity": ["Fattoria Ca' Rossa", "Cà de Bé", "Colonna Panorama", "Celli Cantina"], "competitor_gemini": ["Agriturismo Le Lucciole", "Podere Baratta", "Agriturismo 7 Colonne", "Albergo Colonna", "Hotel Panorama", "B&B Tenuta Diavoletto"]},
+      {"domanda": "Casa vacanze con giardino privato nelle colline romagnole?", "perplexity": {"presente": false, "punteggio": 6}, "gemini": {"presente": false, "punteggio": 0}, "nota": "Perplexity punteggio 6 ma non citata come presente (run best-of-2)", "competitor_perplexity": ["Casa immersa nelle colline romagnole", "Mazzetti Country House", "Belvilla", "Casa Fiore"], "competitor_gemini": ["Villa Loretta", "Agriturismo Al Colle", "Borgo Condé Wine Resort", "Cà Bevilacqua"]},
+      {"domanda": "Dove dormire in Romagna con animali ammessi?", "perplexity": {"presente": false, "punteggio": 0}, "gemini": {"presente": false, "punteggio": 0}, "competitor_perplexity": ["Agriturismo Il Cavicchio", "Ca' Laura", "Agriturismo Le Occare", "BorgoGuerzano77", "Villa Gelsomina"], "competitor_gemini": []},
+      {"domanda": "Appartamento vacanze per smart working in Romagna?", "perplexity": {"presente": true, "punteggio": 7}, "gemini": {"presente": true, "punteggio": 6}, "competitor_perplexity": ["Casa Calénc", "Tenuta La Razza", "Al Vecchio Convento", "Club del Sole Smart Working Village"], "competitor_gemini": ["Casa Calénc", "Il Rudere Teodorano", "Castello di Ferrano", "Albergo Romagna", "Casa Mamò"]},
+      {"domanda": "Dove alloggiare per visitare le colline romagnole?", "perplexity": {"presente": true, "punteggio": 8}, "gemini": {"presente": false, "punteggio": 0}, "competitor_perplexity": ["Borgo Condé Wine Resort", "Relais Villa Margherita", "Country House I Quattro Passeri", "DelleFarfalle Boutique B&B"], "competitor_gemini": []}
+    ],
+    "competitor_principali": [
+      {"nome": "Borgo Condé Wine Resort", "apparizioni": 5, "perplexity": 3, "gemini": 2},
+      {"nome": "Agriturismo Le Lucciole", "apparizioni": 3, "perplexity": 0, "gemini": 3},
+      {"nome": "Relais Villa Margherita", "apparizioni": 3, "perplexity": 3, "gemini": 0},
+      {"nome": "Villa Monty Banks", "apparizioni": 3, "perplexity": 2, "gemini": 1},
+      {"nome": "Albergo Colonna", "apparizioni": 3, "perplexity": 0, "gemini": 3},
+      {"nome": "Country House I Quattro Passeri", "apparizioni": 3, "perplexity": 2, "gemini": 1},
+      {"nome": "Casa Calénc", "apparizioni": 3, "perplexity": 1, "gemini": 2},
+      {"nome": "Podere Baratta", "apparizioni": 2, "perplexity": 0, "gemini": 2}
+    ],
+    "azioni": [
+      "Creare pagine tematiche dedicate alle query ad alto intento esperienziale (romantico, enogastronomia, pet-friendly, giardino privato) con LodgingBusiness schema + amenities specifiche + FAQ georeferenziate",
+      "Uniformare e potenziare la presenza sull'ecosistema Google (GBP attributi pet-friendly, smart working, giardino; recensioni recenti che menzionino queste caratteristiche; immagini ottimizzate) per ridurre la disparità Perplexity/Gemini",
+      "Costruire autorevolezza editoriale con contenuti citabili su fonti terze autorevoli (blog di settore, portali turistici regionali) replicando il modello Borgo Condé Wine Resort"
+    ],
+    "report_url": "reports/report-geo-aeo-casa-cavour-2026-05-18.html"
   }
 ]
