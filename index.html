@@ -171,6 +171,57 @@
     margin-bottom: 40px;
   }
 
+  /* MOTORI KPI */
+  .motori-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-bottom: 40px;
+  }
+  .motore-card {
+    background: var(--white);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 24px;
+    position: relative;
+    overflow: hidden;
+  }
+  .motore-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+  }
+  .motore-card.perplexity::before { background: #5b4fcf; }
+  .motore-card.gemini::before { background: #1a73e8; }
+  .motore-label {
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .motore-stats {
+    display: flex;
+    gap: 24px;
+  }
+  .motore-stat .stat-val {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2rem;
+    font-weight: 600;
+    color: var(--gold);
+    line-height: 1;
+  }
+  .motore-stat .stat-lbl {
+    font-size: 0.75rem;
+    color: var(--muted);
+    margin-top: 4px;
+  }
+
   /* DOMANDE TABLE */
   .domande-wrap {
     background: var(--white);
@@ -181,7 +232,7 @@
   }
   .domande-header {
     display: grid;
-    grid-template-columns: 1fr 100px 80px;
+    grid-template-columns: 1fr 110px 110px 80px;
     padding: 12px 24px;
     background: var(--gold-faint);
     border-bottom: 1px solid var(--line);
@@ -193,7 +244,7 @@
   }
   .domanda-row {
     display: grid;
-    grid-template-columns: 1fr 100px 80px;
+    grid-template-columns: 1fr 110px 110px 80px;
     padding: 16px 24px;
     border-bottom: 1px solid var(--line);
     align-items: center;
@@ -331,7 +382,7 @@
     .page { padding: 24px 16px; }
     .kpi-row { grid-template-columns: 1fr 1fr; }
     .trend-row { grid-template-columns: 1fr; }
-    .domande-header, .domanda-row { grid-template-columns: 1fr 90px 60px; }
+    .domande-header, .domanda-row { grid-template-columns: 1fr 80px 80px 50px; font-size: 0.78rem; }
     .site-header { padding: 0 16px; }
     .site-footer { flex-direction: column; gap: 8px; text-align: center; }
   }
@@ -372,6 +423,36 @@
     </div>
   </div>
 
+  <!-- MOTORI KPI -->
+  <div class="motori-row">
+    <div class="motore-card perplexity">
+      <div class="motore-label">🔵 Perplexity</div>
+      <div class="motore-stats">
+        <div class="motore-stat">
+          <div class="stat-val" id="perp-presenze">—</div>
+          <div class="stat-lbl">presenze / 10</div>
+        </div>
+        <div class="motore-stat">
+          <div class="stat-val" id="perp-media">—</div>
+          <div class="stat-lbl">media /10</div>
+        </div>
+      </div>
+    </div>
+    <div class="motore-card gemini">
+      <div class="motore-label">🔷 Gemini</div>
+      <div class="motore-stats">
+        <div class="motore-stat">
+          <div class="stat-val" id="gem-presenze">—</div>
+          <div class="stat-lbl">presenze / 10</div>
+        </div>
+        <div class="motore-stat">
+          <div class="stat-val" id="gem-media">—</div>
+          <div class="stat-lbl">media /10</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- GRAFICO STORICO -->
   <div class="chart-wrap">
     <div class="section-title"><span class="icon">📈</span> Andamento storico</div>
@@ -385,7 +466,8 @@
   <div class="domande-wrap">
     <div class="domande-header">
       <div>Domanda</div>
-      <div>Presenza</div>
+      <div>Perplexity</div>
+      <div>Gemini</div>
       <div>Punteggio</div>
     </div>
     <div id="domande-list"></div>
@@ -396,6 +478,10 @@
   <div class="competitor-wrap">
     <div class="competitor-list" id="competitor-list"></div>
   </div>
+
+  <!-- SINTESI -->
+  <div class="section-title"><span class="icon">💡</span> Sintesi e pattern</div>
+  <div class="sintesi-wrap" id="sintesi-wrap" style="background:var(--white);border:1px solid var(--line);border-radius:12px;padding:28px;margin-bottom:40px;font-size:0.9rem;line-height:1.75;color:var(--mid)"></div>
 
   <!-- AZIONI -->
   <div class="azioni-wrap">
@@ -409,7 +495,7 @@
 </main>
 
 <footer class="site-footer">
-  <span>Romagna Affitti Brevi — Sistema di monitoraggio GEO/AEO</span>
+  <span>Casa Cavour Bertinoro — Sistema di monitoraggio GEO/AEO</span>
   <span id="footer-date"></span>
 </footer>
 
@@ -446,10 +532,21 @@ function loadRun(dataIso) {
   const report = allReports.find(r => r.data_iso === dataIso);
   if (!report) return;
 
-  // KPI
+  // KPI generali
   document.getElementById('kpi-presenze').textContent = report.presenze;
   document.getElementById('kpi-presenze-sub').textContent = `present${report.presenze === 1 ? 'e' : 'i'} su 10 domande`;
   document.getElementById('kpi-punteggio').textContent = report.punteggio_medio.toFixed(1);
+
+  // KPI per motore — fallback per report vecchi senza dettaglio_motori
+  const dm = report.dettaglio_motori || {};
+  const perpPres  = dm.perplexity ? dm.perplexity.presenze    : '—';
+  const perpMedia = dm.perplexity ? dm.perplexity.punteggio_medio.toFixed(1) : '—';
+  const gemPres   = dm.gemini     ? dm.gemini.presenze         : '—';
+  const gemMedia  = dm.gemini     ? dm.gemini.punteggio_medio.toFixed(1)  : '—';
+  document.getElementById('perp-presenze').textContent = perpPres;
+  document.getElementById('perp-media').textContent    = perpMedia;
+  document.getElementById('gem-presenze').textContent  = gemPres;
+  document.getElementById('gem-media').textContent     = gemMedia;
 
   // Trend
   const idx = allReports.findIndex(r => r.data_iso === dataIso);
@@ -469,43 +566,124 @@ function loadRun(dataIso) {
   document.getElementById('run-status').textContent = `Analisi del ${report.data}`;
   document.getElementById('footer-date').textContent = `Ultimo aggiornamento: ${report.data}`;
 
-  // Domande
+  // Domande — colonne Perplexity + Gemini separate
+  // Compatibile con struttura vecchia (d.presente) e nuova (d.perplexity / d.gemini)
   const domList = document.getElementById('domande-list');
   domList.innerHTML = '';
+
+  // Deduplica domande: se report vecchio ha righe duplicate per motore, prendi una per domanda
+  const dominandeUniche = [];
+  const viste = new Set();
   report.domande.forEach(d => {
+    const key = d.domanda.replace(/\s+/g, ' ').trim();
+    if (!viste.has(key)) {
+      viste.add(key);
+      dominandeUniche.push(d);
+    }
+  });
+
+  dominandeUniche.forEach(d => {
     const row = document.createElement('div');
     row.className = 'domanda-row';
+
+    // Struttura nuova (18/05+): d.perplexity e d.gemini sono oggetti
+    // Struttura vecchia: d.presente (booleano unico) o d.motore (stringa)
+    let perpPresente, gemPresente, score;
+
+    if (d.perplexity !== undefined && d.gemini !== undefined) {
+      // Struttura nuova
+      perpPresente = d.perplexity.presente;
+      gemPresente  = d.gemini.presente;
+      // Punteggio: media dei due, ignorando 0 se assente
+      const pVals = [d.perplexity.punteggio, d.gemini.punteggio].filter(v => v > 0);
+      score = pVals.length ? (pVals.reduce((a,b) => a+b, 0) / pVals.length).toFixed(1) : '0';
+    } else if (d.motore) {
+      // Struttura intermedia (report con righe per motore) — usa la prima occorrenza
+      perpPresente = d.motore === 'Perplexity' ? d.presente : null;
+      gemPresente  = d.motore === 'Gemini'     ? d.presente : null;
+      // Cerca la riga gemella nello stesso report
+      const gemella = report.domande.find(x =>
+        x !== d &&
+        x.domanda.replace(/\s+/g, ' ').trim() === d.domanda.replace(/\s+/g, ' ').trim()
+      );
+      if (gemella) {
+        if (gemella.motore === 'Perplexity') perpPresente = gemella.presente;
+        if (gemella.motore === 'Gemini')     gemPresente  = gemella.presente;
+      }
+      score = d.punteggio != null ? d.punteggio : '—';
+    } else {
+      // Struttura vecchia (singola colonna)
+      perpPresente = d.presente;
+      gemPresente  = null;
+      score = d.punteggio != null ? d.punteggio : '—';
+    }
+
+    const badgePerp = perpPresente === null
+      ? '<span style="color:var(--muted);font-size:0.75rem">—</span>'
+      : `<span class="badge ${perpPresente ? 'presente' : 'assente'}">${perpPresente ? '✅ SÌ' : '❌ NO'}</span>`;
+    const badgeGem = gemPresente === null
+      ? '<span style="color:var(--muted);font-size:0.75rem">—</span>'
+      : `<span class="badge ${gemPresente ? 'presente' : 'assente'}">${gemPresente ? '✅ SÌ' : '❌ NO'}</span>`;
+
     row.innerHTML = `
       <div class="q-text">${d.domanda}</div>
-      <div><span class="badge ${d.presente ? 'presente' : 'assente'}">${d.presente ? '✅ Presente' : '❌ Assente'}</span></div>
-      <div><span class="score-pill">${d.punteggio}/10</span></div>
+      <div>${badgePerp}</div>
+      <div>${badgeGem}</div>
+      <div><span class="score-pill">${score}/10</span></div>
     `;
     domList.appendChild(row);
   });
 
-  // Competitor
-  const compMap = {};
-  report.domande.forEach(d => {
-    (d.competitor || []).forEach(c => {
-      compMap[c] = (compMap[c] || 0) + 1;
-    });
-  });
-  const sorted = Object.entries(compMap).sort((a,b) => b[1]-a[1]).slice(0, 10);
-  const maxCount = sorted[0]?.[1] || 1;
+  // Competitor — usa competitor_principali se presente (report nuovo),
+  // altrimenti calcola da competitor_perplexity + competitor_gemini
   const compList = document.getElementById('competitor-list');
   compList.innerHTML = '';
-  sorted.forEach(([name, count]) => {
+
+  let competitors = [];
+  if (report.competitor_principali && report.competitor_principali.length) {
+    competitors = report.competitor_principali.map(c => ({
+      nome: c.nome,
+      totale: c.apparizioni,
+      perplexity: c.perplexity || 0,
+      gemini: c.gemini || 0
+    }));
+  } else {
+    // Fallback: calcola dai campi competitor delle domande
+    const compMap = {};
+    report.domande.forEach(d => {
+      ['competitor', 'competitor_perplexity', 'competitor_gemini'].forEach(field => {
+        (d[field] || []).forEach(c => {
+          if (!compMap[c]) compMap[c] = { totale: 0, perplexity: 0, gemini: 0 };
+          compMap[c].totale++;
+          if (field === 'competitor_perplexity') compMap[c].perplexity++;
+          if (field === 'competitor_gemini')     compMap[c].gemini++;
+          if (field === 'competitor')            compMap[c].perplexity++;
+        });
+      });
+    });
+    competitors = Object.entries(compMap)
+      .map(([nome, v]) => ({ nome, ...v }))
+      .sort((a, b) => b.totale - a.totale)
+      .slice(0, 10);
+  }
+
+  const maxCount = competitors[0] ? competitors[0].totale : 1;
+  competitors.forEach(c => {
     const item = document.createElement('div');
     item.className = 'competitor-item';
     item.innerHTML = `
-      <div class="competitor-name">${name}</div>
+      <div class="competitor-name">${c.nome}</div>
       <div class="competitor-count">
-        <div class="competitor-bar"><div class="competitor-bar-fill" style="width:${(count/maxCount)*100}%"></div></div>
-        ${count} ${count === 1 ? 'apparizione' : 'apparizioni'}
+        <div class="competitor-bar"><div class="competitor-bar-fill" style="width:${(c.totale/maxCount)*100}%"></div></div>
+        ${c.totale} app. &nbsp;<span style="color:var(--muted);font-size:0.75rem">(P:${c.perplexity} G:${c.gemini})</span>
       </div>
     `;
     compList.appendChild(item);
   });
+
+  // Sintesi
+  const sintesiEl = document.getElementById('sintesi-wrap');
+  sintesiEl.textContent = report.sintesi || '';
 
   // Azioni
   const azioniList = document.getElementById('azioni-list');
@@ -533,9 +711,11 @@ function renderChart() {
   const ctx = document.getElementById('trendChart').getContext('2d');
   if (currentChart) currentChart.destroy();
 
-  const labels = allReports.map(r => r.data);
-  const presenze = allReports.map(r => r.presenze);
-  const punteggi = allReports.map(r => r.punteggio_medio);
+  const labels    = allReports.map(r => r.data);
+  const presenze  = allReports.map(r => r.presenze);
+  const punteggi  = allReports.map(r => r.punteggio_medio);
+  const perpMedia = allReports.map(r => r.dettaglio_motori?.perplexity?.punteggio_medio ?? null);
+  const gemMedia  = allReports.map(r => r.dettaglio_motori?.gemini?.punteggio_medio ?? null);
 
   currentChart = new Chart(ctx, {
     type: 'line',
@@ -558,13 +738,38 @@ function renderChart() {
           label: 'Punteggio medio',
           data: punteggi,
           borderColor: '#c9a05a',
-          backgroundColor: 'rgba(201,160,90,0.05)',
           borderWidth: 2,
           borderDash: [5, 4],
           pointBackgroundColor: '#c9a05a',
           pointRadius: 5,
           tension: 0.3,
           fill: false,
+          yAxisID: 'y2'
+        },
+        {
+          label: 'Perplexity media',
+          data: perpMedia,
+          borderColor: '#5b4fcf',
+          borderWidth: 1.5,
+          borderDash: [3, 3],
+          pointBackgroundColor: '#5b4fcf',
+          pointRadius: 4,
+          tension: 0.3,
+          fill: false,
+          spanGaps: true,
+          yAxisID: 'y2'
+        },
+        {
+          label: 'Gemini media',
+          data: gemMedia,
+          borderColor: '#1a73e8',
+          borderWidth: 1.5,
+          borderDash: [3, 3],
+          pointBackgroundColor: '#1a73e8',
+          pointRadius: 4,
+          tension: 0.3,
+          fill: false,
+          spanGaps: true,
           yAxisID: 'y2'
         }
       ]
