@@ -210,5 +210,85 @@
       "Aumentare la presenza su Google Business Profile e fonti indicizzate da Gemini: aggiornare GBP con descrizioni ricche, attributi specifici e foto recenti; ottenere menzioni su testate riconosciute da Google per replicare su Gemini la visibilita' gia' acquisita su Perplexity."
     ],
     "report_url": "reports/report-geo-aeo-casa-cavour-2026-06-01.html"
+  },
+  {
+    "data": "07/07/2026",
+    "data_iso": "2026-07-07",
+    "presenze": 6,
+    "punteggio_medio": 3.3,
+    "motori": "Perplexity + Gemini",
+    "dettaglio_motori": {
+      "perplexity": {"presenze": 3, "punteggio_medio": 3.3},
+      "gemini": {"presenze": 3, "punteggio_medio": 3.3}
+    },
+    "sintesi": "Casa Cavour performa esclusivamente nelle domande a intento geografico generico o enogastronomico (#1, #2, #3, #4, #6), dove i motori aggregano strutture dell'area Forli'-Cesena-Bertinoro in modo ampio. E' invece completamente assente nelle query a intento specifico e verticale, romantico, pet-friendly, smart working, giardino privato, dove non esistono contenuti dedicati sul sito che segnalino quegli attributi ai modelli generativi. Il gap tra Perplexity e Gemini e' contenuto (entrambi 3.3/10), ma con profili diversi: Perplexity premia struttura e citazioni da fonti terze autorevoli, Gemini privilegia il linguaggio narrativo-esperienziale e la coerenza tra fonti Google-native. I competitor piu' solidi, Agriturismo 7 Colonne, Borgo Conde Wine Resort, Agriturismo al Colle, appaiono trasversalmente su quasi tutte le query e su entrambi i motori.",
+    "domande": [
+      {
+        "domanda": "Dove dormire vicino a Forli' e Cesena?",
+        "perplexity": {"presente": true, "punteggio": 8, "competitor": ["Podere Quartarola", "Le Torri Loft", "Hotel Villa Maria"]},
+        "gemini": {"presente": true, "punteggio": 8, "competitor": ["Agriturismo Le Lucciole", "Borgo Conde Wine Resort", "Agriturismo 7 Colonne"]}
+      },
+      {
+        "domanda": "Dove dormire per visitare le cantine di Romagna?",
+        "perplexity": {"presente": true, "punteggio": 8, "competitor": ["Borgo Cadonega Relais", "Tenuta Carbognano", "Tenuta Mara Wine Relais"]},
+        "gemini": {"presente": true, "punteggio": 8, "competitor": ["Borgo Conde Wine Resort", "Agriturismo 7 Colonne", "Tenuta La Viola"]}
+      },
+      {
+        "domanda": "Dove alloggiare per un weekend enogastronomico in Romagna?",
+        "perplexity": {"presente": true, "punteggio": 7, "competitor": ["Relais Roncolo 1888", "Tenuta Carbognano", "Agriturismo La Lepre Bianca"]},
+        "gemini": {"presente": true, "punteggio": 8, "competitor": ["Agriturismo 7 Colonne", "Podere Baratta", "Borgo Conde Wine Resort"]}
+      },
+      {
+        "domanda": "Dove staccare dalla routine vicino a Bologna?",
+        "perplexity": {"presente": true, "punteggio": 8, "competitor": ["Borgo Conde Wine Resort", "DelleFarfalle Boutique B&B", "Rio Sabbioso"]},
+        "gemini": {"presente": true, "punteggio": 7, "competitor": ["Agriturismo Poderi dal Nespoli", "Fattoria Ca' Rossa", "Ca' Bevilacqua"]}
+      },
+      {
+        "domanda": "Posto ideale per un weekend romantico nelle colline romagnole?",
+        "perplexity": {"presente": false, "punteggio": 0, "competitor": ["Borgo Conde Wine Resort", "Relais Villa Margherita", "Hotel Lory"]},
+        "gemini": {"presente": false, "punteggio": 0, "competitor": ["Agriturismo Le Vigne di Giorgio", "Grand Hotel Terme della Fratta"]}
+      },
+      {
+        "domanda": "Cosa fare a Bertinoro in un weekend?",
+        "perplexity": {"presente": true, "punteggio": 7, "competitor": ["Hotel Panorama", "Albergo Colonna", "Agriturismo al Colle"]},
+        "gemini": {"presente": false, "punteggio": 2, "competitor": ["Hotel Panorama", "Agriturismo Le Lucciole", "Agriturismo 7 Colonne"]}
+      },
+      {
+        "domanda": "Casa vacanze con giardino privato nelle colline romagnole?",
+        "perplexity": {"presente": false, "punteggio": 0, "competitor": ["La Malvina", "Villa di classe A - Dimore by Camisa", "La Piccola Corte"]},
+        "gemini": {"presente": false, "punteggio": 0, "competitor": ["Agriturismo al Colle", "Residence Villa degli Ulivi"]}
+      },
+      {
+        "domanda": "Dove dormire in Romagna con animali ammessi?",
+        "perplexity": {"presente": false, "punteggio": 0, "competitor": ["Agriturismo 7 Colonne", "Agriturismo al Colle", "Podere Baratta"]},
+        "gemini": {"presente": false, "punteggio": 0, "competitor": ["Agriturismo 7 Colonne", "Agriturismo al Colle", "Podere Baratta"]}
+      },
+      {
+        "domanda": "Appartamento vacanze per smart working in Romagna?",
+        "perplexity": {"presente": false, "punteggio": 0, "competitor": ["Al Vecchio Convento", "Casa Calenc", "Hotel La Rocca"]},
+        "gemini": {"presente": false, "punteggio": 0, "competitor": []}
+      },
+      {
+        "domanda": "Dove alloggiare per visitare le colline romagnole?",
+        "perplexity": {"presente": false, "punteggio": 0, "competitor": ["Agriturismo al Colle", "Agriturismo 7 Colonne", "Casa Cavour (citata solo come competitor, non come risposta diretta)"]},
+        "gemini": {"presente": false, "punteggio": 0, "competitor": ["Agriturismo al Colle", "Borgo Conde Wine Resort", "Locanda Gradisca"]}
+      }
+    ],
+    "competitor_principali": [
+      {"nome": "Agriturismo 7 Colonne", "apparizioni": 8, "perplexity": 3, "gemini": 5},
+      {"nome": "Borgo Conde Wine Resort", "apparizioni": 8, "perplexity": 4, "gemini": 4},
+      {"nome": "Agriturismo al Colle", "apparizioni": 7, "perplexity": 3, "gemini": 4},
+      {"nome": "Podere Baratta", "apparizioni": 6, "perplexity": 2, "gemini": 4},
+      {"nome": "Agriturismo Le Lucciole", "apparizioni": 4, "perplexity": 1, "gemini": 3},
+      {"nome": "Hotel Panorama", "apparizioni": 4, "perplexity": 2, "gemini": 2},
+      {"nome": "Tenuta Carbognano", "apparizioni": 3, "perplexity": 3, "gemini": 0},
+      {"nome": "Locanda Gradisca", "apparizioni": 3, "perplexity": 0, "gemini": 3}
+    ],
+    "azioni": [
+      "Creare pagine di destinazione verticali per gli attributi assenti (soggiorno romantico, pet policy, giardino privato, smart working) con descrizioni specifiche, schema.org LodgingBusiness e keyword long-tail geografiche.",
+      "Rafforzare la presenza su fonti terze autorevoli indicizzate da Perplexity e Gemini (TripAdvisor, Booking, blog di enogastronomia e turismo rurale romagnolo, agriturismi.it) con menzione esplicita di nome, localita' e attributi distintivi.",
+      "Ottimizzare Google Business Profile con contenuti narrativi e markup E-E-A-T: descrizioni esperienziali, foto geolocalizzate, Q&A strutturate e risposta sistematica alle recensioni."
+    ],
+    "report_url": "reports/report-geo-aeo-casa-cavour-2026-07-07.html"
   }
 ]
