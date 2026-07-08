@@ -289,6 +289,14 @@
     border-bottom: 1px solid var(--line);
   }
   .competitor-item:last-child { border-bottom: none; }
+  .competitor-item.casa-cavour {
+    background: var(--gold-faint);
+    border-radius: 8px;
+    padding: 10px 14px;
+    margin-bottom: 10px;
+    border-bottom: none;
+  }
+  .competitor-item.casa-cavour .competitor-name { font-weight: 600; color: var(--gold); }
   .competitor-name { font-size: 0.9rem; color: var(--dark); }
   .competitor-count {
     display: flex;
@@ -598,19 +606,26 @@ function loadRun(dataIso) {
       const pVals = [d.perplexity.punteggio, d.gemini.punteggio].filter(v => v > 0);
       score = pVals.length ? (pVals.reduce((a,b) => a+b, 0) / pVals.length).toFixed(1) : '0';
     } else if (d.motore) {
-      // Struttura intermedia (report con righe per motore) — usa la prima occorrenza
+      // Struttura intermedia (report con righe per motore)
       perpPresente = d.motore === 'Perplexity' ? d.presente : null;
       gemPresente  = d.motore === 'Gemini'     ? d.presente : null;
-      // Cerca la riga gemella nello stesso report
+      let perpScore = d.motore === 'Perplexity' ? d.punteggio : null;
+      let gemScore  = d.motore === 'Gemini'     ? d.punteggio : null;
+      // Cerca la riga gemella nello stesso report (corretto in sessione #14:
+      // prima veniva usata solo la prima riga trovata, sempre Perplexity per
+      // ordine nel JSON, scartando il punteggio Gemini)
       const gemella = report.domande.find(x =>
         x !== d &&
         x.domanda.replace(/\s+/g, ' ').trim() === d.domanda.replace(/\s+/g, ' ').trim()
       );
       if (gemella) {
-        if (gemella.motore === 'Perplexity') perpPresente = gemella.presente;
-        if (gemella.motore === 'Gemini')     gemPresente  = gemella.presente;
+        if (gemella.motore === 'Perplexity') { perpPresente = gemella.presente; perpScore = gemella.punteggio; }
+        if (gemella.motore === 'Gemini')     { gemPresente  = gemella.presente; gemScore  = gemella.punteggio; }
       }
-      score = d.punteggio != null ? d.punteggio : '—';
+      // Punteggio: media dei due motori, ignorando 0 se assente (stessa logica della struttura nuova)
+      const pVals = [perpScore, gemScore].filter(v => v != null && v > 0);
+      score = pVals.length ? (pVals.reduce((a,b) => a+b, 0) / pVals.length).toFixed(1)
+                            : (d.punteggio != null ? d.punteggio : '—');
     } else {
       // Struttura vecchia (singola colonna)
       perpPresente = d.presente;
@@ -657,7 +672,12 @@ function loadRun(dataIso) {
           compMap[c].totale++;
           if (field === 'competitor_perplexity') compMap[c].perplexity++;
           if (field === 'competitor_gemini')     compMap[c].gemini++;
-          if (field === 'competitor')            compMap[c].perplexity++;
+          if (field === 'competitor') {
+            // Corretto in sessione #14: prima attribuiva sempre a Perplexity
+            // anche per righe con motore Gemini (struttura intermedia)
+            if (d.motore === 'Gemini') compMap[c].gemini++;
+            else compMap[c].perplexity++;
+          }
         });
       });
     });
@@ -667,7 +687,34 @@ function loadRun(dataIso) {
       .slice(0, 10);
   }
 
-  const maxCount = competitors[0] ? competitors[0].totale : 1;
+  // Casa Cavour — riga di confronto diretto, non nel ranking (aggiunta sessione #14,
+  // stesso concetto già presente nel template del singolo report HTML da sessione #13)
+  const dm2 = report.dettaglio_motori;
+  const casaCavour = (dm2 && dm2.perplexity && dm2.gemini) ? {
+    nome: 'Casa Cavour',
+    totale: dm2.perplexity.presenze + dm2.gemini.presenze,
+    perplexity: dm2.perplexity.presenze,
+    gemini: dm2.gemini.presenze
+  } : null;
+
+  const maxCount = Math.max(
+    competitors[0] ? competitors[0].totale : 1,
+    casaCavour ? casaCavour.totale : 0
+  ) || 1;
+
+  if (casaCavour) {
+    const ccItem = document.createElement('div');
+    ccItem.className = 'competitor-item casa-cavour';
+    ccItem.innerHTML = `
+      <div class="competitor-name">🏡 ${casaCavour.nome}</div>
+      <div class="competitor-count">
+        <div class="competitor-bar"><div class="competitor-bar-fill" style="width:${(casaCavour.totale/maxCount)*100}%"></div></div>
+        ${casaCavour.totale} app. &nbsp;<span style="color:var(--muted);font-size:0.75rem">(P:${casaCavour.perplexity} G:${casaCavour.gemini})</span>
+      </div>
+    `;
+    compList.appendChild(ccItem);
+  }
+
   competitors.forEach(c => {
     const item = document.createElement('div');
     item.className = 'competitor-item';
