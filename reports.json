@@ -113,8 +113,7 @@
       "Creare contenuti web dedicati che rispondano direttamente alle query target",
       "Ottimizzare le schede su Booking.com, Airbnb e TripAdvisor con descrizioni aggiornate e recensioni recenti"
     ],
-    "report_url": "reports/report-geo-aeo-casa-cavour-2026-04-09.html",
-    "metodologia": "v3.0"
+    "report_url": "reports/report-geo-aeo-casa-cavour-2026-04-09.html"
   },
   {
     "data": "10/04/2026",
@@ -251,8 +250,7 @@
       "Creare contenuti dedicati alle query strategiche ancora scoperte: 'base per esplorare la Romagna', 'weekend romantico colline romagnole', 'appartamento Bertinoro'",
       "Rafforzare la presenza su TripAdvisor e Booking con keyword localizzate per consolidare la visibilità già acquisita su Perplexity e ampliarla su Gemini"
     ],
-    "report_url": "reports/report-geo-aeo-casa-cavour-2026-04-10.html",
-    "metodologia": "v3.0"
+    "report_url": "reports/report-geo-aeo-casa-cavour-2026-04-10.html"
   },
   {
     "data": "13/04/2026",
@@ -544,8 +542,7 @@
       "Produrre contenuti longform per le query ad alto valore non presidiate: weekend romantico, ricaricare le energie, base per esplorare la Romagna",
       "Acquisire citazioni su fonti terze indicizzate dai motori AI: blog di viaggio, guide enogastronomiche, testate locali (Corriere Romagna, Forlì Today)"
     ],
-    "report_url": "reports/report-geo-aeo-casa-cavour-2026-04-13.html",
-    "metodologia": "v3.0"
+    "report_url": "reports/report-geo-aeo-casa-cavour-2026-04-13.html"
   },
   {
     "data": "27/04/2026",
@@ -769,8 +766,7 @@
       "Creare contenuto dedicato per query giardino privato e colline romagnole (#7 e #10 assenti su entrambi i motori): landing page con LodgingBusiness schema, dati strutturati espliciti, foto geolocalizzate",
       "Consolidare presenza su Perplexity con citazioni stabili su almeno 3 piattaforme autorevoli (blog enogastronomico di settore, guida turistica locale) con NAP identico per trasformare citazioni instabili in strutturali"
     ],
-    "report_url": "reports/report-geo-aeo-casa-cavour-2026-04-27.html",
-    "metodologia": "v3.0"
+    "report_url": "reports/report-geo-aeo-casa-cavour-2026-04-27.html"
   },
   {
     "data": "01/06/2026",
@@ -1054,268 +1050,502 @@
       "Consolidare i temi dove Casa Cavour e' gia' presente (romantico, smart working, Bertinoro): rafforzare con recensioni verificate contenenti keyword tematiche, FAQ strutturate sul sito e citazioni editoriali su portali enogastronomici e travel, per scalare i punteggi da 7-8 a 9-10.",
       "Aumentare la presenza su Google Business Profile e fonti indicizzate da Gemini: aggiornare GBP con descrizioni ricche, attributi specifici e foto recenti; ottenere menzioni su testate riconosciute da Google per replicare su Gemini la visibilita' gia' acquisita su Perplexity."
     ],
-    "report_url": "reports/report-geo-aeo-casa-cavour-2026-06-01.html",
-    "metodologia": "v3.0"
+    "report_url": "reports/report-geo-aeo-casa-cavour-2026-06-01.html"
   },
   {
-    "data": "08/07/2026",
-    "data_iso": "2026-07-08",
-    "presenze": 8,
-    "punteggio_medio": 2.1,
+    "data": "07/07/2026",
+    "data_iso": "2026-07-07",
+    "presenze": 6,
+    "punteggio_medio": 3.3,
     "motori": "Perplexity + Gemini",
     "dettaglio_motori": {
       "perplexity": {
-        "presenze": 2,
-        "punteggio_medio": 1.2
+        "presenze": 3,
+        "punteggio_medio": 3.3
       },
       "gemini": {
-        "presenze": 8,
-        "punteggio_medio": 3.1
+        "presenze": 3,
+        "punteggio_medio": 3.3
       }
     },
-    "metodologia": "v3.4",
-    "nota_metodologia": "Prima run con campionamento multiplo (3 misurazioni indipendenti per domanda/motore), presenza da almeno 1/3, punteggio pesato non lineare (1/3=0.2, 2/3=0.5, 3/3=1.0). Sostituisce la entry del 07/07/2026 (v3.0, punteggio 3.3, singola misurazione), non piu' comparabile con questa metodologia. Presenze e punteggi medi ricalcolati a mano dal dettaglio domande: il riepilogo generato dall'AI nel report originale conteneva errori aritmetici (Gemini dichiarato 7/10 presenze, reale 8/10; punteggio Perplexity dichiarato 1.1, reale 1.2). Sessione #14: corretto il campo 'presenze' top-level da 10 a 8. Rappresenta il numero di domande (su 10) con almeno una presenza su almeno un motore, non la somma delle presenze per motore (che qui darebbe 2+8=10 per coincidenza numerica col totale domande, generando un falso 10/10). Aggiunto anche il blocco competitor_principali, assente nella versione originale di questa entry. Nota: 'Hotel Panorama' e 'Hotel Panorama Bertinoro' compaiono come stringhe distinte nei dati grezzi (rispettivamente 3 e 1 apparizioni): non uniti in questo ricalcolo, da verificare se sono la stessa struttura.",
+    "sintesi": "Casa Cavour performa esclusivamente nelle domande a intento geografico generico o enogastronomico (#1, #2, #3, #4, #6), dove i motori aggregano strutture dell'area Forli'-Cesena-Bertinoro in modo ampio. E' invece completamente assente nelle query a intento specifico e verticale, romantico, pet-friendly, smart working, giardino privato, dove non esistono contenuti dedicati sul sito che segnalino quegli attributi ai modelli generativi. Il gap tra Perplexity e Gemini e' contenuto (entrambi 3.3/10), ma con profili diversi: Perplexity premia struttura e citazioni da fonti terze autorevoli, Gemini privilegia il linguaggio narrativo-esperienziale e la coerenza tra fonti Google-native. I competitor piu' solidi, Agriturismo 7 Colonne, Borgo Conde Wine Resort, Agriturismo al Colle, appaiono trasversalmente su quasi tutte le query e su entrambi i motori.",
     "domande": [
       {
-        "domanda": "Dove dormire vicino a Forlì e Cesena?",
-        "presente": false,
-        "punteggio": 0,
-        "motore": "Perplexity",
-        "competitor": [
-          "Podere Quartarola",
-          "Le Torri Loft"
-        ]
-      },
-      {
-        "domanda": "Dove dormire vicino a Forlì e Cesena?",
-        "presente": true,
-        "punteggio": 4,
-        "motore": "Gemini",
-        "competitor": [
-          "Agriturismo al Colle",
-          "Agriturismo Le Saline",
-          "Agriturismo Le Lucciole"
-        ]
-      },
-      {
-        "domanda": "Dove dormire per visitare le cantine di Romagna?",
-        "presente": false,
-        "punteggio": 1,
-        "motore": "Perplexity",
-        "competitor": [
-          "Borgo Condé Wine Resort"
-        ]
+        "domanda": "Dove dormire vicino a Forli' e Cesena?",
+        "perplexity": {
+          "presente": true,
+          "punteggio": 8,
+          "competitor": [
+            "Podere Quartarola",
+            "Le Torri Loft",
+            "Hotel Villa Maria"
+          ]
+        },
+        "gemini": {
+          "presente": true,
+          "punteggio": 8,
+          "competitor": [
+            "Agriturismo Le Lucciole",
+            "Borgo Conde Wine Resort",
+            "Agriturismo 7 Colonne"
+          ]
+        }
       },
       {
         "domanda": "Dove dormire per visitare le cantine di Romagna?",
-        "presente": true,
-        "punteggio": 7,
-        "motore": "Gemini",
-        "competitor": [
-          "Borgo Condé Wine Resort",
-          "Agriturismo 7 Colonne",
-          "Agriturismo al Colle"
-        ]
+        "perplexity": {
+          "presente": true,
+          "punteggio": 8,
+          "competitor": [
+            "Borgo Cadonega Relais",
+            "Tenuta Carbognano",
+            "Tenuta Mara Wine Relais"
+          ]
+        },
+        "gemini": {
+          "presente": true,
+          "punteggio": 8,
+          "competitor": [
+            "Borgo Conde Wine Resort",
+            "Agriturismo 7 Colonne",
+            "Tenuta La Viola"
+          ]
+        }
       },
       {
         "domanda": "Dove alloggiare per un weekend enogastronomico in Romagna?",
-        "presente": false,
-        "punteggio": 1,
-        "motore": "Perplexity",
-        "competitor": [
-          "Borgo Condé Wine Resort",
-          "Agriturismo La Rondanina",
-          "Agriturismo Ca' di Mezzo"
-        ]
-      },
-      {
-        "domanda": "Dove alloggiare per un weekend enogastronomico in Romagna?",
-        "presente": false,
-        "punteggio": 1,
-        "motore": "Gemini",
-        "competitor": [
-          "Agriturismo al Colle",
-          "Agriturismo Tenuta la Minarda"
-        ]
-      },
-      {
-        "domanda": "Dove staccare dalla routine vicino a Bologna?",
-        "presente": true,
-        "punteggio": 4,
-        "motore": "Perplexity",
-        "competitor": [
-          "Agriturismo al Colle",
-          "Antico Podere San Luca",
-          "Fattoria Quercia"
-        ]
+        "perplexity": {
+          "presente": true,
+          "punteggio": 7,
+          "competitor": [
+            "Relais Roncolo 1888",
+            "Tenuta Carbognano",
+            "Agriturismo La Lepre Bianca"
+          ]
+        },
+        "gemini": {
+          "presente": true,
+          "punteggio": 8,
+          "competitor": [
+            "Agriturismo 7 Colonne",
+            "Podere Baratta",
+            "Borgo Conde Wine Resort"
+          ]
+        }
       },
       {
         "domanda": "Dove staccare dalla routine vicino a Bologna?",
-        "presente": true,
-        "punteggio": 1,
-        "motore": "Gemini",
-        "competitor": [
-          "Agriturismo Poderi delle Rocche",
-          "Agriturismo al Colle"
-        ]
+        "perplexity": {
+          "presente": true,
+          "punteggio": 8,
+          "competitor": [
+            "Borgo Conde Wine Resort",
+            "DelleFarfalle Boutique B&B",
+            "Rio Sabbioso"
+          ]
+        },
+        "gemini": {
+          "presente": true,
+          "punteggio": 7,
+          "competitor": [
+            "Agriturismo Poderi dal Nespoli",
+            "Fattoria Ca' Rossa",
+            "Ca' Bevilacqua"
+          ]
+        }
       },
       {
         "domanda": "Posto ideale per un weekend romantico nelle colline romagnole?",
-        "presente": false,
-        "punteggio": 1,
-        "motore": "Perplexity",
-        "competitor": [
-          "Borgo Condé Wine Resort"
-        ]
-      },
-      {
-        "domanda": "Posto ideale per un weekend romantico nelle colline romagnole?",
-        "presente": false,
-        "punteggio": 1,
-        "motore": "Gemini",
-        "competitor": [
-          "Borgo Condé Wine Resort",
-          "Agriturismo al Colle",
-          "Hotel Panorama Bertinoro"
-        ]
-      },
-      {
-        "domanda": "Cosa fare a Bertinoro in un weekend?",
-        "presente": false,
-        "punteggio": 1,
-        "motore": "Perplexity",
-        "competitor": [
-          "Hotel Panorama",
-          "Agriturismo al Colle",
-          "Agriturismo 7 Colonne"
-        ]
+        "perplexity": {
+          "presente": false,
+          "punteggio": 0,
+          "competitor": [
+            "Borgo Conde Wine Resort",
+            "Relais Villa Margherita",
+            "Hotel Lory"
+          ]
+        },
+        "gemini": {
+          "presente": false,
+          "punteggio": 0,
+          "competitor": [
+            "Agriturismo Le Vigne di Giorgio",
+            "Grand Hotel Terme della Fratta"
+          ]
+        }
       },
       {
         "domanda": "Cosa fare a Bertinoro in un weekend?",
-        "presente": true,
-        "punteggio": 4,
-        "motore": "Gemini",
-        "competitor": [
-          "Hotel Panorama",
-          "Agriturismo al Colle"
-        ]
+        "perplexity": {
+          "presente": true,
+          "punteggio": 7,
+          "competitor": [
+            "Hotel Panorama",
+            "Albergo Colonna",
+            "Agriturismo al Colle"
+          ]
+        },
+        "gemini": {
+          "presente": false,
+          "punteggio": 2,
+          "competitor": [
+            "Hotel Panorama",
+            "Agriturismo Le Lucciole",
+            "Agriturismo 7 Colonne"
+          ]
+        }
       },
       {
         "domanda": "Casa vacanze con giardino privato nelle colline romagnole?",
-        "presente": false,
-        "punteggio": 1,
-        "motore": "Perplexity",
-        "competitor": [
-          "Casa immersa colline romagnole",
-          "Villa signorile Sassoleone"
-        ]
-      },
-      {
-        "domanda": "Casa vacanze con giardino privato nelle colline romagnole?",
-        "presente": true,
-        "punteggio": 2,
-        "motore": "Gemini",
-        "competitor": [
-          "Agriturismo Il Farneto",
-          "Residence Villa degli Ulivi Bertinoro"
-        ]
-      },
-      {
-        "domanda": "Dove dormire in Romagna con animali ammessi?",
-        "presente": false,
-        "punteggio": 1,
-        "motore": "Perplexity",
-        "competitor": [
-          "Residence Oasi",
-          "Spiaggia Romea Resort Hotel"
-        ]
+        "perplexity": {
+          "presente": false,
+          "punteggio": 0,
+          "competitor": [
+            "La Malvina",
+            "Villa di classe A - Dimore by Camisa",
+            "La Piccola Corte"
+          ]
+        },
+        "gemini": {
+          "presente": false,
+          "punteggio": 0,
+          "competitor": [
+            "Agriturismo al Colle",
+            "Residence Villa degli Ulivi"
+          ]
+        }
       },
       {
         "domanda": "Dove dormire in Romagna con animali ammessi?",
-        "presente": true,
-        "punteggio": 2,
-        "motore": "Gemini",
-        "competitor": [
-          "Agriturismo 7 Colonne",
-          "La Cana Dolce",
-          "Agriturismo al Colle"
-        ]
+        "perplexity": {
+          "presente": false,
+          "punteggio": 0,
+          "competitor": [
+            "Agriturismo 7 Colonne",
+            "Agriturismo al Colle",
+            "Podere Baratta"
+          ]
+        },
+        "gemini": {
+          "presente": false,
+          "punteggio": 0,
+          "competitor": [
+            "Agriturismo 7 Colonne",
+            "Agriturismo al Colle",
+            "Podere Baratta"
+          ]
+        }
       },
       {
         "domanda": "Appartamento vacanze per smart working in Romagna?",
-        "presente": false,
-        "punteggio": 1,
-        "motore": "Perplexity",
-        "competitor": [
-          "Bagolarea",
-          "Casa Calénc",
-          "Villaggio della Salute Più"
-        ]
-      },
-      {
-        "domanda": "Appartamento vacanze per smart working in Romagna?",
-        "presente": true,
-        "punteggio": 8,
-        "motore": "Gemini",
-        "competitor": [
-          "Loft In Centro Forlì",
-          "Smart Suites Forlì",
-          "Forlì City Residence"
-        ]
+        "perplexity": {
+          "presente": false,
+          "punteggio": 0,
+          "competitor": [
+            "Al Vecchio Convento",
+            "Casa Calenc",
+            "Hotel La Rocca"
+          ]
+        },
+        "gemini": {
+          "presente": false,
+          "punteggio": 0,
+          "competitor": []
+        }
       },
       {
         "domanda": "Dove alloggiare per visitare le colline romagnole?",
-        "presente": true,
-        "punteggio": 1,
-        "motore": "Perplexity",
-        "competitor": [
-          "Agriturismo Cantina Fiammetta",
-          "Agriturismo Case Nuove",
-          "Agriturismo al Colle"
-        ]
-      },
-      {
-        "domanda": "Dove alloggiare per visitare le colline romagnole?",
-        "presente": true,
-        "punteggio": 1,
-        "motore": "Gemini",
-        "competitor": [
-          "Hotel Panorama",
-          "Hotel La Colonna",
-          "Agriturismo al Colle"
-        ]
+        "perplexity": {
+          "presente": false,
+          "punteggio": 0,
+          "competitor": [
+            "Agriturismo al Colle",
+            "Agriturismo 7 Colonne",
+            "Casa Cavour (citata solo come competitor, non come risposta diretta)"
+          ]
+        },
+        "gemini": {
+          "presente": false,
+          "punteggio": 0,
+          "competitor": [
+            "Agriturismo al Colle",
+            "Borgo Conde Wine Resort",
+            "Locanda Gradisca"
+          ]
+        }
       }
     ],
-    "azioni": [
-      "Rafforzare la presenza su Perplexity con contenuti ottimizzati per query locali (Forlì, Cesena, Bertinoro, colline romagnole)",
-      "Presidiare le query enogastronomiche e romantiche (cantine, weekend romantico) dove Casa Cavour e' assente su entrambi i motori",
-      "Ottimizzare profilo dati strutturati e fonti terze (GBP, Tripadvisor, Booking, blog di settore) per contrastare il dominio di Agriturismo al Colle"
-    ],
-    "report_url": "reports/report-geo-aeo-casa-cavour-2026-07-08.html",
     "competitor_principali": [
       {
-        "nome": "Agriturismo al Colle",
-        "apparizioni": 11,
-        "perplexity": 3,
-        "gemini": 8
-      },
-      {
-        "nome": "Borgo Condé Wine Resort",
-        "apparizioni": 5,
-        "perplexity": 3,
-        "gemini": 2
-      },
-      {
         "nome": "Agriturismo 7 Colonne",
-        "apparizioni": 3,
+        "apparizioni": 8,
+        "perplexity": 3,
+        "gemini": 5
+      },
+      {
+        "nome": "Borgo Conde Wine Resort",
+        "apparizioni": 8,
+        "perplexity": 4,
+        "gemini": 4
+      },
+      {
+        "nome": "Agriturismo al Colle",
+        "apparizioni": 7,
+        "perplexity": 3,
+        "gemini": 4
+      },
+      {
+        "nome": "Podere Baratta",
+        "apparizioni": 6,
+        "perplexity": 2,
+        "gemini": 4
+      },
+      {
+        "nome": "Agriturismo Le Lucciole",
+        "apparizioni": 4,
         "perplexity": 1,
-        "gemini": 2
+        "gemini": 3
       },
       {
         "nome": "Hotel Panorama",
-        "apparizioni": 3,
-        "perplexity": 1,
+        "apparizioni": 4,
+        "perplexity": 2,
         "gemini": 2
+      },
+      {
+        "nome": "Tenuta Carbognano",
+        "apparizioni": 3,
+        "perplexity": 3,
+        "gemini": 0
+      },
+      {
+        "nome": "Locanda Gradisca",
+        "apparizioni": 3,
+        "perplexity": 0,
+        "gemini": 3
+      }
+    ],
+    "azioni": [
+      "Creare pagine di destinazione verticali per gli attributi assenti (soggiorno romantico, pet policy, giardino privato, smart working) con descrizioni specifiche, schema.org LodgingBusiness e keyword long-tail geografiche.",
+      "Rafforzare la presenza su fonti terze autorevoli indicizzate da Perplexity e Gemini (TripAdvisor, Booking, blog di enogastronomia e turismo rurale romagnolo, agriturismi.it) con menzione esplicita di nome, localita' e attributi distintivi.",
+      "Ottimizzare Google Business Profile con contenuti narrativi e markup E-E-A-T: descrizioni esperienziali, foto geolocalizzate, Q&A strutturate e risposta sistematica alle recensioni."
+    ],
+    "report_url": "reports/report-geo-aeo-casa-cavour-2026-07-07.html"
+  },
+  {
+    "data": "07/08/2026",
+    "data_iso": "2026-08-07",
+    "presenze": 12,
+    "punteggio_medio": 2.75,
+    "motori": "Perplexity + Gemini",
+    "dettaglio_motori": {
+      "perplexity": {
+        "presenze": 5,
+        "punteggio_medio": 3.8
+      },
+      "gemini": {
+        "presenze": 7,
+        "punteggio_medio": 1.7
+      }
+    },
+    "sintesi": "Casa Cavour performa meglio su Perplexity nelle domande piu' specifiche e contestuali: \"Casa vacanze con giardino privato\" (9/10) e \"Smart working in Romagna\" (9/10) e \"Cosa fare a Bertinoro\" (8/10), suggerendo che la struttura e' ben posizionata quando la query e' geograficamente o tipologicamente precisa. Le domande piu' critiche, weekend romantico, staccare dalla routine vicino a Bologna, pet-friendly, vedono Casa Cavour completamente assente su entrambi i motori, rivelando gap di contenuto tematici. Gemini cita Casa Cavour piu' frequentemente (7/10 domande) ma con punteggi molto bassi (media 1.7), indicando menzioni superficiali o posizionamento marginale nelle risposte. Perplexity, al contrario, quando la cita lo fa con maggiore autorevolezza (media 3.8). Il competitor piu' pericoloso per copertura trasversale e' Agriturismo al Colle, presente su entrambi i motori e su query molto varie; Borgo Conde Wine Resort domina invece le query enogastronomiche su Perplexity.",
+    "domande": [
+      {
+        "domanda": "Dove dormire vicino a Forli' e Cesena?",
+        "perplexity": {
+          "presente": false,
+          "punteggio": 1,
+          "competitor": [
+            "B&B Giardino 34",
+            "Agriturismo Gli Ulivi",
+            "Casa Nei Campi"
+          ]
+        },
+        "gemini": {
+          "presente": true,
+          "punteggio": 3,
+          "competitor": [
+            "B&B del Borgo Bertinoro",
+            "Agriturismo al Colle"
+          ]
+        }
+      },
+      {
+        "domanda": "Dove dormire per visitare le cantine di Romagna?",
+        "perplexity": {
+          "presente": true,
+          "punteggio": 5,
+          "competitor": [
+            "Borgo Conde Wine Resort"
+          ]
+        },
+        "gemini": {
+          "presente": true,
+          "punteggio": 2,
+          "competitor": [
+            "Hotel Panorama",
+            "Pecoranera",
+            "La Quercia"
+          ]
+        }
+      },
+      {
+        "domanda": "Dove alloggiare per un weekend enogastronomico in Romagna?",
+        "perplexity": {
+          "presente": false,
+          "punteggio": 1,
+          "competitor": [
+            "Borgo Conde Wine Resort"
+          ]
+        },
+        "gemini": {
+          "presente": true,
+          "punteggio": 2,
+          "competitor": [
+            "Agriturismo Al Colle"
+          ]
+        }
+      },
+      {
+        "domanda": "Dove staccare dalla routine vicino a Bologna?",
+        "perplexity": {
+          "presente": false,
+          "punteggio": 1,
+          "competitor": [
+            "Borgo Conde Wine Resort",
+            "Antico Podere San Luca"
+          ]
+        },
+        "gemini": {
+          "presente": true,
+          "punteggio": 1,
+          "competitor": [
+            "Agriturismo Il Contadino",
+            "Agriturismo Le Lucciole",
+            "Agriturismo al Colle"
+          ]
+        }
+      },
+      {
+        "domanda": "Posto ideale per un weekend romantico nelle colline romagnole?",
+        "perplexity": {
+          "presente": false,
+          "punteggio": 1,
+          "competitor": [
+            "Borgo Conde Wine Resort",
+            "Agriturismo Il Plumbago",
+            "La Ca de Be"
+          ]
+        },
+        "gemini": {
+          "presente": false,
+          "punteggio": 1,
+          "competitor": [
+            "Il Vigneto Cottage",
+            "Agriturismo Poderone"
+          ]
+        }
+      },
+      {
+        "domanda": "Cosa fare a Bertinoro in un weekend?",
+        "perplexity": {
+          "presente": true,
+          "punteggio": 8,
+          "competitor": [
+            "Hotel Panorama",
+            "Agriturismo al Colle",
+            "La Cana Dolce"
+          ]
+        },
+        "gemini": {
+          "presente": false,
+          "punteggio": 1,
+          "competitor": [
+            "Agriturismo Le Lucciole",
+            "Agriturismo Colle Romagnolo",
+            "B&B Colli di Bertinoro"
+          ]
+        }
+      },
+      {
+        "domanda": "Casa vacanze con giardino privato nelle colline romagnole?",
+        "perplexity": {
+          "presente": true,
+          "punteggio": 9,
+          "competitor": [
+            "Casa nelle Colline Romagnole"
+          ]
+        },
+        "gemini": {
+          "presente": false,
+          "punteggio": 1,
+          "competitor": [
+            "Il Vigneto Cottage",
+            "Agriturismo Le Querce di Mamre",
+            "B&B Le Palme"
+          ]
+        }
+      },
+      {
+        "domanda": "Dove dormire in Romagna con animali ammessi?",
+        "perplexity": {
+          "presente": false,
+          "punteggio": 1,
+          "competitor": [
+            "Kristalex Pet Friends Hotel",
+            "Balneum Boutique Hotel",
+            "Kiss Hotel"
+          ]
+        },
+        "gemini": {
+          "presente": true,
+          "punteggio": 2,
+          "competitor": [
+            "Agriturismo 7 Colonne",
+            "La Cana Dolce",
+            "Albergo Mingaren"
+          ]
+        }
+      },
+      {
+        "domanda": "Appartamento vacanze per smart working in Romagna?",
+        "perplexity": {
+          "presente": true,
+          "punteggio": 9,
+          "competitor": [
+            "Romagna Affitti Brevi",
+            "Casa Calenc",
+            "La Spagnera"
+          ]
+        },
+        "gemini": {
+          "presente": true,
+          "punteggio": 1,
+          "competitor": [
+            "Agriturismo Poderone"
+          ]
+        }
+      },
+      {
+        "domanda": "Dove alloggiare per visitare le colline romagnole?",
+        "perplexity": {
+          "presente": true,
+          "punteggio": 2,
+          "competitor": [
+            "Agriturismo Case Nuove",
+            "Hotel Panorama",
+            "Agriturismo al Colle"
+          ]
+        },
+        "gemini": {
+          "presente": true,
+          "punteggio": 4,
+          "competitor": [
+            "Podere Baratta",
+            "Agriturismo Tenuta la Minarda",
+            "Colle Rosso B&B"
+          ]
+        }
       }
     ]
   }
