@@ -1335,7 +1335,7 @@
   {
     "data": "07/08/2026",
     "data_iso": "2026-08-07",
-    "presenze": 12,
+    "presenze": 9,
     "punteggio_medio": 2.75,
     "motori": "Perplexity + Gemini",
     "dettaglio_motori": {
@@ -1547,6 +1547,62 @@
           ]
         }
       }
-    ]
+    ],
+    "competitor_principali": [
+      {
+        "nome": "Agriturismo al Colle",
+        "apparizioni": 5,
+        "perplexity": 1,
+        "gemini": 4
+      },
+      {
+        "nome": "Borgo Conde Wine Resort",
+        "apparizioni": 4,
+        "perplexity": 4,
+        "gemini": 0
+      },
+      {
+        "nome": "Hotel Panorama",
+        "apparizioni": 3,
+        "perplexity": 2,
+        "gemini": 1
+      },
+      {
+        "nome": "Agriturismo Poderone",
+        "apparizioni": 2,
+        "perplexity": 0,
+        "gemini": 2
+      },
+      {
+        "nome": "Il Vigneto Cottage",
+        "apparizioni": 2,
+        "perplexity": 0,
+        "gemini": 2
+      },
+      {
+        "nome": "Agriturismo Le Lucciole",
+        "apparizioni": 2,
+        "perplexity": 0,
+        "gemini": 2
+      },
+      {
+        "nome": "La Cana Dolce",
+        "apparizioni": 2,
+        "perplexity": 1,
+        "gemini": 1
+      },
+      {
+        "nome": "Kristalex Pet Friends Hotel",
+        "apparizioni": 2,
+        "perplexity": 2,
+        "gemini": 0
+      }
+    ],
+    "azioni": [
+      "Creare contenuti mirati per le query enogastronomiche e romantiche, dove Casa Cavour e' sistematicamente assente su entrambi i motori. Pubblicare pagine dedicate con titoli espliciti (\"Weekend romantico a Bertinoro\", \"Soggiorno tra le cantine di Romagna\") ottimizzate per il linguaggio conversazionale dei motori AI.",
+      "Rafforzare l'autorevolezza su Gemini attraverso la presenza strutturata su fonti terze (blog di viaggio, portali enogastronomici, guide della Romagna) che Gemini utilizza come riferimento: la struttura appare spesso ma con peso basso, segnale di citazioni non autorevoli.",
+      "Sviluppare contenuti specifici per le query pet-friendly e \"staccare dalla routine vicino a Bologna\", inserendo esplicitamente nel sito e nei profili online la policy animali ammessi e la distanza/accessibilita' da Bologna, per intercettare due segmenti oggi interamente catturati dai competitor."
+    ],
+    "report_url": "reports/report-geo-aeo-casa-cavour-2026-08-07.html"
   }
 ]
