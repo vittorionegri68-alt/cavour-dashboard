@@ -697,8 +697,9 @@ function loadRun(dataIso) {
 
     const info = estraiDettaglioDomanda(d, report.domande);
     const pVals = [info.perpScore, info.gemScore].filter(v => v != null && v > 0);
-    const score = pVals.length ? (pVals.reduce((a, b) => a + b, 0) / pVals.length).toFixed(1)
-                                : (d.punteggio != null ? d.punteggio : '—');
+    const scoreRaw = pVals.length ? (pVals.reduce((a, b) => a + b, 0) / pVals.length)
+                                   : (d.punteggio != null ? d.punteggio : 0);
+    const scorePct = Math.round(scoreRaw * 10);
 
     const badgePerp = info.perpPresente === null
       ? '<span style="color:var(--muted);font-size:0.75rem">—</span>'
@@ -711,7 +712,7 @@ function loadRun(dataIso) {
       <div class="q-text">${d.domanda}</div>
       <div>${badgePerp}</div>
       <div>${badgeGem}</div>
-      <div><span class="score-pill">${score}/10</span></div>
+      <div><span class="score-pill">${scorePct}%</span></div>
     `;
     domList.appendChild(row);
   });
