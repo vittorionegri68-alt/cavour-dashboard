@@ -1565,5 +1565,287 @@
       "Sviluppare contenuti specifici per le query pet-friendly e \"staccare dalla routine vicino a Bologna\", inserendo esplicitamente nel sito e nei profili online la policy animali ammessi e la distanza/accessibilita' da Bologna, per intercettare due segmenti oggi interamente catturati dai competitor."
     ],
     "report_url": "reports/report-geo-aeo-casa-cavour-2026-08-07.html"
+  },
+  {
+    "data": "02/09/2026",
+    "data_iso": "2026-09-02",
+    "presenze": 10,
+    "punteggio_medio": 3.3,
+    "motori": "Perplexity + Gemini",
+    "dettaglio_motori": {
+      "perplexity": {
+        "presenze": 5,
+        "punteggio_medio": 4.1
+      },
+      "gemini": {
+        "presenze": 10,
+        "punteggio_medio": 2.5
+      }
+    },
+    "nota_correzione": "Il report HTML originale dichiarava Perplexity presente in 6/10 domande (reale: 5/10, ricontato dal dettaglio) e Gemini presente in 9/10 domande con punteggio medio 2.3/10 (reale: 10/10 presente, punteggio medio 2.5/10, ricalcolato sulla somma dei 10 punteggi dichiarati). La media generale dichiarata era 3.2/10, ricalcolata a 3.3/10 con i valori corretti. Stesso tipo di errore aritmetico gia' riscontrato e corretto nel report dell'8/07/2026 (v3.4). Presenze e punteggi medi qui riportati sono ricalcolati a mano dal dettaglio per singola domanda, non dal riepilogo generato dall'AI nel report originale.",
+    "sintesi": "Casa Cavour performa molto bene sulle domande piu' specifiche e di nicchia: eccelle su smart working (Perplexity 9/10), cosa fare a Bertinoro (Perplexity 9/10) e casa vacanze con giardino privato o animali ammessi (Perplexity 8/10 su entrambe), dimostrando forte autorevolezza su query localizzate o con caratteristiche distintive. Le domande critiche dove e' quasi assente su Perplexity sono quelle geografiche ampie (Forli'/Cesena, weekend enogastronomico, routine vicino a Bologna, colline romagnole in generale), dove i motori preferiscono strutture con profili piu' consolidati. Gemini mostra una copertura totale (presente su tutte e 10 le domande) ma punteggi sistematicamente bassi (media 2.5), segnale che la struttura viene citata quasi sempre ma raramente con dettaglio o autorevolezza. Perplexity e' piu' selettivo ma assegna punteggi molto piu' alti quando include Casa Cavour, segnale di una brand authority piu' riconoscibile su query specifiche. Il competitor piu' pericoloso resta Agriturismo al Colle, presente trasversalmente su quasi tutti i temi e su entrambi i motori.",
+    "domande": [
+      {
+        "domanda": "Dove dormire vicino a Forlì e Cesena?",
+        "perplexity": {
+          "presente": false,
+          "punteggio": 1,
+          "competitor": [
+            "Agriturismo al Colle",
+            "Agriturismo 7 Colonne",
+            "Fattoria La Quercia"
+          ]
+        },
+        "gemini": {
+          "presente": true,
+          "punteggio": 2,
+          "competitor": [
+            "Agriturismo al Colle",
+            "Agriturismo le Saline",
+            "Fattoria la Quercia"
+          ]
+        }
+      },
+      {
+        "domanda": "Dove dormire per visitare le cantine di Romagna?",
+        "perplexity": {
+          "presente": true,
+          "punteggio": 2,
+          "competitor": [
+            "Agriturismo 7 Colonne",
+            "Il Vigneto Cottage",
+            "Albergo Colonna"
+          ]
+        },
+        "gemini": {
+          "presente": true,
+          "punteggio": 1,
+          "competitor": [
+            "Podere Baratta",
+            "Agriturismo Le Lucciole",
+            "Agriturismo 7 Colonne"
+          ]
+        }
+      },
+      {
+        "domanda": "Dove alloggiare per un weekend enogastronomico in Romagna?",
+        "perplexity": {
+          "presente": false,
+          "punteggio": 1,
+          "competitor": [
+            "Cà Bevilacqua",
+            "Agriturismo al Colle",
+            "Le Saline",
+            "Podere Baratta"
+          ]
+        },
+        "gemini": {
+          "presente": true,
+          "punteggio": 4,
+          "competitor": [
+            "Agriturismo al Colle",
+            "Agriturismo 7 Colonne"
+          ]
+        }
+      },
+      {
+        "domanda": "Dove staccare dalla routine vicino a Bologna?",
+        "perplexity": {
+          "presente": false,
+          "punteggio": 1,
+          "competitor": [
+            "Fattoria La Quercia",
+            "Agriturismo al Colle",
+            "Le Saline",
+            "Cà Bevilacqua"
+          ]
+        },
+        "gemini": {
+          "presente": true,
+          "punteggio": 2,
+          "competitor": [
+            "Agriturismo al Colle",
+            "Podere Baratta"
+          ]
+        }
+      },
+      {
+        "domanda": "Posto ideale per weekend romantico nelle colline romagnole?",
+        "perplexity": {
+          "presente": false,
+          "punteggio": 1,
+          "competitor": [
+            "Agriturismo al Colle"
+          ]
+        },
+        "gemini": {
+          "presente": true,
+          "punteggio": 1,
+          "competitor": [
+            "B&B del Borgo",
+            "Agriturismo al Colle",
+            "Cà Bevilacqua",
+            "Agriturismo 7 Colonne"
+          ]
+        }
+      },
+      {
+        "domanda": "Cosa fare a Bertinoro in un weekend?",
+        "perplexity": {
+          "presente": true,
+          "punteggio": 9,
+          "competitor": [
+            "Agriturismo 7 Colonne",
+            "Fattoria La Quercia",
+            "Agriturismo al Colle"
+          ]
+        },
+        "gemini": {
+          "presente": true,
+          "punteggio": 4,
+          "competitor": [
+            "Hotel Panorama",
+            "Albergo Colonna",
+            "Hotel Mingaren"
+          ]
+        }
+      },
+      {
+        "domanda": "Casa vacanze con giardino privato nelle colline romagnole?",
+        "perplexity": {
+          "presente": true,
+          "punteggio": 8,
+          "competitor": [
+            "Il Vigneto Cottage"
+          ]
+        },
+        "gemini": {
+          "presente": true,
+          "punteggio": 2,
+          "competitor": [
+            "Agriturismo 7 Colonne"
+          ]
+        }
+      },
+      {
+        "domanda": "Dove dormire in Romagna con animali ammessi?",
+        "perplexity": {
+          "presente": true,
+          "punteggio": 8,
+          "competitor": [
+            "Agriturismo al Colle",
+            "Agriturismo 7 Colonne",
+            "Il Vigneto Cottage"
+          ]
+        },
+        "gemini": {
+          "presente": true,
+          "punteggio": 2,
+          "competitor": [
+            "Agriturismo al Colle",
+            "Agriturismo 7 Colonne",
+            "Agriturismo Coradosso"
+          ]
+        }
+      },
+      {
+        "domanda": "Appartamento vacanze per smart working in Romagna?",
+        "perplexity": {
+          "presente": true,
+          "punteggio": 9,
+          "competitor": [
+            "Casacarella da Lucio",
+            "Smart Suites Forlì",
+            "Casa Bufalini"
+          ]
+        },
+        "gemini": {
+          "presente": true,
+          "punteggio": 2,
+          "competitor": [
+            "Poggio d'Amore Country House",
+            "Agriturismo 7 Colonne",
+            "Agriturismo Le Lucciole"
+          ]
+        }
+      },
+      {
+        "domanda": "Dove alloggiare per visitare le colline romagnole?",
+        "perplexity": {
+          "presente": false,
+          "punteggio": 1,
+          "competitor": [
+            "Agriturismo al Colle",
+            "Cà Bevilacqua"
+          ]
+        },
+        "gemini": {
+          "presente": true,
+          "punteggio": 5,
+          "competitor": [
+            "Agriturismo al Colle",
+            "Podere Baratta",
+            "Hotel Panorama",
+            "Hotel La Colonna"
+          ]
+        }
+      }
+    ],
+    "competitor_principali": [
+      {
+        "nome": "Agriturismo al Colle",
+        "apparizioni": 13,
+        "perplexity": 6,
+        "gemini": 7
+      },
+      {
+        "nome": "Agriturismo 7 Colonne",
+        "apparizioni": 11,
+        "perplexity": 5,
+        "gemini": 6
+      },
+      {
+        "nome": "Il Vigneto Cottage",
+        "apparizioni": 4,
+        "perplexity": 3,
+        "gemini": 1
+      },
+      {
+        "nome": "Podere Baratta",
+        "apparizioni": 4,
+        "perplexity": 1,
+        "gemini": 3
+      },
+      {
+        "nome": "Cà Bevilacqua",
+        "apparizioni": 4,
+        "perplexity": 3,
+        "gemini": 1
+      },
+      {
+        "nome": "Fattoria La Quercia",
+        "apparizioni": 3,
+        "perplexity": 3,
+        "gemini": 0
+      },
+      {
+        "nome": "Agriturismo Le Lucciole",
+        "apparizioni": 2,
+        "perplexity": 0,
+        "gemini": 2
+      },
+      {
+        "nome": "Hotel Panorama / Albergo Colonna",
+        "apparizioni": 2,
+        "perplexity": 0,
+        "gemini": 2
+      }
+    ],
+    "azioni": [
+      "Creare contenuti ottimizzati per le query geografiche ampie (Forlì/Cesena, weekend enogastronomico, routine vicino a Bologna, colline romagnole in generale): sviluppare pagine o articoli che collegano esplicitamente Casa Cavour a questi termini nelle descrizioni strutturate e nei profili delle piattaforme (Google Business, siti di settore), per intercettare i motori AI su domande oggi quasi del tutto perse su Perplexity.",
+      "Rafforzare la presenza su Gemini con contenuti strutturati e citabili: i punteggi bassi (media 2.5) nonostante la presenza quasi totale (10/10) indicano che la struttura viene riconosciuta ma non descritta con autorevolezza. Aggiornare o creare schede dettagliate su fonti indicizzate da Gemini (Wikipedia locale, blog di settore, recensioni approfondite) enfatizzando giardino privato, pet-friendly e smart working.",
+      "Consolidare il vantaggio sulle query di nicchia ad alto punteggio (cosa fare a Bertinoro, giardino privato, animali ammessi, smart working): capitalizzare le performance gia' eccellenti producendo contenuti specifici da distribuire su canali autorevoli e piattaforme travel, per trasformare la visibilita' episodica in presenza stabile e difendere il posizionamento da Agriturismo al Colle e Il Vigneto Cottage."
+    ],
+    "report_url": "reports/report-geo-aeo-casa-cavour-2026-09-02.html"
   }
 ]
