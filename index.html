@@ -420,9 +420,9 @@
       <div class="kpi-sub" id="kpi-presenze-sub">domande su 10</div>
     </div>
     <div class="kpi">
-      <div class="kpi-label">Punteggio medio</div>
+      <div class="kpi-label">Share of AI Voice</div>
       <div class="kpi-value" id="kpi-punteggio">—</div>
-      <div class="kpi-sub">su 10 possibili</div>
+      <div class="kpi-sub" id="kpi-punteggio-sub">punteggio medio</div>
     </div>
     <div class="kpi">
       <div class="kpi-label">Trend vs precedente</div>
@@ -442,7 +442,7 @@
         </div>
         <div class="motore-stat">
           <div class="stat-val" id="perp-media">—</div>
-          <div class="stat-lbl">media /10</div>
+          <div class="stat-lbl">share of AI voice</div>
         </div>
       </div>
     </div>
@@ -455,7 +455,7 @@
         </div>
         <div class="motore-stat">
           <div class="stat-val" id="gem-media">—</div>
-          <div class="stat-lbl">media /10</div>
+          <div class="stat-lbl">share of AI voice</div>
         </div>
       </div>
     </div>
@@ -536,33 +536,144 @@ function populateSelect() {
   });
 }
 
+function toPercent(val) {
+  return Math.round(val * 10) + '%';
+}
+
+// Deduplica le domande (un report vecchio puo' avere righe duplicate per motore)
+function domandeUnicheDi(report) {
+  const viste = new Set();
+  const uniche = [];
+  report.domande.forEach(d => {
+    const key = d.domanda.replace(/\s+/g, ' ').trim();
+    if (!viste.has(key)) { viste.add(key); uniche.push(d); }
+  });
+  return uniche;
+}
+
+// Parser unificato per i 3 formati storici del reports.json di Casa Cavour:
+// nuovo (d.perplexity / d.gemini oggetti), intermedio (d.motore + riga gemella,
+// fix di sessione #14), vecchio (singola colonna d.presente). Centralizza qui la
+// stessa logica gia' validata nel rendering della tabella, cosi' KPI, grafico e
+// competitor usano tutti la stessa fonte di verita' invece di ricalcoli separati
+// che potrebbero divergere.
+function estraiDettaglioDomanda(d, tutteLeDomande) {
+  let perpPresente, gemPresente, perpScore, gemScore;
+  let perpCompetitor = [], gemCompetitor = [];
+
+  if (d.perplexity !== undefined && d.gemini !== undefined) {
+    perpPresente = d.perplexity.presente;
+    gemPresente = d.gemini.presente;
+    perpScore = d.perplexity.punteggio;
+    gemScore = d.gemini.punteggio;
+    perpCompetitor = d.perplexity.competitor || [];
+    gemCompetitor = d.gemini.competitor || [];
+  } else if (d.motore) {
+    perpPresente = d.motore === 'Perplexity' ? d.presente : null;
+    gemPresente  = d.motore === 'Gemini'     ? d.presente : null;
+    perpScore = d.motore === 'Perplexity' ? d.punteggio : null;
+    gemScore  = d.motore === 'Gemini'     ? d.punteggio : null;
+    perpCompetitor = d.motore === 'Perplexity' ? (d.competitor || []) : [];
+    gemCompetitor  = d.motore === 'Gemini'     ? (d.competitor || []) : [];
+    // Riga gemella nello stesso report (fix sessione #14: prima veniva usata
+    // solo la prima riga trovata, scartando il punteggio/competitor dell'altro motore)
+    const gemella = tutteLeDomande.find(x =>
+      x !== d && x.domanda.replace(/\s+/g, ' ').trim() === d.domanda.replace(/\s+/g, ' ').trim()
+    );
+    if (gemella) {
+      if (gemella.motore === 'Perplexity') { perpPresente = gemella.presente; perpScore = gemella.punteggio; perpCompetitor = gemella.competitor || []; }
+      if (gemella.motore === 'Gemini')     { gemPresente  = gemella.presente; gemScore  = gemella.punteggio; gemCompetitor  = gemella.competitor || []; }
+    }
+  } else {
+    perpPresente = d.presente;
+    gemPresente = null;
+    perpScore = d.punteggio;
+    gemScore = null;
+    perpCompetitor = d.competitor || d.competitor_perplexity || [];
+    gemCompetitor = d.competitor_gemini || [];
+  }
+
+  return { perpPresente, gemPresente, perpScore, gemScore, perpCompetitor, gemCompetitor };
+}
+
+// FIX: i campi aggregati dichiarati nel JSON (presenze, punteggio_medio,
+// dettaglio_motori, competitor_principali) sono scritti dall'LLM nella fase di
+// generazione del report narrativo e non sono sempre affidabili (stesso problema
+// gia' verificato e corretto su RAB: in piu' report gli aggregati non tornavano
+// nemmeno con i punteggi elencati riga per riga nello stesso report). Da qui in
+// poi il dashboard ricalcola sempre KPI e competitor dal dettaglio per domanda.
+function computeKPIs(report) {
+  const domande = domandeUnicheDi(report);
+  const n = domande.length || 1;
+  let perpPresenze = 0, gemPresenze = 0, orPresenze = 0;
+  let perpSum = 0, perpCount = 0, gemSum = 0, gemCount = 0;
+  const competitorMap = {};
+
+  domande.forEach(d => {
+    const info = estraiDettaglioDomanda(d, report.domande);
+    if (info.perpPresente) perpPresenze++;
+    if (info.gemPresente) gemPresenze++;
+    if (info.perpPresente || info.gemPresente) orPresenze++;
+    if (info.perpScore != null) { perpSum += info.perpScore; perpCount++; }
+    if (info.gemScore != null)  { gemSum  += info.gemScore;  gemCount++;  }
+    info.perpCompetitor.forEach(c => {
+      competitorMap[c] = competitorMap[c] || { perplexity: 0, gemini: 0 };
+      competitorMap[c].perplexity++;
+    });
+    info.gemCompetitor.forEach(c => {
+      competitorMap[c] = competitorMap[c] || { perplexity: 0, gemini: 0 };
+      competitorMap[c].gemini++;
+    });
+  });
+
+  const perplexity_media = perpCount ? perpSum / perpCount : 0;
+  const gemini_media = gemCount ? gemSum / gemCount : 0;
+  const punteggio_medio = (perplexity_media + gemini_media) / 2;
+
+  const competitorTop = Object.entries(competitorMap)
+    .map(([nome, v]) => ({ nome, totale: v.perplexity + v.gemini, perplexity: v.perplexity, gemini: v.gemini }))
+    .sort((a, b) => b.totale - a.totale)
+    .slice(0, 10);
+
+  return {
+    presenze: orPresenze,
+    perplexity_presenze: perpPresenze,
+    gemini_presenze: gemPresenze,
+    perplexity_media,
+    gemini_media,
+    punteggio_medio,
+    competitorTop,
+    haCompetitorDettagliati: Object.keys(competitorMap).length > 0
+  };
+}
+
 function loadRun(dataIso) {
   const report = allReports.find(r => r.data_iso === dataIso);
   if (!report) return;
 
+  // KPI ricalcolati dal dettaglio per domanda (vedi computeKPIs), non dai campi dichiarati
+  const kpi = computeKPIs(report);
+
   // KPI generali
-  document.getElementById('kpi-presenze').textContent = report.presenze;
-  document.getElementById('kpi-presenze-sub').textContent = `present${report.presenze === 1 ? 'e' : 'i'} su 10 domande`;
-  document.getElementById('kpi-punteggio').textContent = report.punteggio_medio.toFixed(1);
+  document.getElementById('kpi-presenze').textContent = kpi.presenze;
+  document.getElementById('kpi-presenze-sub').textContent = `present${kpi.presenze === 1 ? 'e' : 'i'} su 10 domande`;
+  document.getElementById('kpi-punteggio').textContent = toPercent(kpi.punteggio_medio);
+  document.getElementById('kpi-punteggio-sub').textContent = kpi.punteggio_medio.toFixed(1) + '/10';
 
-  // KPI per motore — fallback per report vecchi senza dettaglio_motori
-  const dm = report.dettaglio_motori || {};
-  const perpPres  = dm.perplexity ? dm.perplexity.presenze    : '—';
-  const perpMedia = dm.perplexity ? dm.perplexity.punteggio_medio.toFixed(1) : '—';
-  const gemPres   = dm.gemini     ? dm.gemini.presenze         : '—';
-  const gemMedia  = dm.gemini     ? dm.gemini.punteggio_medio.toFixed(1)  : '—';
-  document.getElementById('perp-presenze').textContent = perpPres;
-  document.getElementById('perp-media').textContent    = perpMedia;
-  document.getElementById('gem-presenze').textContent  = gemPres;
-  document.getElementById('gem-media').textContent     = gemMedia;
+  // KPI per motore — Share of AI Voice in percentuale, sub con presenze e punteggio grezzo
+  document.getElementById('perp-presenze').textContent = kpi.perplexity_presenze;
+  document.getElementById('perp-media').textContent    = toPercent(kpi.perplexity_media);
+  document.getElementById('gem-presenze').textContent  = kpi.gemini_presenze;
+  document.getElementById('gem-media').textContent     = toPercent(kpi.gemini_media);
 
-  // Trend
+  // Trend (in punti percentuali di Share of AI Voice, coerente col resto della dashboard)
   const idx = allReports.findIndex(r => r.data_iso === dataIso);
   if (idx > 0) {
     const prev = allReports[idx - 1];
-    const delta = report.punteggio_medio - prev.punteggio_medio;
+    const kpiPrev = computeKPIs(prev);
+    const delta = Math.round(kpi.punteggio_medio * 10) - Math.round(kpiPrev.punteggio_medio * 10);
     const trendEl = document.getElementById('kpi-trend');
-    trendEl.textContent = (delta >= 0 ? '+' : '') + delta.toFixed(1);
+    trendEl.textContent = (delta >= 0 ? '+' : '') + delta + '%';
     trendEl.style.color = delta >= 0 ? 'var(--green)' : 'var(--red)';
     document.getElementById('kpi-trend-sub').textContent = `rispetto al ${prev.data}`;
   } else {
@@ -574,71 +685,27 @@ function loadRun(dataIso) {
   document.getElementById('run-status').textContent = `Analisi del ${report.data}`;
   document.getElementById('footer-date').textContent = `Ultimo aggiornamento: ${report.data}`;
 
-  // Domande — colonne Perplexity + Gemini separate
-  // Compatibile con struttura vecchia (d.presente) e nuova (d.perplexity / d.gemini)
+  // Domande — colonne Perplexity + Gemini separate, stesso parser usato per i KPI
   const domList = document.getElementById('domande-list');
   domList.innerHTML = '';
 
-  // Deduplica domande: se report vecchio ha righe duplicate per motore, prendi una per domanda
-  const dominandeUniche = [];
-  const viste = new Set();
-  report.domande.forEach(d => {
-    const key = d.domanda.replace(/\s+/g, ' ').trim();
-    if (!viste.has(key)) {
-      viste.add(key);
-      dominandeUniche.push(d);
-    }
-  });
+  const domandeUniche = domandeUnicheDi(report);
 
-  dominandeUniche.forEach(d => {
+  domandeUniche.forEach(d => {
     const row = document.createElement('div');
     row.className = 'domanda-row';
 
-    // Struttura nuova (18/05+): d.perplexity e d.gemini sono oggetti
-    // Struttura vecchia: d.presente (booleano unico) o d.motore (stringa)
-    let perpPresente, gemPresente, score;
+    const info = estraiDettaglioDomanda(d, report.domande);
+    const pVals = [info.perpScore, info.gemScore].filter(v => v != null && v > 0);
+    const score = pVals.length ? (pVals.reduce((a, b) => a + b, 0) / pVals.length).toFixed(1)
+                                : (d.punteggio != null ? d.punteggio : '—');
 
-    if (d.perplexity !== undefined && d.gemini !== undefined) {
-      // Struttura nuova
-      perpPresente = d.perplexity.presente;
-      gemPresente  = d.gemini.presente;
-      // Punteggio: media dei due, ignorando 0 se assente
-      const pVals = [d.perplexity.punteggio, d.gemini.punteggio].filter(v => v > 0);
-      score = pVals.length ? (pVals.reduce((a,b) => a+b, 0) / pVals.length).toFixed(1) : '0';
-    } else if (d.motore) {
-      // Struttura intermedia (report con righe per motore)
-      perpPresente = d.motore === 'Perplexity' ? d.presente : null;
-      gemPresente  = d.motore === 'Gemini'     ? d.presente : null;
-      let perpScore = d.motore === 'Perplexity' ? d.punteggio : null;
-      let gemScore  = d.motore === 'Gemini'     ? d.punteggio : null;
-      // Cerca la riga gemella nello stesso report (corretto in sessione #14:
-      // prima veniva usata solo la prima riga trovata, sempre Perplexity per
-      // ordine nel JSON, scartando il punteggio Gemini)
-      const gemella = report.domande.find(x =>
-        x !== d &&
-        x.domanda.replace(/\s+/g, ' ').trim() === d.domanda.replace(/\s+/g, ' ').trim()
-      );
-      if (gemella) {
-        if (gemella.motore === 'Perplexity') { perpPresente = gemella.presente; perpScore = gemella.punteggio; }
-        if (gemella.motore === 'Gemini')     { gemPresente  = gemella.presente; gemScore  = gemella.punteggio; }
-      }
-      // Punteggio: media dei due motori, ignorando 0 se assente (stessa logica della struttura nuova)
-      const pVals = [perpScore, gemScore].filter(v => v != null && v > 0);
-      score = pVals.length ? (pVals.reduce((a,b) => a+b, 0) / pVals.length).toFixed(1)
-                            : (d.punteggio != null ? d.punteggio : '—');
-    } else {
-      // Struttura vecchia (singola colonna)
-      perpPresente = d.presente;
-      gemPresente  = null;
-      score = d.punteggio != null ? d.punteggio : '—';
-    }
-
-    const badgePerp = perpPresente === null
+    const badgePerp = info.perpPresente === null
       ? '<span style="color:var(--muted);font-size:0.75rem">—</span>'
-      : `<span class="badge ${perpPresente ? 'presente' : 'assente'}">${perpPresente ? '✅ SÌ' : '❌ NO'}</span>`;
-    const badgeGem = gemPresente === null
+      : `<span class="badge ${info.perpPresente ? 'presente' : 'assente'}">${info.perpPresente ? '✅ SÌ' : '❌ NO'}</span>`;
+    const badgeGem = info.gemPresente === null
       ? '<span style="color:var(--muted);font-size:0.75rem">—</span>'
-      : `<span class="badge ${gemPresente ? 'presente' : 'assente'}">${gemPresente ? '✅ SÌ' : '❌ NO'}</span>`;
+      : `<span class="badge ${info.gemPresente ? 'presente' : 'assente'}">${info.gemPresente ? '✅ SÌ' : '❌ NO'}</span>`;
 
     row.innerHTML = `
       <div class="q-text">${d.domanda}</div>
@@ -649,13 +716,20 @@ function loadRun(dataIso) {
     domList.appendChild(row);
   });
 
-  // Competitor — usa competitor_principali se presente (report nuovo),
-  // altrimenti calcola da competitor_perplexity + competitor_gemini
+  // Competitor
+  // FIX: competitor_principali e' scritto in prosa dall'LLM e puo' contenere errori
+  // di conteggio (stesso problema gia' trovato e corretto su RAB). Quando il report
+  // ha il dettaglio per-motore nelle domande (formato nuovo o intermedio con gemella),
+  // ricalcoliamo qui (kpi.competitorTop, gia' calcolato in computeKPIs) invece di
+  // fidarci del campo dichiarato. Fallback su competitor_principali solo per report
+  // vecchissimi dove il dettaglio per-motore non e' proprio disponibile.
   const compList = document.getElementById('competitor-list');
   compList.innerHTML = '';
 
-  let competitors = [];
-  if (report.competitor_principali && report.competitor_principali.length) {
+  let competitors;
+  if (kpi.haCompetitorDettagliati) {
+    competitors = kpi.competitorTop;
+  } else if (report.competitor_principali && report.competitor_principali.length) {
     competitors = report.competitor_principali.map(c => ({
       nome: c.nome,
       totale: c.apparizioni,
@@ -663,57 +737,33 @@ function loadRun(dataIso) {
       gemini: c.gemini || 0
     }));
   } else {
-    // Fallback: calcola dai campi competitor delle domande
-    const compMap = {};
-    report.domande.forEach(d => {
-      ['competitor', 'competitor_perplexity', 'competitor_gemini'].forEach(field => {
-        (d[field] || []).forEach(c => {
-          if (!compMap[c]) compMap[c] = { totale: 0, perplexity: 0, gemini: 0 };
-          compMap[c].totale++;
-          if (field === 'competitor_perplexity') compMap[c].perplexity++;
-          if (field === 'competitor_gemini')     compMap[c].gemini++;
-          if (field === 'competitor') {
-            // Corretto in sessione #14: prima attribuiva sempre a Perplexity
-            // anche per righe con motore Gemini (struttura intermedia)
-            if (d.motore === 'Gemini') compMap[c].gemini++;
-            else compMap[c].perplexity++;
-          }
-        });
-      });
-    });
-    competitors = Object.entries(compMap)
-      .map(([nome, v]) => ({ nome, ...v }))
-      .sort((a, b) => b.totale - a.totale)
-      .slice(0, 10);
+    competitors = [];
   }
 
-  // Casa Cavour — riga di confronto diretto, non nel ranking (aggiunta sessione #14,
-  // stesso concetto già presente nel template del singolo report HTML da sessione #13)
-  const dm2 = report.dettaglio_motori;
-  const casaCavour = (dm2 && dm2.perplexity && dm2.gemini) ? {
+  // Casa Cavour — riga di confronto diretto, non nel ranking (aggiunta sessione #14),
+  // ora calcolata dagli stessi kpi ricalcolati invece che da dettaglio_motori dichiarato
+  const casaCavour = {
     nome: 'Casa Cavour',
-    totale: dm2.perplexity.presenze + dm2.gemini.presenze,
-    perplexity: dm2.perplexity.presenze,
-    gemini: dm2.gemini.presenze
-  } : null;
+    totale: kpi.perplexity_presenze + kpi.gemini_presenze,
+    perplexity: kpi.perplexity_presenze,
+    gemini: kpi.gemini_presenze
+  };
 
   const maxCount = Math.max(
     competitors[0] ? competitors[0].totale : 1,
-    casaCavour ? casaCavour.totale : 0
+    casaCavour.totale
   ) || 1;
 
-  if (casaCavour) {
-    const ccItem = document.createElement('div');
-    ccItem.className = 'competitor-item casa-cavour';
-    ccItem.innerHTML = `
-      <div class="competitor-name">🏡 ${casaCavour.nome}</div>
-      <div class="competitor-count">
-        <div class="competitor-bar"><div class="competitor-bar-fill" style="width:${(casaCavour.totale/maxCount)*100}%"></div></div>
-        ${casaCavour.totale} app. &nbsp;<span style="color:var(--muted);font-size:0.75rem">(P:${casaCavour.perplexity} G:${casaCavour.gemini})</span>
-      </div>
-    `;
-    compList.appendChild(ccItem);
-  }
+  const ccItem = document.createElement('div');
+  ccItem.className = 'competitor-item casa-cavour';
+  ccItem.innerHTML = `
+    <div class="competitor-name">🏡 ${casaCavour.nome}</div>
+    <div class="competitor-count">
+      <div class="competitor-bar"><div class="competitor-bar-fill" style="width:${(casaCavour.totale/maxCount)*100}%"></div></div>
+      ${casaCavour.totale} app. &nbsp;<span style="color:var(--muted);font-size:0.75rem">(P:${casaCavour.perplexity} G:${casaCavour.gemini})</span>
+    </div>
+  `;
+  compList.appendChild(ccItem);
 
   competitors.forEach(c => {
     const item = document.createElement('div');
@@ -759,10 +809,12 @@ function renderChart() {
   if (currentChart) currentChart.destroy();
 
   const labels    = allReports.map(r => r.data);
-  const presenze  = allReports.map(r => r.presenze);
-  const punteggi  = allReports.map(r => r.punteggio_medio);
-  const perpMedia = allReports.map(r => r.dettaglio_motori?.perplexity?.punteggio_medio ?? null);
-  const gemMedia  = allReports.map(r => r.dettaglio_motori?.gemini?.punteggio_medio ?? null);
+  const presenze  = allReports.map(r => computeKPIs(r).presenze);
+  // Share of AI Voice in percentuale (punteggio_medio * 10), ricalcolato dal
+  // dettaglio per domanda con computeKPIs, non dai campi dichiarati
+  const punteggi  = allReports.map(r => Math.round(computeKPIs(r).punteggio_medio * 10));
+  const perpMedia = allReports.map(r => Math.round(computeKPIs(r).perplexity_media * 10));
+  const gemMedia  = allReports.map(r => Math.round(computeKPIs(r).gemini_media * 10));
 
   currentChart = new Chart(ctx, {
     type: 'line',
@@ -782,7 +834,7 @@ function renderChart() {
           yAxisID: 'y1'
         },
         {
-          label: 'Punteggio medio',
+          label: 'Share of AI Voice',
           data: punteggi,
           borderColor: '#c9a05a',
           borderWidth: 2,
@@ -794,7 +846,7 @@ function renderChart() {
           yAxisID: 'y2'
         },
         {
-          label: 'Perplexity media',
+          label: 'Perplexity — Share of AI Voice',
           data: perpMedia,
           borderColor: '#5b4fcf',
           borderWidth: 1.5,
@@ -807,7 +859,7 @@ function renderChart() {
           yAxisID: 'y2'
         },
         {
-          label: 'Gemini media',
+          label: 'Gemini — Share of AI Voice',
           data: gemMedia,
           borderColor: '#1a73e8',
           borderWidth: 1.5,
@@ -852,10 +904,10 @@ function renderChart() {
         },
         y2: {
           type: 'linear', position: 'right',
-          min: 0, max: 10,
+          min: 0, max: 100,
           grid: { drawOnChartArea: false },
-          ticks: { font: { family: 'DM Sans', size: 11 }, color: '#c9a05a' },
-          title: { display: true, text: 'Punteggio', font: { family: 'DM Sans', size: 11 }, color: '#c9a05a' }
+          ticks: { font: { family: 'DM Sans', size: 11 }, color: '#c9a05a', callback: v => v + '%' },
+          title: { display: true, text: 'Share of AI Voice (%)', font: { family: 'DM Sans', size: 11 }, color: '#c9a05a' }
         }
       }
     }

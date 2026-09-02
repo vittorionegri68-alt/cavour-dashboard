@@ -1582,7 +1582,7 @@
         "punteggio_medio": 2.5
       }
     },
-    "nota_correzione": "Il report HTML originale dichiarava Perplexity presente in 6/10 domande (reale: 5/10, ricontato dal dettaglio) e Gemini presente in 9/10 domande con punteggio medio 2.3/10 (reale: 10/10 presente, punteggio medio 2.5/10, ricalcolato sulla somma dei 10 punteggi dichiarati). La media generale dichiarata era 3.2/10, ricalcolata a 3.3/10 con i valori corretti. Stesso tipo di errore aritmetico gia' riscontrato e corretto nel report dell'8/07/2026 (v3.4). Presenze e punteggi medi qui riportati sono ricalcolati a mano dal dettaglio per singola domanda, non dal riepilogo generato dall'AI nel report originale.",
+    "nota_correzione": "Il report HTML originale dichiarava Perplexity presente in 6/10 domande (reale: 5/10, ricontato dal dettaglio) e Gemini presente in 9/10 domande con punteggio medio 2.3/10 (reale: 10/10 presente, punteggio medio 2.5/10, ricalcolato sulla somma dei 10 punteggi dichiarati). La media generale dichiarata era 3.2/10, ricalcolata a 3.3/10 con i valori corretti. Stesso tipo di errore aritmetico gia' riscontrato e corretto nel report dell'8/07/2026 (v3.4). Presenze e punteggi medi qui riportati sono ricalcolati a mano dal dettaglio per singola domanda, non dal riepilogo generato dall'AI nel report originale. | competitor_principali ricalcolato dal dettaglio grezzo (RAB #9): valori dichiarati nel report contenevano errori di conteggio (es. Agriturismo al Colle dichiarato P:6 G:7, reale P:7 G:6; Agriturismo 7 Colonne dichiarato 11 tot, reale 10; Hotel Panorama e Albergo Colonna erano uniti in una voce, sono due competitor distinti nei dati grezzi).",
     "sintesi": "Casa Cavour performa molto bene sulle domande piu' specifiche e di nicchia: eccelle su smart working (Perplexity 9/10), cosa fare a Bertinoro (Perplexity 9/10) e casa vacanze con giardino privato o animali ammessi (Perplexity 8/10 su entrambe), dimostrando forte autorevolezza su query localizzate o con caratteristiche distintive. Le domande critiche dove e' quasi assente su Perplexity sono quelle geografiche ampie (Forli'/Cesena, weekend enogastronomico, routine vicino a Bologna, colline romagnole in generale), dove i motori preferiscono strutture con profili piu' consolidati. Gemini mostra una copertura totale (presente su tutte e 10 le domande) ma punteggi sistematicamente bassi (media 2.5), segnale che la struttura viene citata quasi sempre ma raramente con dettaglio o autorevolezza. Perplexity e' piu' selettivo ma assegna punteggi molto piu' alti quando include Casa Cavour, segnale di una brand authority piu' riconoscibile su query specifiche. Il competitor piu' pericoloso resta Agriturismo al Colle, presente trasversalmente su quasi tutti i temi e su entrambi i motori.",
     "domande": [
       {
@@ -1795,17 +1795,17 @@
       {
         "nome": "Agriturismo al Colle",
         "apparizioni": 13,
-        "perplexity": 6,
-        "gemini": 7
-      },
-      {
-        "nome": "Agriturismo 7 Colonne",
-        "apparizioni": 11,
-        "perplexity": 5,
+        "perplexity": 7,
         "gemini": 6
       },
       {
-        "nome": "Il Vigneto Cottage",
+        "nome": "Agriturismo 7 Colonne",
+        "apparizioni": 10,
+        "perplexity": 4,
+        "gemini": 6
+      },
+      {
+        "nome": "Fattoria La Quercia",
         "apparizioni": 4,
         "perplexity": 3,
         "gemini": 1
@@ -1823,19 +1823,19 @@
         "gemini": 1
       },
       {
-        "nome": "Fattoria La Quercia",
+        "nome": "Il Vigneto Cottage",
         "apparizioni": 3,
         "perplexity": 3,
         "gemini": 0
       },
       {
-        "nome": "Agriturismo Le Lucciole",
+        "nome": "Albergo Colonna",
         "apparizioni": 2,
-        "perplexity": 0,
-        "gemini": 2
+        "perplexity": 1,
+        "gemini": 1
       },
       {
-        "nome": "Hotel Panorama / Albergo Colonna",
+        "nome": "Agriturismo Le Lucciole",
         "apparizioni": 2,
         "perplexity": 0,
         "gemini": 2
