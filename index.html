@@ -174,7 +174,7 @@
   /* MOTORI KPI */
   .motori-row {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
     gap: 20px;
     margin-bottom: 40px;
   }
@@ -194,6 +194,7 @@
   }
   .motore-card.perplexity::before { background: #5b4fcf; }
   .motore-card.gemini::before { background: #1a73e8; }
+  .motore-card.chatgpt::before { background: #10a37f; }
   .motore-label {
     font-size: 0.72rem;
     font-weight: 500;
@@ -232,7 +233,7 @@
   }
   .domande-header {
     display: grid;
-    grid-template-columns: 1fr 110px 110px 80px;
+    grid-template-columns: 1fr 100px 100px 120px 80px;
     padding: 12px 24px;
     background: var(--gold-faint);
     border-bottom: 1px solid var(--line);
@@ -244,7 +245,7 @@
   }
   .domanda-row {
     display: grid;
-    grid-template-columns: 1fr 110px 110px 80px;
+    grid-template-columns: 1fr 100px 100px 120px 80px;
     padding: 16px 24px;
     border-bottom: 1px solid var(--line);
     align-items: center;
@@ -264,6 +265,7 @@
   }
   .badge.presente { background: var(--green-bg); color: var(--green); }
   .badge.assente { background: var(--red-bg); color: var(--red); }
+  .badge.citata { background: var(--gold-pale); color: var(--gold); }
   .score-pill {
     display: inline-block;
     font-family: 'Cormorant Garamond', serif;
@@ -390,7 +392,7 @@
     .page { padding: 24px 16px; }
     .kpi-row { grid-template-columns: 1fr 1fr; }
     .trend-row { grid-template-columns: 1fr; }
-    .domande-header, .domanda-row { grid-template-columns: 1fr 80px 80px 50px; font-size: 0.78rem; }
+    .domande-header, .domanda-row { grid-template-columns: 1fr 60px 60px 75px 50px; font-size: 0.72rem; }
     .site-header { padding: 0 16px; }
     .site-footer { flex-direction: column; gap: 8px; text-align: center; }
   }
@@ -459,6 +461,19 @@
         </div>
       </div>
     </div>
+    <div class="motore-card chatgpt">
+      <div class="motore-label">🟢 ChatGPT</div>
+      <div class="motore-stats">
+        <div class="motore-stat">
+          <div class="stat-val" id="gpt-presenze">—</div>
+          <div class="stat-lbl">presenze / 10</div>
+        </div>
+        <div class="motore-stat">
+          <div class="stat-val" id="gpt-consigliate">—</div>
+          <div class="stat-lbl">consigliate / 10</div>
+        </div>
+      </div>
+    </div>
   </div>
 
   <!-- GRAFICO STORICO -->
@@ -476,6 +491,7 @@
       <div>Domanda</div>
       <div>Perplexity</div>
       <div>Gemini</div>
+      <div>ChatGPT</div>
       <div>Punteggio</div>
     </div>
     <div id="domande-list"></div>
@@ -560,6 +576,16 @@ function domandeUnicheDi(report) {
 function estraiDettaglioDomanda(d, tutteLeDomande) {
   let perpPresente, gemPresente, perpScore, gemScore;
   let perpCompetitor = [], gemCompetitor = [];
+  // ChatGPT: terzo motore opzionale (aggiunto sessione #24, benchmark manuale con
+  // ricerca web). Assente in tutti i report precedenti al 02/09, quindi sempre
+  // null di default: nessun report vecchio deve rompersi per mancanza del campo.
+  let gptPresente = null, gptConsigliata = null, gptScore = null, gptCompetitor = [];
+  if (d.chatgpt !== undefined) {
+    gptPresente = d.chatgpt.presente;
+    gptConsigliata = d.chatgpt.consigliata;
+    gptScore = d.chatgpt.punteggio;
+    gptCompetitor = d.chatgpt.competitor || [];
+  }
 
   if (d.perplexity !== undefined && d.gemini !== undefined) {
     perpPresente = d.perplexity.presente;
@@ -593,7 +619,8 @@ function estraiDettaglioDomanda(d, tutteLeDomande) {
     gemCompetitor = d.competitor_gemini || [];
   }
 
-  return { perpPresente, gemPresente, perpScore, gemScore, perpCompetitor, gemCompetitor };
+  return { perpPresente, gemPresente, perpScore, gemScore, perpCompetitor, gemCompetitor,
+            gptPresente, gptConsigliata, gptScore, gptCompetitor };
 }
 
 // FIX: i campi aggregati dichiarati nel JSON (presenze, punteggio_medio,
@@ -605,33 +632,46 @@ function estraiDettaglioDomanda(d, tutteLeDomande) {
 function computeKPIs(report) {
   const domande = domandeUnicheDi(report);
   const n = domande.length || 1;
-  let perpPresenze = 0, gemPresenze = 0, orPresenze = 0;
-  let perpSum = 0, perpCount = 0, gemSum = 0, gemCount = 0;
+  let perpPresenze = 0, gemPresenze = 0, gptPresenze = 0, gptConsigliate = 0, orPresenze = 0;
+  let perpSum = 0, perpCount = 0, gemSum = 0, gemCount = 0, gptSum = 0, gptCount = 0;
   const competitorMap = {};
 
   domande.forEach(d => {
     const info = estraiDettaglioDomanda(d, report.domande);
     if (info.perpPresente) perpPresenze++;
     if (info.gemPresente) gemPresenze++;
-    if (info.perpPresente || info.gemPresente) orPresenze++;
+    if (info.gptPresente) gptPresenze++;
+    if (info.gptConsigliata) gptConsigliate++;
+    if (info.perpPresente || info.gemPresente || info.gptPresente) orPresenze++;
     if (info.perpScore != null) { perpSum += info.perpScore; perpCount++; }
     if (info.gemScore != null)  { gemSum  += info.gemScore;  gemCount++;  }
+    if (info.gptScore != null)  { gptSum  += info.gptScore;  gptCount++;  }
     info.perpCompetitor.forEach(c => {
-      competitorMap[c] = competitorMap[c] || { perplexity: 0, gemini: 0 };
+      competitorMap[c] = competitorMap[c] || { perplexity: 0, gemini: 0, chatgpt: 0 };
       competitorMap[c].perplexity++;
     });
     info.gemCompetitor.forEach(c => {
-      competitorMap[c] = competitorMap[c] || { perplexity: 0, gemini: 0 };
+      competitorMap[c] = competitorMap[c] || { perplexity: 0, gemini: 0, chatgpt: 0 };
       competitorMap[c].gemini++;
+    });
+    info.gptCompetitor.forEach(c => {
+      competitorMap[c] = competitorMap[c] || { perplexity: 0, gemini: 0, chatgpt: 0 };
+      competitorMap[c].chatgpt++;
     });
   });
 
   const perplexity_media = perpCount ? perpSum / perpCount : 0;
   const gemini_media = gemCount ? gemSum / gemCount : 0;
-  const punteggio_medio = (perplexity_media + gemini_media) / 2;
+  // ChatGPT entra nella media generale solo per i report che lo includono
+  // (gptCount>0). I report storici senza benchmark ChatGPT restano a media
+  // 2 motori, cosi' il trend storico non salta per un campo mancante.
+  const gpt_media = gptCount ? gptSum / gptCount : null;
+  const punteggio_medio = gpt_media != null
+    ? (perplexity_media + gemini_media + gpt_media) / 3
+    : (perplexity_media + gemini_media) / 2;
 
   const competitorTop = Object.entries(competitorMap)
-    .map(([nome, v]) => ({ nome, totale: v.perplexity + v.gemini, perplexity: v.perplexity, gemini: v.gemini }))
+    .map(([nome, v]) => ({ nome, totale: v.perplexity + v.gemini + v.chatgpt, perplexity: v.perplexity, gemini: v.gemini, chatgpt: v.chatgpt }))
     .sort((a, b) => b.totale - a.totale)
     .slice(0, 10);
 
@@ -639,8 +679,11 @@ function computeKPIs(report) {
     presenze: orPresenze,
     perplexity_presenze: perpPresenze,
     gemini_presenze: gemPresenze,
+    gpt_presenze: gptPresenze,
+    gpt_consigliate: gptConsigliate,
     perplexity_media,
     gemini_media,
+    gpt_media,
     punteggio_medio,
     competitorTop,
     haCompetitorDettagliati: Object.keys(competitorMap).length > 0
@@ -665,6 +708,8 @@ function loadRun(dataIso) {
   document.getElementById('perp-media').textContent    = toPercent(kpi.perplexity_media);
   document.getElementById('gem-presenze').textContent  = kpi.gemini_presenze;
   document.getElementById('gem-media').textContent     = toPercent(kpi.gemini_media);
+  document.getElementById('gpt-presenze').textContent    = kpi.gpt_media != null ? kpi.gpt_presenze : '—';
+  document.getElementById('gpt-consigliate').textContent = kpi.gpt_media != null ? kpi.gpt_consigliate : '—';
 
   // Trend (in punti percentuali di Share of AI Voice, coerente col resto della dashboard)
   const idx = allReports.findIndex(r => r.data_iso === dataIso);
@@ -696,7 +741,7 @@ function loadRun(dataIso) {
     row.className = 'domanda-row';
 
     const info = estraiDettaglioDomanda(d, report.domande);
-    const pVals = [info.perpScore, info.gemScore].filter(v => v != null && v > 0);
+    const pVals = [info.perpScore, info.gemScore, info.gptScore].filter(v => v != null && v > 0);
     const scoreRaw = pVals.length ? (pVals.reduce((a, b) => a + b, 0) / pVals.length)
                                    : (d.punteggio != null ? d.punteggio : 0);
     const scorePct = Math.round(scoreRaw * 10);
@@ -707,11 +752,24 @@ function loadRun(dataIso) {
     const badgeGem = info.gemPresente === null
       ? '<span style="color:var(--muted);font-size:0.75rem">—</span>'
       : `<span class="badge ${info.gemPresente ? 'presente' : 'assente'}">${info.gemPresente ? '✅ SÌ' : '❌ NO'}</span>`;
+    // ChatGPT: badge a 3 stati, assente/citata/consigliata, cosi' presenza e
+    // raccomandazione stanno in una sola colonna invece di due
+    let badgeGpt;
+    if (info.gptPresente === null) {
+      badgeGpt = '<span style="color:var(--muted);font-size:0.75rem">—</span>';
+    } else if (info.gptConsigliata) {
+      badgeGpt = '<span class="badge presente">✅ Consigliata</span>';
+    } else if (info.gptPresente) {
+      badgeGpt = '<span class="badge citata">🔸 Citata</span>';
+    } else {
+      badgeGpt = '<span class="badge assente">❌ NO</span>';
+    }
 
     row.innerHTML = `
       <div class="q-text">${d.domanda}</div>
       <div>${badgePerp}</div>
       <div>${badgeGem}</div>
+      <div>${badgeGpt}</div>
       <div><span class="score-pill">${scorePct}%</span></div>
     `;
     domList.appendChild(row);
@@ -745,9 +803,10 @@ function loadRun(dataIso) {
   // ora calcolata dagli stessi kpi ricalcolati invece che da dettaglio_motori dichiarato
   const casaCavour = {
     nome: 'Casa Cavour',
-    totale: kpi.perplexity_presenze + kpi.gemini_presenze,
+    totale: kpi.perplexity_presenze + kpi.gemini_presenze + (kpi.gpt_media != null ? kpi.gpt_presenze : 0),
     perplexity: kpi.perplexity_presenze,
-    gemini: kpi.gemini_presenze
+    gemini: kpi.gemini_presenze,
+    chatgpt: kpi.gpt_media != null ? kpi.gpt_presenze : 0
   };
 
   const maxCount = Math.max(
@@ -761,7 +820,7 @@ function loadRun(dataIso) {
     <div class="competitor-name">🏡 ${casaCavour.nome}</div>
     <div class="competitor-count">
       <div class="competitor-bar"><div class="competitor-bar-fill" style="width:${(casaCavour.totale/maxCount)*100}%"></div></div>
-      ${casaCavour.totale} app. &nbsp;<span style="color:var(--muted);font-size:0.75rem">(P:${casaCavour.perplexity} G:${casaCavour.gemini})</span>
+      ${casaCavour.totale} app. &nbsp;<span style="color:var(--muted);font-size:0.75rem">(P:${casaCavour.perplexity} G:${casaCavour.gemini}${casaCavour.chatgpt ? ' C:'+casaCavour.chatgpt : ''})</span>
     </div>
   `;
   compList.appendChild(ccItem);
@@ -773,7 +832,7 @@ function loadRun(dataIso) {
       <div class="competitor-name">${c.nome}</div>
       <div class="competitor-count">
         <div class="competitor-bar"><div class="competitor-bar-fill" style="width:${(c.totale/maxCount)*100}%"></div></div>
-        ${c.totale} app. &nbsp;<span style="color:var(--muted);font-size:0.75rem">(P:${c.perplexity} G:${c.gemini})</span>
+        ${c.totale} app. &nbsp;<span style="color:var(--muted);font-size:0.75rem">(P:${c.perplexity} G:${c.gemini}${c.chatgpt ? ' C:'+c.chatgpt : ''})</span>
       </div>
     `;
     compList.appendChild(item);
@@ -816,6 +875,12 @@ function renderChart() {
   const punteggi  = allReports.map(r => Math.round(computeKPIs(r).punteggio_medio * 10));
   const perpMedia = allReports.map(r => Math.round(computeKPIs(r).perplexity_media * 10));
   const gemMedia  = allReports.map(r => Math.round(computeKPIs(r).gemini_media * 10));
+  // null dove ChatGPT non e' stato ancora testato: spanGaps ignora i buchi invece di
+  // disegnare uno zero falso
+  const gptMedia  = allReports.map(r => {
+    const k = computeKPIs(r);
+    return k.gpt_media != null ? Math.round(k.gpt_media * 10) : null;
+  });
 
   currentChart = new Chart(ctx, {
     type: 'line',
@@ -866,6 +931,19 @@ function renderChart() {
           borderWidth: 1.5,
           borderDash: [3, 3],
           pointBackgroundColor: '#1a73e8',
+          pointRadius: 4,
+          tension: 0.3,
+          fill: false,
+          spanGaps: true,
+          yAxisID: 'y2'
+        },
+        {
+          label: 'ChatGPT — Share of AI Voice',
+          data: gptMedia,
+          borderColor: '#10a37f',
+          borderWidth: 1.5,
+          borderDash: [3, 3],
+          pointBackgroundColor: '#10a37f',
           pointRadius: 4,
           tension: 0.3,
           fill: false,

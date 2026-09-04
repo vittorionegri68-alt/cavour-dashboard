@@ -1570,8 +1570,8 @@
     "data": "02/09/2026",
     "data_iso": "2026-09-02",
     "presenze": 10,
-    "punteggio_medio": 3.3,
-    "motori": "Perplexity + Gemini",
+    "punteggio_medio": 5.2,
+    "motori": "Perplexity + Gemini + ChatGPT (benchmark manuale)",
     "dettaglio_motori": {
       "perplexity": {
         "presenze": 5,
@@ -1604,6 +1604,16 @@
             "Agriturismo le Saline",
             "Fattoria la Quercia"
           ]
+        },
+        "chatgpt": {
+          "presente": false,
+          "consigliata": false,
+          "punteggio": 0,
+          "competitor": [
+            "Albergo Colonna",
+            "Casina San Francesco",
+            "Autostop Duardì"
+          ]
         }
       },
       {
@@ -1625,6 +1635,16 @@
             "Agriturismo Le Lucciole",
             "Agriturismo 7 Colonne"
           ]
+        },
+        "chatgpt": {
+          "presente": true,
+          "consigliata": true,
+          "punteggio": 10,
+          "competitor": [
+            "Agriturismo 7 Colonne",
+            "Casina San Francesco",
+            "Borgo Condé Wine Resort"
+          ]
         }
       },
       {
@@ -1644,6 +1664,16 @@
           "punteggio": 4,
           "competitor": [
             "Agriturismo al Colle",
+            "Agriturismo 7 Colonne"
+          ]
+        },
+        "chatgpt": {
+          "presente": true,
+          "consigliata": true,
+          "punteggio": 10,
+          "competitor": [
+            "Borgo Condé Wine Resort",
+            "Locanda della Luna",
             "Agriturismo 7 Colonne"
           ]
         }
@@ -1667,6 +1697,15 @@
             "Agriturismo al Colle",
             "Podere Baratta"
           ]
+        },
+        "chatgpt": {
+          "presente": true,
+          "consigliata": true,
+          "punteggio": 10,
+          "competitor": [
+            "Palazzo di Varignana",
+            "Agriturismo Marzolara"
+          ]
         }
       },
       {
@@ -1686,6 +1725,16 @@
             "Agriturismo al Colle",
             "Cà Bevilacqua",
             "Agriturismo 7 Colonne"
+          ]
+        },
+        "chatgpt": {
+          "presente": true,
+          "consigliata": true,
+          "punteggio": 10,
+          "competitor": [
+            "Country Rooms & Suite La Quercia",
+            "Borgo Condé Wine Resort",
+            "Albergo Colonna"
           ]
         }
       },
@@ -1708,6 +1757,16 @@
             "Albergo Colonna",
             "Hotel Mingaren"
           ]
+        },
+        "chatgpt": {
+          "presente": true,
+          "consigliata": true,
+          "punteggio": 10,
+          "competitor": [
+            "Casina San Francesco",
+            "Albergo Colonna",
+            "Agriturismo 7 Colonne"
+          ]
         }
       },
       {
@@ -1724,6 +1783,15 @@
           "punteggio": 2,
           "competitor": [
             "Agriturismo 7 Colonne"
+          ]
+        },
+        "chatgpt": {
+          "presente": true,
+          "consigliata": true,
+          "punteggio": 10,
+          "competitor": [
+            "Agriturismo 7 Colonne",
+            "Agriturismo Le Lucciole"
           ]
         }
       },
@@ -1746,6 +1814,16 @@
             "Agriturismo 7 Colonne",
             "Agriturismo Coradosso"
           ]
+        },
+        "chatgpt": {
+          "presente": true,
+          "consigliata": true,
+          "punteggio": 10,
+          "competitor": [
+            "Agriturismo I Bosconi",
+            "Agriturismo Monte Valbelle",
+            "Agriturismo Ai Laghi di Veclezio"
+          ]
         }
       },
       {
@@ -1767,6 +1845,12 @@
             "Agriturismo 7 Colonne",
             "Agriturismo Le Lucciole"
           ]
+        },
+        "chatgpt": {
+          "presente": true,
+          "consigliata": true,
+          "punteggio": 10,
+          "competitor": []
         }
       },
       {
@@ -1787,6 +1871,16 @@
             "Podere Baratta",
             "Hotel Panorama",
             "Hotel La Colonna"
+          ]
+        },
+        "chatgpt": {
+          "presente": true,
+          "consigliata": true,
+          "punteggio": 10,
+          "competitor": [
+            "Agriturismo 7 Colonne",
+            "Residence Villa degli Ulivi",
+            "Agriturismo 26PUNTO80"
           ]
         }
       }
@@ -1846,6 +1940,12 @@
       "Rafforzare la presenza su Gemini con contenuti strutturati e citabili: i punteggi bassi (media 2.5) nonostante la presenza quasi totale (10/10) indicano che la struttura viene riconosciuta ma non descritta con autorevolezza. Aggiornare o creare schede dettagliate su fonti indicizzate da Gemini (Wikipedia locale, blog di settore, recensioni approfondite) enfatizzando giardino privato, pet-friendly e smart working.",
       "Consolidare il vantaggio sulle query di nicchia ad alto punteggio (cosa fare a Bertinoro, giardino privato, animali ammessi, smart working): capitalizzare le performance gia' eccellenti producendo contenuti specifici da distribuire su canali autorevoli e piattaforme travel, per trasformare la visibilita' episodica in presenza stabile e difendere il posizionamento da Agriturismo al Colle e Il Vigneto Cottage."
     ],
-    "report_url": "reports/report-geo-aeo-casa-cavour-2026-09-02.html"
+    "report_url": "reports/report-geo-aeo-casa-cavour-2026-09-02-completo.html",
+    "chatgpt_benchmark": {
+      "data": "04/09/2026",
+      "metodo": "Benchmark manuale in chat ChatGPT, 10 domande, solo risultati con ricerca web attiva (per comparabilita' con Perplexity e Gemini, che usano sempre il web). Non fa parte del workflow N8N automatico W3. Punteggio: consigliata spontaneamente=10, presente ma solo citata=3, assente=0.",
+      "presenti": 9,
+      "consigliate": 9
+    }
   }
 ]
