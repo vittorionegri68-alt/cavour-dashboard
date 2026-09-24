@@ -1953,5 +1953,627 @@
       "presenti": 9,
       "consigliate": 9
     }
+  },
+  {
+    "data": "24/09/2026",
+    "data_iso": "2026-09-24",
+    "presenze": 10,
+    "punteggio_medio": 4.9,
+    "motori": "Perplexity + Gemini + ChatGPT (benchmark manuale, 3 run)",
+    "dettaglio_motori": {
+      "perplexity": {
+        "presenze": 5,
+        "punteggio_medio": 3.6
+      },
+      "gemini": {
+        "presenze": 7,
+        "punteggio_medio": 3.3
+      },
+      "chatgpt": {
+        "presenze": 10,
+        "consigliate": 7,
+        "punteggio_medio": 7.9,
+        "nota": "benchmark manuale 24/09, 3 run in chat nuova vuota (chat precedente eliminata prima di ogni run), solo risultati con ricerca web attiva; punteggio per domanda = media delle 3 run"
+      }
+    },
+    "nota_correzione": "Il report HTML generato da N8N dichiarava Perplexity presente in 6/10 domande: il conteggio reale riga per riga e' 5/10 (presente solo su #6, #7, #8, #9, #10). Punteggi medi dichiarati corretti (Perplexity 3.6, Gemini 3.3). Il report dichiarava anche 'prima analisi' come trend, ma e' la nona rilevazione: il nodo N8N che legge il report precedente non lo trova (stesso sintomo visto sul report RAB dello stesso giorno). competitor_principali ricalcolato dal dettaglio grezzo: dichiarati Agriturismo al Colle 10 (reale 11, P:6 G:5), Agriturismo 7 Colonne 9 (reale 8, P:3 G:5), Il Vigneto Cottage 5 (reale 4), Fattoria La Quercia 5 (reale 4), La Cana Dolce 3 (reale 2). Nomi normalizzati sullo storico: 'Agriturismo Fattoria La Quercia' = Fattoria La Quercia, 'Hotel La Colonna' = Albergo Colonna, 'Agriturismo Glamping Pettirosso' = Agriturismo Pettirosso. 'Romagna Affitti Brevi' (#9 Perplexity) e' la directory partner, lasciata come nel dato grezzo. | ChatGPT: 3 run manuali del 24/09 sulle stesse 10 domande, sempre da chat nuova e vuota. Stessa scala del 04/09 (consigliata con motivazione specifica su Casa Cavour = 10, solo citata in un elenco = 3, assente = 0), punteggio per domanda = media delle 3 run, consigliata = true se consigliata in almeno 2 run su 3. Posizioni ricontate dal testo delle risposte, non prese dall'analisi generata da ChatGPT (che segnava 'non classificata' anche quando Casa Cavour era nominata per prima); il totale conta solo strutture nominate con il loro nome, non categorie generiche. 'Ristorante Farmhouse Al Colle' tenuto separato da Agriturismo al Colle perche' la corrispondenza non e' verificata. Web disattivato: 0/30, Casa Cavour mai nominata.",
+    "sintesi": "Presenza stabile ma forza della raccomandazione in calo rispetto al 02/09. Perplexity resta a 5/10 presenze con media in calo da 4.1 a 3.6: premia con 9/10 le tre domande di prodotto e di luogo (cosa fare a Bertinoro, giardino privato, smart working) ma e' assente su tutte le prime cinque, le domande geografiche ampie e tematiche (Forli'/Cesena, cantine, weekend enogastronomico, Bologna, weekend romantico). Gemini scende da 10/10 a 7/10 presenze ma alza la media da 2.5 a 3.3, con un 8/10 sulla query Forli'/Cesena, storicamente la piu' debole. Le domande perse su entrambi i motori sono #2 cantine, #4 Bologna e #5 weekend romantico. ChatGPT con ricerca web, testato in 3 run da chat vuota, nomina Casa Cavour in tutte le 30 risposte (30/30) ma con forte variabilita': in due run e' quasi sempre prima e motivata, nella terza compare spesso in fondo a elenchi di 4-5 strutture accanto a Borgo Condé Wine Resort, Agriturismo 7 Colonne e Villa Liverzano. Media ChatGPT 7.9 contro 9.0 della singola run del 04/09: la differenza riflette soprattutto il metodo a 3 run, piu' affidabile, non un peggioramento certo. Senza ricerca web Casa Cavour resta invisibile su ChatGPT (0/30), segno che la visibilita' dipende interamente dalle fonti indicizzate e non dalla conoscenza del modello. Agriturismo al Colle resta il competitor dominante su Perplexity e Gemini (11 apparizioni), mentre su ChatGPT non compare mai con quel nome.",
+    "domande": [
+      {
+        "domanda": "Dove dormire vicino a Forlì e Cesena?",
+        "perplexity": {
+          "presente": false,
+          "punteggio": 1,
+          "competitor": [
+            "Agriturismo al Colle",
+            "Agriturismo 7 Colonne",
+            "Hotel Panorama"
+          ]
+        },
+        "gemini": {
+          "presente": true,
+          "punteggio": 8,
+          "competitor": [
+            "Agriturismo Le Lucciole",
+            "Hotel Panorama",
+            "Hotel Fontanelle"
+          ]
+        },
+        "chatgpt": {
+          "presente": true,
+          "consigliata": false,
+          "punteggio": 5.3,
+          "competitor": [
+            "Hotel Michelangelo",
+            "Grand Hotel Forlì",
+            "Agriturismo Picchio Rosso",
+            "I Merisi",
+            "Hotel Panorama",
+            "Agriturismo Le Essenze",
+            "La Pergola B&B",
+            "Agriturismo 7 Colonne",
+            "Ai Laghi di Veclezio"
+          ],
+          "run": [
+            {
+              "run": "a",
+              "posizione": "1a/3",
+              "esito": "citata",
+              "punteggio": 3
+            },
+            {
+              "run": "b",
+              "posizione": "1a/4",
+              "esito": "consigliata",
+              "punteggio": 10
+            },
+            {
+              "run": "c",
+              "posizione": "4a/5",
+              "esito": "citata",
+              "punteggio": 3
+            }
+          ]
+        }
+      },
+      {
+        "domanda": "Dove dormire per visitare le cantine di Romagna?",
+        "perplexity": {
+          "presente": false,
+          "punteggio": 1,
+          "competitor": [
+            "Fattoria Paradiso",
+            "Il Vigneto Cottage"
+          ]
+        },
+        "gemini": {
+          "presente": false,
+          "punteggio": 0,
+          "competitor": [
+            "Agriturismo Borgo di Vezzano",
+            "Agriturismo Le Lucciole",
+            "Agriturismo Le Saline"
+          ]
+        },
+        "chatgpt": {
+          "presente": true,
+          "consigliata": true,
+          "punteggio": 7.7,
+          "competitor": [
+            "Podere Quartarola",
+            "Agriturismo 7 Colonne",
+            "Ristorante Farmhouse Al Colle",
+            "Borgo Condé Wine Resort"
+          ],
+          "run": [
+            {
+              "run": "a",
+              "posizione": "1a/1",
+              "esito": "consigliata",
+              "punteggio": 10
+            },
+            {
+              "run": "b",
+              "posizione": "1a/2",
+              "esito": "consigliata",
+              "punteggio": 10
+            },
+            {
+              "run": "c",
+              "posizione": "3a/4",
+              "esito": "citata",
+              "punteggio": 3
+            }
+          ]
+        }
+      },
+      {
+        "domanda": "Dove alloggiare per un weekend enogastronomico in Romagna?",
+        "perplexity": {
+          "presente": false,
+          "punteggio": 1,
+          "competitor": [
+            "Agriturismo 7 Colonne",
+            "Fattoria La Quercia",
+            "Agriturismo al Colle"
+          ]
+        },
+        "gemini": {
+          "presente": true,
+          "punteggio": 2,
+          "competitor": [
+            "Agriturismo al Colle",
+            "Agriturismo 7 Colonne"
+          ]
+        },
+        "chatgpt": {
+          "presente": true,
+          "consigliata": false,
+          "punteggio": 5.3,
+          "competitor": [
+            "Agriturismo Corte dei Mori",
+            "Podere Quartarola",
+            "Borgo Condé Wine Resort",
+            "Ristorante Farmhouse Al Colle",
+            "Agriturismo 7 Colonne",
+            "Agriturismo e Cantina la Sabbiona"
+          ],
+          "run": [
+            {
+              "run": "a",
+              "posizione": "1a/2",
+              "esito": "citata",
+              "punteggio": 3
+            },
+            {
+              "run": "b",
+              "posizione": "1a/2",
+              "esito": "consigliata",
+              "punteggio": 10
+            },
+            {
+              "run": "c",
+              "posizione": "4a/5",
+              "esito": "citata",
+              "punteggio": 3
+            }
+          ]
+        }
+      },
+      {
+        "domanda": "Dove staccare dalla routine vicino a Bologna?",
+        "perplexity": {
+          "presente": false,
+          "punteggio": 1,
+          "competitor": [
+            "Il Vigneto Cottage",
+            "Cà Bevilacqua",
+            "Agriturismo al Colle"
+          ]
+        },
+        "gemini": {
+          "presente": false,
+          "punteggio": 1,
+          "competitor": [
+            "Agriturismo al Colle",
+            "Agriturismo Poderi delle Rocche",
+            "Agriturismo 7 Colonne"
+          ]
+        },
+        "chatgpt": {
+          "presente": true,
+          "consigliata": true,
+          "punteggio": 7.7,
+          "competitor": [
+            "Agriturismo Cantina Al Pazz",
+            "Agriturismo Marzolara",
+            "Borgo Condé Wine Resort",
+            "Villa Liverzano",
+            "La Cana Dolce"
+          ],
+          "run": [
+            {
+              "run": "a",
+              "posizione": "3a/3",
+              "esito": "consigliata",
+              "punteggio": 10
+            },
+            {
+              "run": "b",
+              "posizione": "1a/1",
+              "esito": "consigliata",
+              "punteggio": 10
+            },
+            {
+              "run": "c",
+              "posizione": "3a/4",
+              "esito": "citata",
+              "punteggio": 3
+            }
+          ]
+        }
+      },
+      {
+        "domanda": "Posto ideale per un weekend romantico nelle colline romagnole?",
+        "perplexity": {
+          "presente": false,
+          "punteggio": 1,
+          "competitor": [
+            "Agriturismo 7 Colonne",
+            "Agriturismo al Colle"
+          ]
+        },
+        "gemini": {
+          "presente": false,
+          "punteggio": 1,
+          "competitor": [
+            "Agriturismo Poderi delle Rocche",
+            "B&B Colori di Romagna"
+          ]
+        },
+        "chatgpt": {
+          "presente": true,
+          "consigliata": true,
+          "punteggio": 10.0,
+          "competitor": [
+            "Country Rooms & Suite La Quercia",
+            "Villa Liverzano",
+            "Borgo Condé Wine Resort"
+          ],
+          "run": [
+            {
+              "run": "a",
+              "posizione": "1a/2",
+              "esito": "consigliata",
+              "punteggio": 10
+            },
+            {
+              "run": "b",
+              "posizione": "1a/2",
+              "esito": "consigliata",
+              "punteggio": 10
+            },
+            {
+              "run": "c",
+              "posizione": "3a/3",
+              "esito": "consigliata",
+              "punteggio": 10
+            }
+          ]
+        }
+      },
+      {
+        "domanda": "Cosa fare a Bertinoro in un weekend?",
+        "perplexity": {
+          "presente": true,
+          "punteggio": 9,
+          "competitor": [
+            "Fattoria La Quercia",
+            "Cà Bevilacqua",
+            "Albergo Colonna"
+          ]
+        },
+        "gemini": {
+          "presente": true,
+          "punteggio": 4,
+          "competitor": [
+            "Agriturismo al Colle",
+            "Agriturismo 7 Colonne",
+            "La Cana Dolce"
+          ]
+        },
+        "chatgpt": {
+          "presente": true,
+          "consigliata": true,
+          "punteggio": 10.0,
+          "competitor": [
+            "Hotel Panorama",
+            "Albergo Colonna",
+            "Agriturismo 7 Colonne",
+            "Tenuta Diavoletto"
+          ],
+          "run": [
+            {
+              "run": "a",
+              "posizione": "1a/2",
+              "esito": "consigliata",
+              "punteggio": 10
+            },
+            {
+              "run": "b",
+              "posizione": "1a/2",
+              "esito": "consigliata",
+              "punteggio": 10
+            },
+            {
+              "run": "c",
+              "posizione": "4a/4",
+              "esito": "consigliata",
+              "punteggio": 10
+            }
+          ]
+        }
+      },
+      {
+        "domanda": "Casa vacanze con giardino privato nelle colline romagnole?",
+        "perplexity": {
+          "presente": true,
+          "punteggio": 9,
+          "competitor": [
+            "Tenuta Bagni de Consoli 24",
+            "Il Vigneto Cottage"
+          ]
+        },
+        "gemini": {
+          "presente": true,
+          "punteggio": 4,
+          "competitor": [
+            "Agriturismo Poderi dal Nespoli",
+            "Agriturismo 7 Colonne"
+          ]
+        },
+        "chatgpt": {
+          "presente": true,
+          "consigliata": true,
+          "punteggio": 10.0,
+          "competitor": [
+            "Agriturismo Re Piano",
+            "RR House",
+            "Agrialloggio Poggiolina",
+            "Il Vigneto Cottage"
+          ],
+          "run": [
+            {
+              "run": "a",
+              "posizione": "1a/2",
+              "esito": "consigliata",
+              "punteggio": 10
+            },
+            {
+              "run": "b",
+              "posizione": "1a/3",
+              "esito": "consigliata",
+              "punteggio": 10
+            },
+            {
+              "run": "c",
+              "posizione": "2a/2",
+              "esito": "consigliata",
+              "punteggio": 10
+            }
+          ]
+        }
+      },
+      {
+        "domanda": "Dove dormire in Romagna con animali ammessi?",
+        "perplexity": {
+          "presente": true,
+          "punteggio": 2,
+          "competitor": [
+            "Agriturismo al Colle",
+            "Allegroitalia Fratta Terme",
+            "Fattoria La Quercia"
+          ]
+        },
+        "gemini": {
+          "presente": true,
+          "punteggio": 4,
+          "competitor": [
+            "Parrot House",
+            "La Cana Dolce",
+            "Agriturismo al Colle"
+          ]
+        },
+        "chatgpt": {
+          "presente": true,
+          "consigliata": true,
+          "punteggio": 7.7,
+          "competitor": [
+            "Il Cantinoccio",
+            "Relais Il Podere del Germano Reale",
+            "Agriturismo Le Essenze",
+            "Farm Ca' di Mezzo"
+          ],
+          "run": [
+            {
+              "run": "a",
+              "posizione": "1a/3",
+              "esito": "citata",
+              "punteggio": 3
+            },
+            {
+              "run": "b",
+              "posizione": "1a/1",
+              "esito": "consigliata",
+              "punteggio": 10
+            },
+            {
+              "run": "c",
+              "posizione": "1a/3",
+              "esito": "consigliata",
+              "punteggio": 10
+            }
+          ]
+        }
+      },
+      {
+        "domanda": "Appartamento vacanze per smart working in Romagna?",
+        "perplexity": {
+          "presente": true,
+          "punteggio": 9,
+          "competitor": [
+            "Romagna Affitti Brevi",
+            "Ca' Ciuchina",
+            "Il Vigneto Cottage"
+          ]
+        },
+        "gemini": {
+          "presente": true,
+          "punteggio": 5,
+          "competitor": [
+            "Agriturismo 7 Colonne",
+            "Fattoria La Quercia"
+          ]
+        },
+        "chatgpt": {
+          "presente": true,
+          "consigliata": true,
+          "punteggio": 10.0,
+          "competitor": [
+            "Agrialloggio Poggiolina",
+            "Ai Laghi di Veclezio"
+          ],
+          "run": [
+            {
+              "run": "a",
+              "posizione": "1a/1",
+              "esito": "consigliata",
+              "punteggio": 10
+            },
+            {
+              "run": "b",
+              "posizione": "1a/2",
+              "esito": "consigliata",
+              "punteggio": 10
+            },
+            {
+              "run": "c",
+              "posizione": "1a/2",
+              "esito": "consigliata",
+              "punteggio": 10
+            }
+          ]
+        }
+      },
+      {
+        "domanda": "Dove alloggiare per visitare le colline romagnole?",
+        "perplexity": {
+          "presente": true,
+          "punteggio": 2,
+          "competitor": [
+            "Agriturismo al Colle",
+            "Cà Bevilacqua",
+            "Agriturismo Pettirosso"
+          ]
+        },
+        "gemini": {
+          "presente": true,
+          "punteggio": 4,
+          "competitor": [
+            "Agriturismo Le Lucciole",
+            "Agriturismo Pettirosso",
+            "Agriturismo al Colle"
+          ]
+        },
+        "chatgpt": {
+          "presente": true,
+          "consigliata": false,
+          "punteggio": 5.3,
+          "competitor": [
+            "Agriturismo Corte dei Mori",
+            "VillaCubetto",
+            "Podere Quartarola",
+            "Agriturismo 7 Colonne",
+            "Tenuta Diavoletto",
+            "Il Vigneto Cottage",
+            "Villa Liverzano"
+          ],
+          "run": [
+            {
+              "run": "a",
+              "posizione": "1a/2",
+              "esito": "citata",
+              "punteggio": 3
+            },
+            {
+              "run": "b",
+              "posizione": "1a/3",
+              "esito": "consigliata",
+              "punteggio": 10
+            },
+            {
+              "run": "c",
+              "posizione": "4a/5",
+              "esito": "citata",
+              "punteggio": 3
+            }
+          ]
+        }
+      }
+    ],
+    "competitor_principali": [
+      {
+        "nome": "Agriturismo al Colle",
+        "apparizioni": 11,
+        "perplexity": 6,
+        "gemini": 5
+      },
+      {
+        "nome": "Agriturismo 7 Colonne",
+        "apparizioni": 8,
+        "perplexity": 3,
+        "gemini": 5
+      },
+      {
+        "nome": "Il Vigneto Cottage",
+        "apparizioni": 4,
+        "perplexity": 4,
+        "gemini": 0
+      },
+      {
+        "nome": "Fattoria La Quercia",
+        "apparizioni": 4,
+        "perplexity": 3,
+        "gemini": 1
+      },
+      {
+        "nome": "Cà Bevilacqua",
+        "apparizioni": 3,
+        "perplexity": 3,
+        "gemini": 0
+      },
+      {
+        "nome": "Agriturismo Le Lucciole",
+        "apparizioni": 3,
+        "perplexity": 0,
+        "gemini": 3
+      },
+      {
+        "nome": "Hotel Panorama",
+        "apparizioni": 2,
+        "perplexity": 1,
+        "gemini": 1
+      },
+      {
+        "nome": "Agriturismo Pettirosso",
+        "apparizioni": 2,
+        "perplexity": 1,
+        "gemini": 1
+      }
+    ],
+    "azioni": [
+      "Colmare il vuoto sulle domande perse su entrambi i motori (#2 cantine, #4 staccare vicino a Bologna, #5 weekend romantico): contenuti dedicati sul sito e FAQ strutturate che colleghino esplicitamente Casa Cavour a itinerari tra le cantine, soggiorni di coppia nel borgo e fuga dalla citta' a circa 70 km da Bologna, in formato direttamente citabile.",
+      "Aumentare le citazioni su fonti terze indicizzate da Perplexity per le query di scoperta generica: Perplexity e' assente sulle prime cinque domande e debole su #8 animali e #10 colline (2/10). Portali Romagna, blog di viaggio e schede pet-friendly che nominino Casa Cavour con le sue caratteristiche distintive.",
+      "Differenziarsi da Agriturismo al Colle e Agriturismo 7 Colonne, i due competitor che ricorrono su quasi tutte le categorie: evidenziare in formato citabile i punti che nessuno dei due offre (appartamento indipendente nel centro storico, giardino privato, postazione smart working, animali ammessi), gli stessi che oggi ottengono 9/10 su Perplexity."
+    ],
+    "report_url": "reports/report-geo-aeo-casa-cavour-2026-09-24-completo.html",
+    "chatgpt_benchmark": {
+      "data": "24/09/2026",
+      "metodo": "Benchmark manuale in chat ChatGPT, 10 domande, 3 run indipendenti da chat nuova e vuota con eliminazione della chat precedente prima di ogni run, solo risultati con ricerca web attiva. Non fa parte del workflow N8N automatico W3. Punteggio per run: consigliata con motivazione=10, solo citata=3, assente=0; punteggio per domanda = media delle 3 run.",
+      "run": 3,
+      "presenti": 10,
+      "consigliate": 7,
+      "presenze_per_run": [
+        10,
+        10,
+        10
+      ],
+      "prima_posizione_per_run": [
+        9,
+        10,
+        2
+      ],
+      "web_disattivato": "0/30"
+    }
   }
 ]
