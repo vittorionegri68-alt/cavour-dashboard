@@ -2585,11 +2585,11 @@
     "metodologia": "v3.5",
     "dettaglio_motori": {
       "perplexity": {
-        "presenze": 3,
+        "presenze": 4,
         "punteggio_medio": 2.9
       },
       "gemini": {
-        "presenze": 4,
+        "presenze": 9,
         "punteggio_medio": 4.1
       },
       "chatgpt": {
@@ -2666,7 +2666,7 @@
       {
         "domanda": "Dove dormire per visitare le cantine di Romagna?",
         "perplexity": {
-          "presente": false,
+          "presente": true,
           "punteggio": 1,
           "competitor": [
             "Agriturismo al Colle",
@@ -2679,7 +2679,7 @@
           "presenze": "1/3"
         },
         "gemini": {
-          "presente": false,
+          "presente": true,
           "punteggio": 2.3,
           "competitor": [
             "B&B Tenuta Diavoletto",
@@ -2742,7 +2742,7 @@
           "presenze": "0/3"
         },
         "gemini": {
-          "presente": false,
+          "presente": true,
           "punteggio": 2.3,
           "competitor": [
             "Agriturismo 7 Colonne",
@@ -2804,7 +2804,7 @@
           "presenze": "0/3"
         },
         "gemini": {
-          "presente": false,
+          "presente": true,
           "punteggio": 2.3,
           "competitor": [
             "Agriturismo al Colle",
@@ -2866,7 +2866,7 @@
           "presenze": "0/3"
         },
         "gemini": {
-          "presente": false,
+          "presente": true,
           "punteggio": 2.7,
           "competitor": [
             "Agriturismo al Colle",
@@ -3169,7 +3169,7 @@
           "presenze": "0/3"
         },
         "gemini": {
-          "presente": false,
+          "presente": true,
           "punteggio": 2.3,
           "competitor": [
             "Agriturismo al Colle",
@@ -3267,18 +3267,18 @@
         "gemini": 1
       }
     ],
-    "sintesi": "Casa Cavour performa bene solo su domande iperspecifiche legate al luogo (domanda 6), alle caratteristiche dell'appartamento (domanda 7) o al segmento smart working (domanda 9), dove ottiene punteggi massimi o molto alti su entrambi i motori. E' completamente assente su domande generiche di area geografica (1, 10), su quelle enogastronomiche (2, 3) e romantiche (5), dove i competitor agrituristici dominano sistematicamente. Perplexity tende a citare Casa Cavour solo quando la query contiene elementi molto specifici che corrispondono alle caratteristiche dichiarate dell'appartamento, mentre Gemini mostra una presenza parziale (1 campione su 3) su alcune domande intermedie, suggerendo una visibilita' instabile su quel motore. Il competitor piu' solido e' Agriturismo al Colle, presente su 15 combinazioni query-motore, seguito da Agriturismo 7 Colonne e Il Vigneto Cottage, che compaiono trasversalmente su quasi tutti i tipi di domanda. ChatGPT con ricerca web (3 run manuali) conferma un quadro nettamente piu' forte: Casa Cavour e' nominata in tutte le 10 domande (in 28 risposte su 30) con media 7.4, e consigliata con motivazione specifica in 6 domande. Le domande piu' deboli su ChatGPT sono #1 Forli'/Cesena (3.3) e #6 cosa fare a Bertinoro (5.3), le stesse dove la presenza e' intermittente tra una run e l'altra.",
+    "sintesi": "Casa Cavour performa bene solo su domande iperspecifiche legate al luogo (domanda 6), alle caratteristiche dell'appartamento (domanda 7) o al segmento smart working (domanda 9), dove ottiene punteggi massimi o molto alti su entrambi i motori. Sulle domande generiche di area geografica (1, 10), su quelle enogastronomiche (2, 3) e romantiche (5) e' assente o solo sporadica (al massimo 1 campione su 3 per motore), mentre i competitor agrituristici dominano sistematicamente; la #1 Forli'/Cesena e' l'unica senza nessuna citazione ne' su Perplexity ne' su Gemini. Perplexity tende a citare Casa Cavour solo quando la query contiene elementi molto specifici che corrispondono alle caratteristiche dichiarate dell'appartamento, mentre Gemini mostra una presenza parziale (1 campione su 3) su alcune domande intermedie, suggerendo una visibilita' instabile su quel motore. Il competitor piu' solido e' Agriturismo al Colle, presente su 15 combinazioni query-motore, seguito da Agriturismo 7 Colonne e Il Vigneto Cottage, che compaiono trasversalmente su quasi tutti i tipi di domanda. ChatGPT con ricerca web (3 run manuali) conferma un quadro nettamente piu' forte: Casa Cavour e' nominata in tutte le 10 domande (in 28 risposte su 30) con media 7.4, e consigliata con motivazione specifica in 6 domande. Le domande piu' deboli su ChatGPT sono #1 Forli'/Cesena (3.3) e #6 cosa fare a Bertinoro (5.3), le stesse dove la presenza e' intermittente tra una run e l'altra.",
     "azioni": [
       "Creare contenuti sul sito e sui profili esterni (Google Business, blog, directory) che associno esplicitamente Casa Cavour alle parole chiave enogastronomiche (cantine, vino, Romagna, weekend gastronomico), che oggi attivano solo competitor agrituristici e mai l'appartamento.",
       "Ottimizzare la descrizione dell'appartamento per le query romantiche e di coppia, inserendo termini come weekend romantico, colline romagnole, privacy, atmosfera, che oggi favoriscono Il Vigneto Cottage e Agriturismo al Colle su quelle domande.",
       "Rafforzare la presenza su directory e fonti indicizzate da Gemini (dove Casa Cavour e' spesso a 1 su 3 campioni), puntando a ottenere citazioni stabili e coerenti che trasformino le apparizioni parziali in presenze consolidate su tutte e tre le iterazioni della query."
     ],
     "report_url": "reports/report-geo-aeo-casa-cavour-2026-09-25-completo.html",
-    "nota_correzione": "Prima rilevazione con workflow N8N v3.5.1 (sessione #32). Il 25/09 il workflow e' stato eseguito 3 volte: run 1 di test con Gemini in errore (credenziale non associata dopo l'import), run 2 e run 3 complete. In dashboard entra solo la run 3, una singola esecuzione come saranno le rilevazioni future (ogni esecuzione ripete gia' 3 volte ogni domanda). Variabilita' osservata tra run 2 e run 3: Perplexity 4.2 e 2.9, Gemini 1.5 e 4.1; domande stabili in tutte le run: #1, #3, #10 sempre 0/3 su Perplexity, #7 e #9 sempre 3/3. Scala non confrontabile con i report fino al 24/09. Nel nome di un annuncio competitor l'en dash e' stato sostituito da un trattino semplice. | ChatGPT aggiunto il 25/09 (sessione #32): 3 run manuali valide. Una quarta run e' stata scartata perche' anomala: con ricerca web disattivata nominava Casa Cavour in tutte le 10 risposte, mentre in tutte le altre rilevazioni senza web non e' mai comparsa (probabile contaminazione da memoria o cronologia dell'account ChatGPT). ChatGPT passa dalla scala 10/3/0 usata fino al 24/09 alla scala v3.5, uguale a Perplexity e Gemini: il 7.4 del 25/09 non e' confrontabile con il 7.9 del 24/09. Casi valutati come citazione semplice (senza motivazione specifica) perche' la risposta non descrive una caratteristica propria di Casa Cavour: run a #2 'utile come base', #7 'molto pertinente', #8 'soluzione in appartamento', #9 'una delle opzioni'; run b #10 'molto pertinente'. Totali delle posizioni: solo strutture nominate con nome proprio, escluse directory come Romagna Affitti Brevi.",
+    "nota_correzione": "Prima rilevazione con workflow N8N v3.5.1 (sessione #32). Il 25/09 il workflow e' stato eseguito 3 volte: run 1 di test con Gemini in errore (credenziale non associata dopo l'import), run 2 e run 3 complete. In dashboard entra solo la run 3, una singola esecuzione come saranno le rilevazioni future (ogni esecuzione ripete gia' 3 volte ogni domanda). Variabilita' osservata tra run 2 e run 3: Perplexity 4.2 e 2.9, Gemini 1.5 e 4.1; domande stabili in tutte le run: #1, #3, #10 sempre 0/3 su Perplexity, #7 e #9 sempre 3/3. Scala non confrontabile con i report fino al 24/09. Nel nome di un annuncio competitor l'en dash e' stato sostituito da un trattino semplice. | ChatGPT aggiunto il 25/09 (sessione #32): 3 run manuali valide. Una quarta run e' stata scartata perche' anomala: con ricerca web disattivata nominava Casa Cavour in tutte le 10 risposte, mentre in tutte le altre rilevazioni senza web non e' mai comparsa (probabile contaminazione da memoria o cronologia dell'account ChatGPT). ChatGPT passa dalla scala 10/3/0 usata fino al 24/09 alla scala v3.5, uguale a Perplexity e Gemini: il 7.4 del 25/09 non e' confrontabile con il 7.9 del 24/09. Casi valutati come citazione semplice (senza motivazione specifica) perche' la risposta non descrive una caratteristica propria di Casa Cavour: run a #2 'utile come base', #7 'molto pertinente', #8 'soluzione in appartamento', #9 'una delle opzioni'; run b #10 'molto pertinente'. Totali delle posizioni: solo strutture nominate con nome proprio, escluse directory come Romagna Affitti Brevi. | Regola di presenza v3.5.2 (sessione #32, decisione di Vittorio): presente = SI se Casa Cavour compare in almeno 1 campione valido su 3, per tutti e tre i motori; punteggi invariati. Ricalcolato il 25/09 dai conteggi per campione gia' salvati, senza rifare i test: #2 Perplexity 1/3, #2 Gemini 1/3, #3 Gemini 1/3, #4 Gemini 1/3, #5 Gemini 1/3, #10 Gemini 1/3 passano a presente. Aggiornata di conseguenza una frase della sintesi generata da N8N.",
     "chatgpt_benchmark": {
       "data": "25/09/2026",
       "run": 3,
-      "metodo": "Benchmark manuale in chat ChatGPT, stesse 10 domande, 3 run valide da chat nuova e vuota, solo risultati con ricerca web attiva. Stessa scala v3.5 di Perplexity e Gemini: non nominata 0, citata in elenco 3, con motivazione specifica 7, bonus posizione 1a +3, 2a +2, 3a +1. Punteggio per domanda = media delle 3 run; presente = SI se nominata in almeno 2 run su 3; consigliata = SI se con motivazione specifica in almeno 2 run su 3.",
+      "metodo": "Benchmark manuale in chat ChatGPT, stesse 10 domande, 3 run valide da chat nuova e vuota, solo risultati con ricerca web attiva. Stessa scala v3.5 di Perplexity e Gemini: non nominata 0, citata in elenco 3, con motivazione specifica 7, bonus posizione 1a +3, 2a +2, 3a +1. Punteggio per domanda = media delle 3 run; presente = SI se nominata in almeno 1 run su 3 (regola v3.5.2); consigliata = SI se con motivazione specifica in almeno 2 run su 3.",
       "presenti": 10,
       "consigliate": 6,
       "punteggio_per_run": [
