@@ -2575,5 +2575,373 @@
       ],
       "web_disattivato": "0/30"
     }
+  },
+  {
+    "data": "25/09/2026",
+    "data_iso": "2026-09-25",
+    "presenze": 4,
+    "punteggio_medio": 3.5,
+    "motori": "Perplexity + Gemini",
+    "metodologia": "v3.5",
+    "dettaglio_motori": {
+      "perplexity": {
+        "presenze": 3,
+        "punteggio_medio": 2.9
+      },
+      "gemini": {
+        "presenze": 4,
+        "punteggio_medio": 4.1
+      }
+    },
+    "domande": [
+      {
+        "domanda": "Dove dormire vicino a Forlì e Cesena?",
+        "perplexity": {
+          "presente": false,
+          "punteggio": 0,
+          "competitor": [
+            "Agriturismo al Colle",
+            "B&B del Borgo Bertinoro",
+            "Hotel Panorama Bertinoro",
+            "Agriturismo 7 Colonne",
+            "Hotel La Colonna",
+            "Il Vigneto Cottage"
+          ],
+          "presenze": "0/3"
+        },
+        "gemini": {
+          "presente": false,
+          "punteggio": 0,
+          "competitor": [
+            "Agriturismo Glamping Pettirosso",
+            "Agriturismo Le Lucciole",
+            "Agriturismo 7 Colonne",
+            "Albergo Colonna",
+            "Hotel Panorama",
+            "Agricola Casa Cucina Bottega"
+          ],
+          "presenze": "0/3"
+        }
+      },
+      {
+        "domanda": "Dove dormire per visitare le cantine di Romagna?",
+        "perplexity": {
+          "presente": false,
+          "punteggio": 1,
+          "competitor": [
+            "Agriturismo al Colle",
+            "Casina Pontormo",
+            "Fattoria Paradiso",
+            "Il Vigneto Cottage",
+            "Agriturismo Le Lucciole",
+            "Podere Baratta Agriturismo e Cantina"
+          ],
+          "presenze": "1/3"
+        },
+        "gemini": {
+          "presente": false,
+          "punteggio": 2.3,
+          "competitor": [
+            "B&B Tenuta Diavoletto",
+            "Agriturismo Al Colle",
+            "Agriturismo e Cantina La Sabbiona",
+            "Borgo Condé Wine Resort",
+            "Cà Bevilacqua",
+            "Casa delle Ginestre"
+          ],
+          "presenze": "1/3"
+        }
+      },
+      {
+        "domanda": "Dove alloggiare per un weekend enogastronomico in Romagna?",
+        "perplexity": {
+          "presente": false,
+          "punteggio": 0,
+          "competitor": [
+            "Agriturismo al Colle",
+            "Casina Pontormo",
+            "Agriturismo 7 Colonne",
+            "Agriturismo Le Saline",
+            "Agriturismo Le Lucciole",
+            "B&B del Borgo Bertinoro"
+          ],
+          "presenze": "0/3"
+        },
+        "gemini": {
+          "presente": false,
+          "punteggio": 2.3,
+          "competitor": [
+            "Agriturismo 7 Colonne",
+            "Agriturismo al Colle",
+            "Agriturismo Isola di Paolo",
+            "Hotel Panorama",
+            "Residence Villa degli Ulivi",
+            "Il Vigneto Cottage"
+          ],
+          "presenze": "1/3"
+        }
+      },
+      {
+        "domanda": "Dove staccare dalla routine vicino a Bologna?",
+        "perplexity": {
+          "presente": false,
+          "punteggio": 0,
+          "competitor": [
+            "Agriturismo 7 Colonne",
+            "Agriturismo Al Colle",
+            "Le Saline",
+            "B&B del Borgo Bertinoro",
+            "Cà Bevilacqua",
+            "Agriturismo Le Lucciole"
+          ],
+          "presenze": "0/3"
+        },
+        "gemini": {
+          "presente": false,
+          "punteggio": 2.3,
+          "competitor": [
+            "Agriturismo al Colle",
+            "Agriturismo 7 Colonne",
+            "Agriturismo Fattoria la Quercia",
+            "Podere Baratta",
+            "Hotel Panorama",
+            "Albergo Colonna"
+          ],
+          "presenze": "1/3"
+        }
+      },
+      {
+        "domanda": "Posto ideale per un weekend romantico nelle colline romagnole?",
+        "perplexity": {
+          "presente": false,
+          "punteggio": 0,
+          "competitor": [
+            "Agriturismo al Colle",
+            "Il Vigneto Cottage",
+            "Agriturismo Montespino",
+            "Hotel Panorama Bertinoro",
+            "Casina Pontormo",
+            "Agriturismo Pettirosso"
+          ],
+          "presenze": "0/3"
+        },
+        "gemini": {
+          "presente": false,
+          "punteggio": 2.7,
+          "competitor": [
+            "Agriturismo al Colle",
+            "Casa delle Ginestre",
+            "Agriturismo Fattoria La Quercia",
+            "Agriturismo Le Lucciole",
+            "B&B del Borgo Bertinoro",
+            "Hotel Panorama"
+          ],
+          "presenze": "1/3"
+        }
+      },
+      {
+        "domanda": "Cosa fare a Bertinoro in un weekend?",
+        "perplexity": {
+          "presente": true,
+          "punteggio": 7.7,
+          "competitor": [
+            "Cà Bevilacqua",
+            "Novecento",
+            "B&B del Borgo Bertinoro",
+            "Villa degli Ulivi",
+            "Hotel La Colonna",
+            "Albergo Romagna"
+          ],
+          "presenze": "3/3"
+        },
+        "gemini": {
+          "presente": true,
+          "punteggio": 7.3,
+          "competitor": [
+            "Hotel Panorama",
+            "Agriturismo al Colle",
+            "Agriturismo Glamping Pettirosso",
+            "Agriturismo Le Lucciole",
+            "Ca'Bevilacqua Bed&Breakfast",
+            "Albergo Colonna"
+          ],
+          "presenze": "3/3"
+        }
+      },
+      {
+        "domanda": "Casa vacanze con giardino privato nelle colline romagnole?",
+        "perplexity": {
+          "presente": true,
+          "punteggio": 10,
+          "competitor": [
+            "Tenuta Bagni de Consoli 24",
+            "Villa Belvedere",
+            "B&B Il Giardino",
+            "Il Vigneto Cottage",
+            "Casa Vacanze Il Vigneto Cottage",
+            "Tenuta Graziani"
+          ],
+          "presenze": "3/3"
+        },
+        "gemini": {
+          "presente": true,
+          "punteggio": 10,
+          "competitor": [
+            "Agriturismo 7 Colonne",
+            "Il Vigneto Cottage",
+            "Agriturismo al Colle",
+            "Agriturismo La Cana Dolce",
+            "Residence Villa degli Ulivi",
+            "Villaverde"
+          ],
+          "presenze": "3/3"
+        }
+      },
+      {
+        "domanda": "Dove dormire in Romagna con animali ammessi?",
+        "perplexity": {
+          "presente": false,
+          "punteggio": 0,
+          "competitor": [
+            "Agriturismo al Colle",
+            "Hotel Fontanelle",
+            "Allegroitalia Fratta Terme",
+            "Oasis Garden House",
+            "Romagna",
+            "Casa Vacanze Il Vigneto Cottage"
+          ],
+          "presenze": "0/3"
+        },
+        "gemini": {
+          "presente": true,
+          "punteggio": 4.7,
+          "competitor": [
+            "Parrot House",
+            "Residence Villa degli Ulivi",
+            "Hotel Fontanelle",
+            "Agriturismo al Colle",
+            "Agriturismo 7 Colonne",
+            "Grand Hotel Forlì"
+          ],
+          "presenze": "2/3"
+        }
+      },
+      {
+        "domanda": "Appartamento vacanze per smart working in Romagna?",
+        "perplexity": {
+          "presente": true,
+          "punteggio": 10,
+          "competitor": [
+            "Four Stars Residence",
+            "L'angolo prestigioso di Forlì - Wi-Fi & Parcheggio",
+            "Club Del Sole",
+            "Casa delle Ginestre",
+            "Residenza Leon d'Oro",
+            "Appartamento Il Vigneto Cottage"
+          ],
+          "presenze": "3/3"
+        },
+        "gemini": {
+          "presente": true,
+          "punteggio": 6.7,
+          "competitor": [
+            "Agriturismo al Colle Bertinoro",
+            "Glamping Pettirosso Bertinoro",
+            "L'angolo prestigioso di Forlì - Wi-Fi & Parcheggio",
+            "GREEN LOFT In Centro",
+            "Loft In Centro | Forlì Centro | Stile & Comfort",
+            "Smart Suite Forlì"
+          ],
+          "presenze": "2/3"
+        }
+      },
+      {
+        "domanda": "Dove alloggiare per visitare le colline romagnole?",
+        "perplexity": {
+          "presente": false,
+          "punteggio": 0,
+          "competitor": [
+            "Agriturismo al Colle",
+            "Agriturismo 7 Colonne",
+            "Cà Bevilacqua",
+            "Il Vigneto Cottage",
+            "Agriturismo Le Saline",
+            "LaPalina Bed & Breakfast"
+          ],
+          "presenze": "0/3"
+        },
+        "gemini": {
+          "presente": false,
+          "punteggio": 2.3,
+          "competitor": [
+            "Agriturismo al Colle",
+            "Agriturismo Le Saline",
+            "Hotel Panorama",
+            "Albergo Colonna",
+            "Il Vigneto Cottage",
+            "Agri Resort Villa Monty Banks"
+          ],
+          "presenze": "1/3"
+        }
+      }
+    ],
+    "competitor_principali": [
+      {
+        "nome": "Agriturismo al Colle",
+        "apparizioni": 15,
+        "perplexity": 7,
+        "gemini": 8
+      },
+      {
+        "nome": "Agriturismo 7 Colonne",
+        "apparizioni": 9,
+        "perplexity": 4,
+        "gemini": 5
+      },
+      {
+        "nome": "Il Vigneto Cottage",
+        "apparizioni": 8,
+        "perplexity": 5,
+        "gemini": 3
+      },
+      {
+        "nome": "Agriturismo Le Lucciole",
+        "apparizioni": 6,
+        "perplexity": 3,
+        "gemini": 3
+      },
+      {
+        "nome": "Hotel Panorama",
+        "apparizioni": 6,
+        "perplexity": 0,
+        "gemini": 6
+      },
+      {
+        "nome": "B&B del Borgo Bertinoro",
+        "apparizioni": 5,
+        "perplexity": 4,
+        "gemini": 1
+      },
+      {
+        "nome": "Albergo Colonna",
+        "apparizioni": 4,
+        "perplexity": 0,
+        "gemini": 4
+      },
+      {
+        "nome": "Cà Bevilacqua",
+        "apparizioni": 4,
+        "perplexity": 3,
+        "gemini": 1
+      }
+    ],
+    "sintesi": "Casa Cavour performa bene solo su domande iperspecifiche legate al luogo (domanda 6), alle caratteristiche dell'appartamento (domanda 7) o al segmento smart working (domanda 9), dove ottiene punteggi massimi o molto alti su entrambi i motori. E' completamente assente su domande generiche di area geografica (1, 10), su quelle enogastronomiche (2, 3) e romantiche (5), dove i competitor agrituristici dominano sistematicamente. Perplexity tende a citare Casa Cavour solo quando la query contiene elementi molto specifici che corrispondono alle caratteristiche dichiarate dell'appartamento, mentre Gemini mostra una presenza parziale (1 campione su 3) su alcune domande intermedie, suggerendo una visibilita' instabile su quel motore. Il competitor piu' solido e' Agriturismo al Colle, presente su 15 combinazioni query-motore, seguito da Agriturismo 7 Colonne e Il Vigneto Cottage, che compaiono trasversalmente su quasi tutti i tipi di domanda.",
+    "azioni": [
+      "Creare contenuti sul sito e sui profili esterni (Google Business, blog, directory) che associno esplicitamente Casa Cavour alle parole chiave enogastronomiche (cantine, vino, Romagna, weekend gastronomico), che oggi attivano solo competitor agrituristici e mai l'appartamento.",
+      "Ottimizzare la descrizione dell'appartamento per le query romantiche e di coppia, inserendo termini come weekend romantico, colline romagnole, privacy, atmosfera, che oggi favoriscono Il Vigneto Cottage e Agriturismo al Colle su quelle domande.",
+      "Rafforzare la presenza su directory e fonti indicizzate da Gemini (dove Casa Cavour e' spesso a 1 su 3 campioni), puntando a ottenere citazioni stabili e coerenti che trasformino le apparizioni parziali in presenze consolidate su tutte e tre le iterazioni della query."
+    ],
+    "report_url": "reports/report-geo-aeo-casa-cavour-2026-09-25.html",
+    "nota_correzione": "Prima rilevazione con workflow N8N v3.5.1 (sessione #32). Il 25/09 il workflow e' stato eseguito 3 volte: run 1 di test con Gemini in errore (credenziale non associata dopo l'import), run 2 e run 3 complete. In dashboard entra solo la run 3, una singola esecuzione come saranno le rilevazioni future (ogni esecuzione ripete gia' 3 volte ogni domanda). Variabilita' osservata tra run 2 e run 3: Perplexity 4.2 e 2.9, Gemini 1.5 e 4.1; domande stabili in tutte le run: #1, #3, #10 sempre 0/3 su Perplexity, #7 e #9 sempre 3/3. Scala non confrontabile con i report fino al 24/09. Nel nome di un annuncio competitor l'en dash e' stato sostituito da un trattino semplice."
   }
 ]

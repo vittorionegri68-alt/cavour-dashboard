@@ -414,6 +414,9 @@
     <span id="run-status" style="font-size:0.8rem;color:var(--muted)"></span>
   </div>
 
+  <!-- NOTA METODO (sessione #32): visibile solo sui report con metodo v3.5 -->
+  <div id="nota-metodo" style="display:none;background:var(--gold-pale);border-left:4px solid var(--gold);border-radius:0 8px 8px 0;padding:12px 18px;margin:-12px 0 28px;font-size:0.82rem;line-height:1.6;color:var(--mid)"></div>
+
   <!-- KPI -->
   <div class="kpi-row">
     <div class="kpi">
@@ -555,6 +558,25 @@ function populateSelect() {
 function toPercent(val) {
   return Math.round(val * 10) + '%';
 }
+
+// SERIE DI METODO (sessione #32). Dal 25/09/2026 il workflow N8N v3.5 cambia la
+// scala: presenza solo con almeno 2 campioni validi su 3, punteggio calcolato in
+// codice, correzione del Merge che nella v3.4 duplicava i giudizi. I report fino
+// al 24/09 non sono confrontabili punto per punto con i nuovi: trend e grafico
+// trattano le due serie come separate. Un report e' v3.5 se il campo metodologia
+// inizia con "v3.5" (scritto dal nodo Calcola Riepilogo); tutto il resto e' storico.
+function metodoDi(r) {
+  return (r && typeof r.metodologia === 'string' && r.metodologia.indexOf('v3.5') === 0) ? 'v3.5' : 'storico';
+}
+function haChatGPT(r) {
+  return (r.domande || []).some(d => d.chatgpt !== undefined);
+}
+const NOTA_METODO = {
+  'v3.5': 'Metodo v3.5 (dal 25/09/2026): 3 campioni per motore e domanda, campioni con errore tecnico esclusi. ' +
+          'Presente = SI solo se Casa Cavour compare in almeno 2 campioni validi su 3. Punteggio per campione calcolato in codice: ' +
+          'non nominata 0, citata in elenco 3, con motivazione specifica 7, bonus posizione 1a +3, 2a +2, 3a +1. ' +
+          'La scala non e\u0027 confrontabile con i report precedenti: il trend riparte da qui e il grafico mostra le due serie separate.'
+};
 
 // Deduplica le domande (un report vecchio puo' avere righe duplicate per motore)
 function domandeUnicheDi(report) {
@@ -713,18 +735,32 @@ function loadRun(dataIso) {
 
   // Trend (in punti percentuali di Share of AI Voice, coerente col resto della dashboard)
   const idx = allReports.findIndex(r => r.data_iso === dataIso);
-  if (idx > 0) {
+  const trendEl = document.getElementById('kpi-trend');
+  const trendSub = document.getElementById('kpi-trend-sub');
+  trendEl.style.color = '';
+  if (idx > 0 && metodoDi(allReports[idx - 1]) === metodoDi(report)) {
     const prev = allReports[idx - 1];
     const kpiPrev = computeKPIs(prev);
-    const delta = Math.round(kpi.punteggio_medio * 10) - Math.round(kpiPrev.punteggio_medio * 10);
-    const trendEl = document.getElementById('kpi-trend');
+    const stessiMotori = haChatGPT(prev) === haChatGPT(report);
+    // Con set di motori diverso si confrontano solo Perplexity e Gemini, presenti in entrambi
+    const oggi = stessiMotori ? kpi.punteggio_medio : (kpi.perplexity_media + kpi.gemini_media) / 2;
+    const ieri = stessiMotori ? kpiPrev.punteggio_medio : (kpiPrev.perplexity_media + kpiPrev.gemini_media) / 2;
+    const delta = Math.round(oggi * 10) - Math.round(ieri * 10);
     trendEl.textContent = (delta >= 0 ? '+' : '') + delta + '%';
     trendEl.style.color = delta >= 0 ? 'var(--green)' : 'var(--red)';
-    document.getElementById('kpi-trend-sub').textContent = `rispetto al ${prev.data}`;
+    trendSub.textContent = stessiMotori ? `rispetto al ${prev.data}` : `rispetto al ${prev.data}, solo Perplexity e Gemini`;
+  } else if (idx > 0) {
+    trendEl.textContent = '—';
+    trendSub.textContent = `nuovo metodo ${metodoDi(report)}, nessun confronto con il ${allReports[idx - 1].data}`;
   } else {
-    document.getElementById('kpi-trend').textContent = '—';
-    document.getElementById('kpi-trend-sub').textContent = 'prima analisi disponibile';
+    trendEl.textContent = '—';
+    trendSub.textContent = 'prima analisi disponibile';
   }
+
+  const notaEl = document.getElementById('nota-metodo');
+  const nota = NOTA_METODO[metodoDi(report)];
+  notaEl.textContent = nota || '';
+  notaEl.style.display = nota ? 'block' : 'none';
 
   // Status
   document.getElementById('run-status').textContent = `Analisi del ${report.data}`;
@@ -882,11 +918,48 @@ function renderChart() {
     return k.gpt_media != null ? Math.round(k.gpt_media * 10) : null;
   });
 
+  // Serie di metodo per indice: il segmento che collega due report di metodo
+  // diverso viene reso trasparente, cosi' la linea non suggerisce un calo o un
+  // aumento che dipende solo dal cambio di scala
+  const serie = allReports.map(metodoDi);
+  const segmentoSerie = {
+    borderColor: c => serie[c.p0DataIndex] !== serie[c.p1DataIndex] ? 'rgba(0,0,0,0)' : undefined,
+    backgroundColor: c => serie[c.p0DataIndex] !== serie[c.p1DataIndex] ? 'rgba(0,0,0,0)' : undefined
+  };
+  const cambioMetodoPlugin = {
+    id: 'cambioMetodo',
+    afterDatasetsDraw(chart) {
+      const x = chart.scales.x;
+      const area = chart.chartArea;
+      const c = chart.ctx;
+      serie.forEach((s, i) => {
+        if (i === 0 || s === serie[i - 1]) return;
+        const px = (x.getPixelForValue(i - 1) + x.getPixelForValue(i)) / 2;
+        c.save();
+        c.strokeStyle = '#8a7d72';
+        c.lineWidth = 1;
+        c.setLineDash([4, 4]);
+        c.beginPath();
+        c.moveTo(px, area.top);
+        c.lineTo(px, area.bottom);
+        c.stroke();
+        c.setLineDash([]);
+        c.fillStyle = '#8a7d72';
+        c.font = '11px DM Sans, sans-serif';
+        c.textAlign = 'center';
+        c.fillText('metodo ' + s, px, area.top - 6);
+        c.restore();
+      });
+    }
+  };
+  const conSerie = ds => ds.map(d => Object.assign(d, { segment: segmentoSerie }));
+
   currentChart = new Chart(ctx, {
     type: 'line',
+    plugins: [cambioMetodoPlugin],
     data: {
       labels,
-      datasets: [
+      datasets: conSerie([
         {
           label: 'Presenze su 10',
           data: presenze,
@@ -950,7 +1023,7 @@ function renderChart() {
           spanGaps: true,
           yAxisID: 'y2'
         }
-      ]
+      ])
     },
     options: {
       responsive: true,
