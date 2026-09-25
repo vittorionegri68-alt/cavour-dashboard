@@ -2579,9 +2579,9 @@
   {
     "data": "25/09/2026",
     "data_iso": "2026-09-25",
-    "presenze": 4,
-    "punteggio_medio": 3.5,
-    "motori": "Perplexity + Gemini",
+    "presenze": 10,
+    "punteggio_medio": 4.8,
+    "motori": "Perplexity + Gemini (N8N v3.5.1) + ChatGPT (benchmark manuale, 3 run)",
     "metodologia": "v3.5",
     "dettaglio_motori": {
       "perplexity": {
@@ -2591,6 +2591,12 @@
       "gemini": {
         "presenze": 4,
         "punteggio_medio": 4.1
+      },
+      "chatgpt": {
+        "presenze": 10,
+        "consigliate": 6,
+        "punteggio_medio": 7.4,
+        "nota": "benchmark manuale 25/09, 3 run valide da chat nuova e vuota, solo risultati con ricerca web, scala v3.5"
       }
     },
     "domande": [
@@ -2621,6 +2627,40 @@
             "Agricola Casa Cucina Bottega"
           ],
           "presenze": "0/3"
+        },
+        "chatgpt": {
+          "presente": true,
+          "consigliata": false,
+          "punteggio": 3.3,
+          "presenze": "2/3",
+          "competitor": [
+            "Hotel Panorama",
+            "Fattoria La Quercia",
+            "Hotel Michelangelo",
+            "Casina San Francesco",
+            "Albergo Colonna",
+            "Agriturismo al Colle"
+          ],
+          "run": [
+            {
+              "run": "a",
+              "posizione": "3a/4",
+              "esito": "citata",
+              "punteggio": 4
+            },
+            {
+              "run": "b",
+              "posizione": "1a/5",
+              "esito": "citata",
+              "punteggio": 6
+            },
+            {
+              "run": "c",
+              "posizione": "assente",
+              "esito": "assente",
+              "punteggio": 0
+            }
+          ]
         }
       },
       {
@@ -2650,6 +2690,40 @@
             "Casa delle Ginestre"
           ],
           "presenze": "1/3"
+        },
+        "chatgpt": {
+          "presente": true,
+          "consigliata": false,
+          "punteggio": 6.7,
+          "presenze": "3/3",
+          "competitor": [
+            "Agriturismo 7 Colonne",
+            "Podere Baratta",
+            "Casina San Francesco",
+            "Agriturismo Le Saline",
+            "Residence Casa Vacanze Novecento",
+            "Agrestia"
+          ],
+          "run": [
+            {
+              "run": "a",
+              "posizione": "3a/3",
+              "esito": "citata",
+              "punteggio": 4
+            },
+            {
+              "run": "b",
+              "posizione": "1a/5",
+              "esito": "citata",
+              "punteggio": 6
+            },
+            {
+              "run": "c",
+              "posizione": "1a/2",
+              "esito": "con motivazione",
+              "punteggio": 10
+            }
+          ]
         }
       },
       {
@@ -2679,6 +2753,39 @@
             "Il Vigneto Cottage"
           ],
           "presenze": "1/3"
+        },
+        "chatgpt": {
+          "presente": true,
+          "consigliata": true,
+          "punteggio": 8.0,
+          "presenze": "3/3",
+          "competitor": [
+            "Hotel Panorama",
+            "Fattoria La Quercia",
+            "Albergo Colonna",
+            "Agriturismo Corte dei Mori",
+            "Podere Quartarola"
+          ],
+          "run": [
+            {
+              "run": "a",
+              "posizione": "3a/3",
+              "esito": "con motivazione",
+              "punteggio": 8
+            },
+            {
+              "run": "b",
+              "posizione": "1a/4",
+              "esito": "citata",
+              "punteggio": 6
+            },
+            {
+              "run": "c",
+              "posizione": "1a/2",
+              "esito": "con motivazione",
+              "punteggio": 10
+            }
+          ]
         }
       },
       {
@@ -2708,6 +2815,39 @@
             "Albergo Colonna"
           ],
           "presenze": "1/3"
+        },
+        "chatgpt": {
+          "presente": true,
+          "consigliata": true,
+          "punteggio": 9.3,
+          "presenze": "3/3",
+          "competitor": [
+            "Fattoria La Quercia",
+            "Hotel Panorama",
+            "Agriturismo Le Lucciole",
+            "Agriturismo al Colle",
+            "VillaCubetto"
+          ],
+          "run": [
+            {
+              "run": "a",
+              "posizione": "3a/3",
+              "esito": "con motivazione",
+              "punteggio": 8
+            },
+            {
+              "run": "b",
+              "posizione": "1a/3",
+              "esito": "con motivazione",
+              "punteggio": 10
+            },
+            {
+              "run": "c",
+              "posizione": "1a/2",
+              "esito": "con motivazione",
+              "punteggio": 10
+            }
+          ]
         }
       },
       {
@@ -2737,6 +2877,37 @@
             "Hotel Panorama"
           ],
           "presenze": "1/3"
+        },
+        "chatgpt": {
+          "presente": true,
+          "consigliata": true,
+          "punteggio": 9.7,
+          "presenze": "3/3",
+          "competitor": [
+            "Hotel Panorama",
+            "Fattoria La Quercia",
+            "Country Rooms & Suite La Quercia"
+          ],
+          "run": [
+            {
+              "run": "a",
+              "posizione": "2a/3",
+              "esito": "con motivazione",
+              "punteggio": 9
+            },
+            {
+              "run": "b",
+              "posizione": "1a/3",
+              "esito": "con motivazione",
+              "punteggio": 10
+            },
+            {
+              "run": "c",
+              "posizione": "1a/2",
+              "esito": "con motivazione",
+              "punteggio": 10
+            }
+          ]
         }
       },
       {
@@ -2766,6 +2937,38 @@
             "Albergo Colonna"
           ],
           "presenze": "3/3"
+        },
+        "chatgpt": {
+          "presente": true,
+          "consigliata": false,
+          "punteggio": 5.3,
+          "presenze": "2/3",
+          "competitor": [
+            "Podere Baratta",
+            "Albergo Colonna",
+            "Residence Casa Vacanze Novecento",
+            "B&B del Borgo Bertinoro"
+          ],
+          "run": [
+            {
+              "run": "a",
+              "posizione": "assente",
+              "esito": "assente",
+              "punteggio": 0
+            },
+            {
+              "run": "b",
+              "posizione": "1a/4",
+              "esito": "citata",
+              "punteggio": 6
+            },
+            {
+              "run": "c",
+              "posizione": "1a/1",
+              "esito": "con motivazione",
+              "punteggio": 10
+            }
+          ]
         }
       },
       {
@@ -2795,6 +2998,40 @@
             "Villaverde"
           ],
           "presenze": "3/3"
+        },
+        "chatgpt": {
+          "presente": true,
+          "consigliata": true,
+          "punteggio": 8.7,
+          "presenze": "3/3",
+          "competitor": [
+            "Fattoria La Quercia",
+            "Casina Pontormo",
+            "Bel Respiro",
+            "Podere Quartarola",
+            "RR House",
+            "Agrialloggio Poggiolina"
+          ],
+          "run": [
+            {
+              "run": "a",
+              "posizione": "1a/3",
+              "esito": "citata",
+              "punteggio": 6
+            },
+            {
+              "run": "b",
+              "posizione": "1a/3",
+              "esito": "con motivazione",
+              "punteggio": 10
+            },
+            {
+              "run": "c",
+              "posizione": "1a/3",
+              "esito": "con motivazione",
+              "punteggio": 10
+            }
+          ]
         }
       },
       {
@@ -2824,6 +3061,38 @@
             "Grand Hotel Forlì"
           ],
           "presenze": "2/3"
+        },
+        "chatgpt": {
+          "presente": true,
+          "consigliata": false,
+          "punteggio": 6.7,
+          "presenze": "3/3",
+          "competitor": [
+            "Fattoria La Quercia",
+            "Agriturismo Le Lucciole",
+            "Podere Baratta",
+            "Agriturismo Corte dei Mori"
+          ],
+          "run": [
+            {
+              "run": "a",
+              "posizione": "3a/4",
+              "esito": "citata",
+              "punteggio": 4
+            },
+            {
+              "run": "b",
+              "posizione": "1a/2",
+              "esito": "citata",
+              "punteggio": 6
+            },
+            {
+              "run": "c",
+              "posizione": "1a/1",
+              "esito": "con motivazione",
+              "punteggio": 10
+            }
+          ]
         }
       },
       {
@@ -2853,6 +3122,35 @@
             "Smart Suite Forlì"
           ],
           "presenze": "2/3"
+        },
+        "chatgpt": {
+          "presente": true,
+          "consigliata": true,
+          "punteggio": 8.7,
+          "presenze": "3/3",
+          "competitor": [
+            "Residence Villa degli Ulivi"
+          ],
+          "run": [
+            {
+              "run": "a",
+              "posizione": "1a/1",
+              "esito": "citata",
+              "punteggio": 6
+            },
+            {
+              "run": "b",
+              "posizione": "1a/2",
+              "esito": "con motivazione",
+              "punteggio": 10
+            },
+            {
+              "run": "c",
+              "posizione": "1a/1",
+              "esito": "con motivazione",
+              "punteggio": 10
+            }
+          ]
         }
       },
       {
@@ -2882,6 +3180,40 @@
             "Agri Resort Villa Monty Banks"
           ],
           "presenze": "1/3"
+        },
+        "chatgpt": {
+          "presente": true,
+          "consigliata": true,
+          "punteggio": 8.0,
+          "presenze": "3/3",
+          "competitor": [
+            "Hotel Panorama",
+            "Agriturismo 7 Colonne",
+            "Molino dell'Olio",
+            "Agriturismo Le Lucciole",
+            "Agriturismo al Colle",
+            "Residence Villa degli Ulivi"
+          ],
+          "run": [
+            {
+              "run": "a",
+              "posizione": "3a/4",
+              "esito": "con motivazione",
+              "punteggio": 8
+            },
+            {
+              "run": "b",
+              "posizione": "1a/5",
+              "esito": "citata",
+              "punteggio": 6
+            },
+            {
+              "run": "c",
+              "posizione": "1a/3",
+              "esito": "con motivazione",
+              "punteggio": 10
+            }
+          ]
         }
       }
     ],
@@ -2935,13 +3267,26 @@
         "gemini": 1
       }
     ],
-    "sintesi": "Casa Cavour performa bene solo su domande iperspecifiche legate al luogo (domanda 6), alle caratteristiche dell'appartamento (domanda 7) o al segmento smart working (domanda 9), dove ottiene punteggi massimi o molto alti su entrambi i motori. E' completamente assente su domande generiche di area geografica (1, 10), su quelle enogastronomiche (2, 3) e romantiche (5), dove i competitor agrituristici dominano sistematicamente. Perplexity tende a citare Casa Cavour solo quando la query contiene elementi molto specifici che corrispondono alle caratteristiche dichiarate dell'appartamento, mentre Gemini mostra una presenza parziale (1 campione su 3) su alcune domande intermedie, suggerendo una visibilita' instabile su quel motore. Il competitor piu' solido e' Agriturismo al Colle, presente su 15 combinazioni query-motore, seguito da Agriturismo 7 Colonne e Il Vigneto Cottage, che compaiono trasversalmente su quasi tutti i tipi di domanda.",
+    "sintesi": "Casa Cavour performa bene solo su domande iperspecifiche legate al luogo (domanda 6), alle caratteristiche dell'appartamento (domanda 7) o al segmento smart working (domanda 9), dove ottiene punteggi massimi o molto alti su entrambi i motori. E' completamente assente su domande generiche di area geografica (1, 10), su quelle enogastronomiche (2, 3) e romantiche (5), dove i competitor agrituristici dominano sistematicamente. Perplexity tende a citare Casa Cavour solo quando la query contiene elementi molto specifici che corrispondono alle caratteristiche dichiarate dell'appartamento, mentre Gemini mostra una presenza parziale (1 campione su 3) su alcune domande intermedie, suggerendo una visibilita' instabile su quel motore. Il competitor piu' solido e' Agriturismo al Colle, presente su 15 combinazioni query-motore, seguito da Agriturismo 7 Colonne e Il Vigneto Cottage, che compaiono trasversalmente su quasi tutti i tipi di domanda. ChatGPT con ricerca web (3 run manuali) conferma un quadro nettamente piu' forte: Casa Cavour e' nominata in tutte le 10 domande (in 28 risposte su 30) con media 7.4, e consigliata con motivazione specifica in 6 domande. Le domande piu' deboli su ChatGPT sono #1 Forli'/Cesena (3.3) e #6 cosa fare a Bertinoro (5.3), le stesse dove la presenza e' intermittente tra una run e l'altra.",
     "azioni": [
       "Creare contenuti sul sito e sui profili esterni (Google Business, blog, directory) che associno esplicitamente Casa Cavour alle parole chiave enogastronomiche (cantine, vino, Romagna, weekend gastronomico), che oggi attivano solo competitor agrituristici e mai l'appartamento.",
       "Ottimizzare la descrizione dell'appartamento per le query romantiche e di coppia, inserendo termini come weekend romantico, colline romagnole, privacy, atmosfera, che oggi favoriscono Il Vigneto Cottage e Agriturismo al Colle su quelle domande.",
       "Rafforzare la presenza su directory e fonti indicizzate da Gemini (dove Casa Cavour e' spesso a 1 su 3 campioni), puntando a ottenere citazioni stabili e coerenti che trasformino le apparizioni parziali in presenze consolidate su tutte e tre le iterazioni della query."
     ],
-    "report_url": "reports/report-geo-aeo-casa-cavour-2026-09-25.html",
-    "nota_correzione": "Prima rilevazione con workflow N8N v3.5.1 (sessione #32). Il 25/09 il workflow e' stato eseguito 3 volte: run 1 di test con Gemini in errore (credenziale non associata dopo l'import), run 2 e run 3 complete. In dashboard entra solo la run 3, una singola esecuzione come saranno le rilevazioni future (ogni esecuzione ripete gia' 3 volte ogni domanda). Variabilita' osservata tra run 2 e run 3: Perplexity 4.2 e 2.9, Gemini 1.5 e 4.1; domande stabili in tutte le run: #1, #3, #10 sempre 0/3 su Perplexity, #7 e #9 sempre 3/3. Scala non confrontabile con i report fino al 24/09. Nel nome di un annuncio competitor l'en dash e' stato sostituito da un trattino semplice."
+    "report_url": "reports/report-geo-aeo-casa-cavour-2026-09-25-completo.html",
+    "nota_correzione": "Prima rilevazione con workflow N8N v3.5.1 (sessione #32). Il 25/09 il workflow e' stato eseguito 3 volte: run 1 di test con Gemini in errore (credenziale non associata dopo l'import), run 2 e run 3 complete. In dashboard entra solo la run 3, una singola esecuzione come saranno le rilevazioni future (ogni esecuzione ripete gia' 3 volte ogni domanda). Variabilita' osservata tra run 2 e run 3: Perplexity 4.2 e 2.9, Gemini 1.5 e 4.1; domande stabili in tutte le run: #1, #3, #10 sempre 0/3 su Perplexity, #7 e #9 sempre 3/3. Scala non confrontabile con i report fino al 24/09. Nel nome di un annuncio competitor l'en dash e' stato sostituito da un trattino semplice. | ChatGPT aggiunto il 25/09 (sessione #32): 3 run manuali valide. Una quarta run e' stata scartata perche' anomala: con ricerca web disattivata nominava Casa Cavour in tutte le 10 risposte, mentre in tutte le altre rilevazioni senza web non e' mai comparsa (probabile contaminazione da memoria o cronologia dell'account ChatGPT). ChatGPT passa dalla scala 10/3/0 usata fino al 24/09 alla scala v3.5, uguale a Perplexity e Gemini: il 7.4 del 25/09 non e' confrontabile con il 7.9 del 24/09. Casi valutati come citazione semplice (senza motivazione specifica) perche' la risposta non descrive una caratteristica propria di Casa Cavour: run a #2 'utile come base', #7 'molto pertinente', #8 'soluzione in appartamento', #9 'una delle opzioni'; run b #10 'molto pertinente'. Totali delle posizioni: solo strutture nominate con nome proprio, escluse directory come Romagna Affitti Brevi.",
+    "chatgpt_benchmark": {
+      "data": "25/09/2026",
+      "run": 3,
+      "metodo": "Benchmark manuale in chat ChatGPT, stesse 10 domande, 3 run valide da chat nuova e vuota, solo risultati con ricerca web attiva. Stessa scala v3.5 di Perplexity e Gemini: non nominata 0, citata in elenco 3, con motivazione specifica 7, bonus posizione 1a +3, 2a +2, 3a +1. Punteggio per domanda = media delle 3 run; presente = SI se nominata in almeno 2 run su 3; consigliata = SI se con motivazione specifica in almeno 2 run su 3.",
+      "presenti": 10,
+      "consigliate": 6,
+      "punteggio_per_run": [
+        5.7,
+        7.6,
+        9.0
+      ],
+      "web_disattivato": "0/30 nelle 3 run valide"
+    }
   }
 ]
